@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+.linkNavbar {
+    @apply no-underline block mt-4  sm:inline-block sm:mt-0 hover:text-white ;
+}
+.linkSocial {
+    @apply text-2xl text-red-400 ;
+}
+@tailwind utilities;
