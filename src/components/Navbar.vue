@@ -1,5 +1,5 @@
 <template>
-    <div class=" bg-white dark:bg-gray-800 dark:text-white text-gray-800 antialiased mb-6" >
+    <div class="darkMode antialiased mb-6" >
         <nav class="flex items-center justify-between flex-wrap p-6 border-b-2 border-red-400">
             <div class="flex items-center flex-no-shrink mr-6">
                 <img alt="logo" src="../assets/img/minilogo.png" height="100px">

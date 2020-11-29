@@ -6,4 +6,10 @@
 .linkSocial {
     @apply text-2xl text-red-400 ;
 }
+.darkMode {
+    @apply bg-white dark:bg-gray-800 dark:text-white text-gray-800;
+}
+.waveDarkMode {
+    @apply bg-red-400 dark:text-gray-800 text-white;
+}
 @tailwind utilities;
