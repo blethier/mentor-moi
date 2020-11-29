@@ -2,7 +2,7 @@
     <div class="darkMode antialiased mb-6" >
         <nav class="flex items-center justify-between flex-wrap p-6 border-b-2 border-red-400">
             <div class="flex items-center flex-no-shrink mr-6">
-                <img alt="logo" src="../assets/img/minilogo.png" height="100px">
+                <img alt="logo" src="../assets/img/minilogo.png">
             </div>
             <div class="block sm:hidden">
                 <button @click="toggle" class="flex items-center px-3 py-2 border rounded hover:text-white hover:border-white">
@@ -16,18 +16,20 @@
             </div>
             <div :class="open ? 'block': 'hidden'" class="w-full flex-grow sm:flex sm:items-center sm:w-auto">
                 <div class="text-base sm:flex-grow">
-                    <a href="#responsive-header" class="linkNavbar mr-4">
+                    <router-link to="/" class="linkNavbar  mr-4">
                         Accueil
-                    </a>
-                    <a href="#responsive-header" class="linkNavbar mr-4">
+                    </router-link>
+                    <router-link to="/mentors" class="linkNavbar mr-4">
                         Mentors 
-                    </a>
-                    <a href="#responsive-header" class="linkNavbar">
+                    </router-link>
+                    <router-link to="/register" class="linkNavbar">
                         Blog
-                    </a>
+                    </router-link>
                 </div>
             <div>
-            <a href="#" class="no-underline inline-block text-base px-4 py-2 leading-none border rounded border-gray-800 hover:border-transparent hover:bg-white hover:text-red-400 mt-4 sm:mt-0">Inscription</a>
+            <router-link to="/register" class="no-underline inline-block text-base px-4 py-2 leading-none border rounded border-gray-800 hover:border-transparent hover:bg-white hover:text-red-400 mt-4 sm:mt-0">
+                Inscription
+            </router-link>
         </div>
     </div>
   </nav>
