@@ -17,6 +17,15 @@ export default {
           description:
             'I am Jon and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
           hourlyRate: 30
+        },
+        {
+          id: '3',
+          firstName: 'Ronaldinho',
+          lastName: 'Ronnie',
+          areas: ['vue js', 'react'],
+          description:
+            'I am Ronaldinho and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
+          hourlyRate: 30
         }
       ]
 };
