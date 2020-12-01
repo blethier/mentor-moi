@@ -3,13 +3,20 @@ import Vuex from 'vuex';
 import router from './router'
 import App from './App.vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faLinkedin,faGithubSquare } from '@fortawesome/free-brands-svg-icons'
-import { faGlobeAfrica } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesome/free-brands-svg-icons'
+import { faHeart, faMapMarkerAlt, faAt, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import store from './store/mentors'
 
-library.add(faGithubSquare, faLinkedin, faGlobeAfrica)
+library.add(faGithubSquare,
+            faTwitterSquare,
+            faLinkedin,
+            faDiscord,
+            faHeart,
+            faMapMarkerAlt,
+            faAt,
+            faGlobe)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 

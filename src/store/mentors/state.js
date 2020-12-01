@@ -2,30 +2,36 @@ export default {
     mentors: [
         {
           id: '1',
-          firstName: 'Mans',
-          lastName: 'Mahamat',
-          areas: ['frontend', 'backend', 'career'],
-          description:
-            "I'm Maximilian and I've worked as a freelance web developer for years. Let me help you become a developer as well!",
-          hourlyRate: 30
+          firstName: 'Peter',
+          lastName: 'Pan',
+          title: 'Developpeur Front',
+          presentation: "Hello I'm Peter from Paris, France",
+          city: 'Paris',
+          technos: ['php', 'python', 'career'],
+          socials: [{type: 'linkedin', link: 'http'}],
+          avatar: 'https://images.unsplash.com/photo-1606430679554-ab04fb3a26db?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8dG93SlpGc2twR2d8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
         },
         {
           id: '2',
           firstName: 'Jon',
           lastName: 'Jones',
-          areas: ['frontend', 'career'],
-          description:
-            'I am Jon and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
-          hourlyRate: 30
+          title: 'Developpeur Back',
+          presentation: "Hello I'm Jon from Berlin, Germany",
+          city: 'Berlin',
+          technos: ['angular', 'go'],
+          socials: [{type: 'discord', link: 'http'}, {type: 'github', link: 'https://github.com/'} ],
+          avatar: 'https://images.unsplash.com/photo-1548536904-a5ea5ce474a6?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDY5fHRvd0paRnNrcEdnfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'
         },
         {
           id: '3',
           firstName: 'Ronaldinho',
+          title: 'Developpeur Go',
+          presentation: "Hello I'm Jon from Rio, Brasil",
+          city: 'Rio',
           lastName: 'Ronnie',
-          areas: ['vue js', 'react'],
-          description:
-            'I am Ronaldinho and as a senior developer in a big tech company, I can help you get your first job or progress in your current role.',
-          hourlyRate: 30
+          technos: ['vue js', 'react'],
+          socials: [{type: 'twitter', link: 'http'}, {type: 'website', link: 'http'}],
+          avatar: 'https://images.unsplash.com/photo-1591622414979-6ef6664b2589?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsYWNrJTIwbGl2ZXMlMjBtYXR0ZXJ8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60'
         }
       ]
 };

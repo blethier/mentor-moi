@@ -31,7 +31,7 @@
                             </a>
 
                             <a href="http://mansour-mahamat.fr/" target="_blank">
-                                <font-awesome-icon class="linkSocial" icon="globe-africa" />
+                                <font-awesome-icon class="linkSocial" icon="globe" />
                             </a>
                         </div>
                     </div>
