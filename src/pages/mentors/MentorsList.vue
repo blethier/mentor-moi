@@ -1,7 +1,11 @@
 <template>
     <div class="container mx-auto px-4">
-        <input class="w-full h-10 pl-3 pr-6 bg-red-400 placeholder-gray-800 text-gray-800 border rounded-lg appearance-none focus:shadow-outline" placeholder="Chercher un Mentor par techno" type="text" v-model="search">
+        <div class="relative text-gray-600">
+            <input type="search" name="serch" placeholder="Filtrer les mentors par techno" v-model="search" class="bg-red-400 placeholder-gray-800 text-gray-800 w-full h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
+             <button @click="loadMentors" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-purple-700 hover:bg-purple-900 text-white font-normal py-2 px-4 mr-1 rounded-full ">Recharger</button>
+        </div>
         <router-link to="/register">Inscrire mentor</router-link>
+
         <section class="text-gray-700 body-font">
             <div class="container px-5 py-24 mx-auto">
                 <div v-if="hasMentors" class="flex flex-wrap -m-4">
@@ -11,6 +15,7 @@
                                 <CardMentor v-for="mentor in filteredMentors" :key="mentor.id" :firstName="mentor.firstName"
                                                                             :lastName="mentor.lastName"
                                                                                 :title="mentor.title"
+                                                                                :role="mentor.role"
                                                                                 :presentation="mentor.presentation"
                                                                                 :city="mentor.city"
                                                                                 :technos="mentor.technos"
@@ -25,6 +30,7 @@
                 </div>
             </div>
         </section>
+
     </div>
 </template>
 
@@ -37,16 +43,15 @@ export default {
     data() {
     return {
         search : '',
-        items: [
-       {name: 'Stackoverflow', type: 'development'},
-       {name: 'Game of Thrones', type: 'serie'},
-       {name: 'Jon Snow', type: 'actor'}
-     ]
+        isPending: false
         };
+    },
+    created() {
+        this.loadMentors()
     },
     computed: {
         filteredMentors() {
-            const mentors = this.$store.getters['allMentors']
+            const mentors = this.$store.getters['allUsers']
                 if (!this.search)
                     return mentors
             const filterValue = this.search.toLowerCase()
@@ -58,9 +63,18 @@ export default {
         },
         hasMentors() {
             return this.$store.getters['hasMentors']
+        },
+        hasRole() {
+            return this.$store.getters['role']
         }
-  
-  }
+    },
+    methods: {
+        async loadMentors() {
+            this.isPending = true
+            await this.$store.dispatch('loadMentors');
+            this.isPending = false
+        }
+    }
     }
 
 </script>

@@ -7,6 +7,7 @@ import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesom
 import { faHeart, faMapMarkerAlt, faAt, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+
 import store from './store/mentors'
 
 library.add(faGithubSquare,
@@ -19,6 +20,7 @@ library.add(faGithubSquare,
             faGlobe)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
+
 
 import('./assets/styles/index.css');
 

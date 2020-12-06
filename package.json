@@ -13,12 +13,15 @@
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
     "@fortawesome/vue-fontawesome": "2",
     "autoprefixer": "^9",
+    "axios": "^0.21.0",
     "core-js": "^3.6.5",
     "eslint-config-airbnb-base": "^14.2.1",
     "postcss": "^7",
     "tailwindcss": "yarn:@tailwindcss/postcss7-compat",
     "vue": "^2.6.11",
+    "vue-multiselect": "^2.1.6",
     "vue-router": "^3.4.9",
+    "vue-spinner": "^1.0.4",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
