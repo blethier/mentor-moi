@@ -3,6 +3,10 @@ export const allUsers = (state) => {
     return state.users
   };
 
+  export const allMentors = (state) => {
+    return state.mentors
+  };
+
   export const hasMentors = (state) => {
     return state.users && state.users.length > 0
   };
@@ -21,6 +25,7 @@ export const allUsers = (state) => {
   return unique.toString()
 
   };
+  
 
 
 

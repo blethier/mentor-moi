@@ -6,6 +6,7 @@ import Homepage from './pages/home/Homepage.vue'
 import MentorsList from './pages/mentors/MentorsList.vue'
 import MentorDetail from './pages/mentors/MentorDetail.vue'
 import MentorRegistration from './pages/mentors/MentorRegistration.vue'
+import UserAuth from './pages/auth/UserAuth.vue'
 
 import NotFound from './pages/NotFound.vue'
 
@@ -16,7 +17,8 @@ const routes = [
         {path: '/mentors', component: MentorsList},
         {path: '/mentors/:id', component: MentorDetail,pros: true},
         {path: '/register', component: MentorRegistration},
-        //{path: '/login', component: null},
+        {path: '/auth', component: UserAuth}
+,        //{path: '/login', component: null},
         {path: '/:notFound(.*)', component: NotFound}
 
 ];

@@ -161,6 +161,7 @@
         };
         // eslint-disable-next-line no-console
         this.$store.dispatch('registerMentor',formData);
+        this.$store.dispatch('loadMentors');
         this.$router.replace('/mentors')
       }
   }
