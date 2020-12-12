@@ -1,5 +1,5 @@
 <template>
-    <footer class=" darkMode mt-10 py-10 text-base">
+    <footer class=" darkMode  mt-10 py-10 text-base">
             <div class="max-w-5xl mx-auto pb-8 mb-6 border-b border-red-400 px-4 lg:px-0">
                 <div class="flex flex-wrap items-start justify-start">
                     <div class="lg:w-1/4 w-full lg:mb-0 mb-6">

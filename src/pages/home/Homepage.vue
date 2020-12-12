@@ -17,6 +17,16 @@ export default {
       Presentation,
       Waves,
       Hero
+    },
+    created() {
+        this.loadMentors()
+    },
+    methods: {
+        async loadMentors() {
+            this.isPending = true
+            await this.$store.dispatch('loadMentors');
+            this.isPending = false
+        }
     }
 }
 </script>

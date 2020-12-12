@@ -9,6 +9,9 @@
 .darkMode {
     @apply bg-white dark:bg-gray-800 dark:text-white text-gray-800;
 }
+.invertedDarkMode {
+    @apply bg-gray-800 dark:bg-white dark:text-gray-800 text-white;
+}
 .waveDarkMode {
     @apply bg-red-400 dark:text-gray-800 text-white;
 }

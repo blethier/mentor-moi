@@ -4,9 +4,12 @@
             <input type="search" name="serch" placeholder="Filtrer les mentors par techno" v-model="search" class="bg-red-400 placeholder-gray-800 text-gray-800 w-full h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
              <button @click="loadMentors" type="button" class="btn-primary transition duration-300 ease-in-out focus:outline-none focus:shadow-outline bg-purple-700 hover:bg-purple-900 text-white font-normal py-2 px-4 mr-1 rounded-full ">Recharger</button>
         </div>
-        <router-link to="/register">Inscrire mentor</router-link>
+        <router-link v-if="!isLoggedIn" to="/auth">Inscrire mentor</router-link>
+        <router-link v-if="isLoggedIn" to="/register">Inscrire mentor</router-link>
         <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
-
+        <h3>{{isLoggedIn}}</h3>
+        <h3>{{is}}</h3>
+        <h3>Mentor </h3>
         <section class="text-gray-700 body-font">
             <div class="container px-5 py-24 mx-auto">
                 <div v-if="hasMentors" class="flex flex-wrap -m-4">
@@ -69,7 +72,14 @@ export default {
         },
         hasRole() {
             return this.$store.getters['role']
-        }
+        },
+        isLoggedIn() {
+            return this.$store.getters['isAuth']
+        },
+        is() {
+            return this.$store.getters['userAuth']
+        },
+        
     },
     methods: {
         async loadMentors() {

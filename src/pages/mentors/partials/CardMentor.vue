@@ -17,8 +17,8 @@
           <div class="flex items-center flex-wrap mb-6">
             <span v-for="(techno, index) in technos" :key="index" class="inline-block bg-gray-300 rounded-full px-3 py-1  font-semibold  my-1 mr-2">{{ techno }}</span>         
           </div>  
-          <div class="flex items-center flex-wrap ">
-            <div class="flex items-center mr-2 no-underline hover:underline" v-for="(social, index) in socials" :key="index">
+          <div v-if="isLoggedIn" class="flex items-center flex-wrap ">
+            <div  class="flex items-center mr-2 no-underline hover:underline" v-for="(social, index) in socials" :key="index">
              
               
 
@@ -56,7 +56,10 @@ export default {
       },
       mentorsDetailsLink() {
         return this.$route.path + '/' + this.id
-      }
+      },
+      isLoggedIn() {
+            return this.$store.getters['isAuth']
+        }
     }
 }
 </script>

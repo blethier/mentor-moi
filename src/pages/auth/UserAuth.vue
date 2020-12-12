@@ -30,7 +30,7 @@
 									Mot de passe
 								</label>
 								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border border-red-500 rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
 									v-model.trim="password"
 									type="password"
@@ -41,7 +41,7 @@
 							<div class="mb-6 text-center">
 								<button
 									class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-									type="button"
+									type="submit"
 								>
 									{{submitButtonText}}
 								</button>
@@ -80,19 +80,22 @@ export default {
 			mode: 'login'
 		}
 	},
+    created() {
+        this.loadMentors()
+    },
 	computed: {
 		submitButtonText() {
 			if (this.mode === 'login') {
-				return 'Login;'
+				return 'Se connecter'
 			} else {
-				return 'Signup'
+				return "S'inscrire"
 			}
 		},
 		switchModeButton() {
 			if (this.mode === 'login') {
-				return 'Signup Instead;'
+				return 'Pas de compte ? Inscrivez-vous;'
 			} else {
-				return 'Login instead'
+				return 'Déja un compte ? Connectez-vous'
 			}
 		}
 	},
@@ -102,7 +105,18 @@ export default {
 			if (this.email === '' || !this.email.includes('@') || this.password.length < 6 ){
 				this.formIsValid = false
 			}
-			//Send Form to the back
+			if (this.mode === 'login'){
+				this.$store.dispatch('login', {
+					email: this.email,
+					password: this.password
+				})
+				this.$router.replace('/mentors')
+			} else {
+				this.$store.dispatch('signup', {
+					email: this.email,
+					password: this.password
+				})
+			}
 		},
 		switchAuthMode() {
 			if (this.mode === 'login') {
@@ -110,7 +124,12 @@ export default {
 			} else {
 				this.mode = 'login';
 			}
-		}
+		},
+		async loadMentors() {
+            this.isPending = true
+            await this.$store.dispatch('loadMentors');
+            this.isPending = false
+        }
 	}
 }
 </script>

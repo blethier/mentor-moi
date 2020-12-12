@@ -1,30 +1,54 @@
 
-export const allUsers = (state) => {
-    return state.users
-  };
-
-  export const allMentors = (state) => {
-    return state.mentors
+  export const oneMentor = (state) => {
+    return state.oneMentor
   };
 
   export const hasMentors = (state) => {
-    return state.users && state.users.length > 0
+    return state.mentors && state.mentors.length > 0
   };
 
   export const allTechnos = (state) => {
     return state.technos
   };
 
-  export const role = (state) => {
-    const mentors = state.users
-    const role = mentors.map(mentor => mentor.role)
-    const mentorArray = role.filter(function(e) { return e !== 'alumni' })
-    const unique =  mentorArray.filter(function(item, pos) {
-      return mentorArray.indexOf(item) == pos;
-  })
-  return unique.toString()
+export const token = (state) => {
+  return state.token;
+}
 
-  };
+export const isAuth = (state) => {
+  return !!state.token;
+}
+
+export const userAuth = (state) => {
+  return state.userAuth;
+}
+
+export const userId = (state) => {
+  return state.userId;
+}
+
+export const mentorId = (state) => {
+  const  mentors =  state.mentors
+const userId =   state.userId
+  const thisMentors =  mentors?.find(mentor => mentor.userId === userId ) 
+  return thisMentors?._id ?? ''
+  
+}
+
+export const isMentor = (state) => {
+  //const  mentors =  state.mentors
+  //const userId =  state.userId
+  //return mentors?.some(mentor => mentor.userId === userId ) ?? null
+  const  mentors =  state.mentors
+const userId =  state.userId
+  const thisMentors =  mentors?.find(mentor => mentor.userId === userId ) 
+  const length = thisMentors?._id.length ?? ''
+  return length > 1 ? true : false 
+}
+
+
+
+
   
 
 
