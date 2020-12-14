@@ -16,6 +16,7 @@
               <div class="col-span-6 sm:col-span-3">
                 <label for="firstName" class="block text-gray-700">Prénom</label>
                 <input type="text" required placeholder="John" id="firstName" v-model.trim="firstName"  class="mt-1 h-6 block py-4 px-2 w-full shadow-sm  rounded-md">
+                
               </div>
 
               <div class="col-span-6 sm:col-span-3">
@@ -77,6 +78,7 @@
             <button type="submit" class="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm  rounded-md text-white bg-red-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
               Save
             </button>
+              <p class="text-red-500" v-if="formIsValid === 'ERROR'">Veuillez corriger les erreurs</p>
           </div>
         </div>
       </form>
@@ -93,7 +95,6 @@
 
 <script>
   import Multiselect from 'vue-multiselect'
-
  
 
   export default {
@@ -116,7 +117,7 @@
         github: ''
         }
         ],
-        formIsValid: true
+        formIsValid: null
     }
   },
   computed : {
@@ -136,10 +137,12 @@
           technos: this.technos,
           socials: this.socials
         };
-        // eslint-disable-next-line no-console
-        this.$store.dispatch('registerMentor',formData);
-        this.$store.dispatch('loadOneMentor');
+        
+         this.$store.dispatch('registerMentor',formData);
         this.$router.replace('/mentors')
+      
+      
+        
       }
   }
 }

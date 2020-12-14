@@ -107,7 +107,8 @@
     console.log('MONTE');
    // this.$store.dispatch('loadMentors')
    // this.$store.dispatch('loadOneMentor');
-   
+   this.$store.dispatch('loadMentors');
+   this.$store.dispatch('loadOneMentor');
    this.firstName =  this.$store.state.oneMentor.firstName
    this.lastName =  this.$store.state.oneMentor.lastName,
   this.title =  this.$store.state.oneMentor.title,
@@ -140,8 +141,7 @@
   },
 
     created  () {
-    this.$store.dispatch('loadMentors');
-   this.$store.dispatch('loadOneMentor');
+    
     
   },
   computed : {

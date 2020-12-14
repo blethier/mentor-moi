@@ -11,6 +11,10 @@ export const setMentors = (state, payload) => {
   return state.mentors = payload;
 }
 
+export const setMentorId = (state, payload) => {
+  return state.mentorId = payload;
+}
+
 export const setOneMentor = (state, payload) => {
   return state.oneMentor = payload;
 }

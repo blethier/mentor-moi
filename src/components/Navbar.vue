@@ -35,11 +35,10 @@
         </router-link>
          <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-            <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Dashboard</a>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Team</a>
-            <router-link to="/mentors" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Mentors</router-link>
-            <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Calendar</a>
+            <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
+            <router-link  to="/" class="  px-3 py-2 rounded-md text-sm font-medium">Accueil</router-link>
+            <router-link to="/mentors" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">Liste des mentors</router-link>
+            <router-link v-if="!isLoggedIn" to="/auth" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">Se connecter</router-link>
           </div>
         </div>
       </div>
@@ -65,7 +64,7 @@
           -->
           <div :class="openMenu ? 'block': 'hidden'" class="invertedDarkMode z-50 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
               <div class="px-2 pt-2 pb-3 space-y-1">
-            <router-link to="/register" class="block px-4 py-2 hover:bg-red-400  " role="menuitem">Devenir Mentor</router-link>
+            <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-red-400  " role="menuitem">Devenir Mentor</router-link>
             <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-red-400  " role="menuitem">Modifier mon profil</router-link>
             <p @click="logout" href="#" class="block px-4 py-2 hover:bg-red-400  " role="menuitem">Déconnexion</p>
               </div>
@@ -83,11 +82,10 @@
   -->
   <div :class="open ? 'block': 'hidden'" class=" sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
-      <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
       <router-link to="/" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Acceuil</router-link>
-      <router-link to="/auth" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
-      <a href="#" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Projects</a>
-      <a href="#" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+      <router-link to="/mentors" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Liste des mentors</router-link>
+      <router-link to="/auth" v-if="!isLoggedIn" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
     </div>
   </div>
 </nav>
@@ -126,8 +124,9 @@ Avatar
             return this.$store.getters['isAuth']
         },
         isMentor() {
-            return this.$store.getters['isMentor']
+          return this.isMentors()
         }
+        
         
   },
   
@@ -147,7 +146,15 @@ Avatar
         this.open = false
         this.openMenu = false
         }
-      }
+      },
+       isMentors() {
+           const  mentorss =  this.$store.state.mentors
+const userId =  this.$store.state.userId
+  const thisMentors =   mentorss?.find(mentor => mentor.userId === userId ) 
+  const length = thisMentors?._id.length ?? 0
+   return length > 1 ? true : false
+            //return this.$store.getters['isMentor']
+        }
 
   }
 };

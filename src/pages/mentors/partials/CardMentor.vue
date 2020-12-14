@@ -15,8 +15,13 @@
           <h1 class="text-center italic text-xl font-medium mb-3">{{ title }}</h1>
           <p class="text-center text-xl mb-3">{{presentation}} </p>
           <div class="flex items-center flex-wrap mb-6">
-            <span v-for="(techno, index) in technos" :key="index" class="inline-block bg-gray-300 rounded-full px-3 py-1  font-semibold  my-1 mr-2">{{ techno }}</span>         
+            <span v-for="(techno, index) in technos" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold  my-1 mr-2">{{ techno }}</span>         
           </div>  
+          <router-link to="/auth" v-if="!isLoggedIn" class=" bg-red-700 rounded-lg text-center ">
+              <p class="text-white">
+                  Connectez-vous pour contacter le mentor
+              </p>
+          </router-link>
           <div v-if="isLoggedIn" class="flex items-center flex-wrap ">
             <div  class="flex items-center mr-2 no-underline hover:underline" v-for="(social, index) in socials" :key="index">
              
@@ -42,6 +47,7 @@
 
             </div>
           </div>
+          
         </div>
       </div>
     </div>

@@ -8,7 +8,8 @@ Vue.use(Vuex);
 import state from './state'
 import * as mutations from './mutations'
 //import * as actions from './actions'
-import * as getters from './getters'
+//import * as getters from './getters'
+
 
 const actions = {
   async registerMentor(context, data) {
@@ -30,12 +31,11 @@ const actions = {
       // remove headers
     }
     }).then(res => {
-    console.log('RESPONSE' + ' ' + res);
-    localStorage.setItem('mentor-id', res.data.mentor)
+    console.log('RESPONSE' + ' ' + res.data.mentor);
+    context.commit('setMentorId', res.data.mentor)
     context.commit('registerMentor', {...mentorData})
     }).catch(err => {
     console.log(err.response);
-    localStorage.removeItem('mentor-id')
     });
 
     
@@ -114,7 +114,7 @@ async updateMentor(context, data) {
   console.log(res);
   context.commit('setOneMentor', mentorData)
   }).catch(err => {
-  console.log(err.response);
+  console.log(err.response.data);
 
   });
 
@@ -142,7 +142,7 @@ await axios.post('http://localhost:5000/api/user/login',userData)
 })
 })
 .catch(err => {
-  console.log(err.response);
+  console.log(err.response.data);
   localStorage.removeItem('user-token')
   localStorage.removeItem('user-email')
   localStorage.removeItem('userId')
@@ -164,7 +164,80 @@ logout(context) {
 }
  
 
+};
+
+const getters = {
+
+  oneMentor: (state) => {
+    return state.oneMentor
+  },
+
+  
+   hasMentors: (state) => {
+    return state.mentors && state.mentors.length > 0
+  },
+
+  
+   allTechnos: (state) => {
+    return state.technos
+  },
+
+
+   token : (state) => {
+  return state.token;
+},
+
+
+ isAuth : (state) => {
+  return !!state.token;
+},
+
+
+ userAuth : (state) => {
+  return state.userAuth;
+},
+
+
+ userId : (state) => {
+  return state.userId;
+},
+
+
+ mentorId : (state) => {
+  const  mentors = state.mentors
+const userId =   state.userId
+  const thisMentors =  mentors?.find(mentor => mentor.userId === userId ) 
+  return state.mentorId ?? thisMentors?._id 
+  
+},
+
+
+ isMentor : state => {
+  //const  mentors =  state.mentors
+  //const userId =  state.userId
+  //return mentors?.some(mentor => mentor.userId === userId ) ?? null
+  const  mentors =  state.mentors
+const userId =  state.userId
+  return   mentors.find(mentor => mentor.userId === userId ) 
+ // const length = thisMentors?._id.length ?? 0
+  // return length > 1 ? true : false
 }
+
+
+
+
+  
+
+
+
+
+
+
+
+
+}
+
+
 
 export default new Vuex.Store({
     state,

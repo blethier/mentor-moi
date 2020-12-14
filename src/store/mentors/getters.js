@@ -31,19 +31,19 @@ export const mentorId = (state) => {
   const  mentors =  state.mentors
 const userId =   state.userId
   const thisMentors =  mentors?.find(mentor => mentor.userId === userId ) 
-  return thisMentors?._id ?? ''
+  return state.mentorId ?? thisMentors?._id ?? ' ' 
   
 }
 
-export const isMentor = (state) => {
+export const isMentor =  (state) => {
   //const  mentors =  state.mentors
   //const userId =  state.userId
   //return mentors?.some(mentor => mentor.userId === userId ) ?? null
   const  mentors =  state.mentors
 const userId =  state.userId
-  const thisMentors =  mentors?.find(mentor => mentor.userId === userId ) 
-  const length = thisMentors?._id.length ?? ''
-  return length > 1 ? true : false 
+  const thisMentors =  mentors.find(mentor => mentor.userId === userId ) 
+  const length = thisMentors?._id.length ?? 0
+  return length > 1 ? true : false
 }
 
 

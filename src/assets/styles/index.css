@@ -15,4 +15,8 @@
 .waveDarkMode {
     @apply bg-red-400 dark:text-gray-800 text-white;
 }
+
+.red-nav {
+    @apply bg-red-400;
+}
 @tailwind utilities;

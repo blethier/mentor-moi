@@ -1,11 +1,12 @@
 <template>
  
     <div class="font-sans leading-tight   p-8">
+        <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
   <div class="max-w-sm mx-auto text-gray-800 bg-red-300 rounded-lg overflow-hidden shadow-lg">
-    <div class="bg-cover h-40" style="background-image: url('https://images.unsplash.com/photo-1522093537031-3ee69e6b1746?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a634781c01d2dd529412c2d1e2224ec0&auto=format&fit=crop&w=2098&q=80');"></div>
+    <div class="bg-cover h-40" style="background-image: url('https://images.unsplash.com/photo-1593720213428-28a5b9e94613?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80');"></div>
     <div class="border-b px-4 pb-6">
         <div class="text-center sm:text-left sm:flex mb-4">
-            <img class="h-28 w-28 rounded-full border-4 border-white -mt-16 mr-4" :src="user.avatar" alt="">
+            <img class="h-32 w-32 rounded-full border-4 border-white -mt-16 mr-4" :src="user.avatar" alt="">
             <div class="py-2">
                 <h3 class="font-bold text-2xl mb-1">{{name}}</h3>
                 <div class="inline-flex  sm:flex items-center">
@@ -21,12 +22,12 @@
         </div>
     </div>
     <div class="px-4 py-4">
-        <div v-for="techno in user.technos" :key="techno" class="flex items-center text-grey-darker mb-4">
-            <span class="inline-flex items-center justify-center px-2 py-1 mr-2  font-bold leading-none text-red-100 bg-red-700 rounded-full">
+        <div v-for="techno in user.technos" :key="techno" class=" items-center text-grey-darker mb-4">
+            <span class="flex items-center justify-center px-2 py-1 mr-2  font-bold leading-none text-red-100 bg-red-700 rounded-full">
                 {{techno}}
             </span>
         </div>
-        <div class="flex">
+        <div>
             <div v-for="(social, index)  in user.socials" :key="index" class="mr-4  p-3 text-center">
                       <a v-if="social.linkedin"  :href="social.linkedin">
                 <font-awesome-icon v-if="social.linkedin" class="text-3xl mr-2" :icon="['fab', 'linkedin']" />  
@@ -61,10 +62,15 @@
 
 <script>
 import axios from 'axios'
+import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
+
 export default {
+    components : {PulseLoader},
      data () {
     return {
      user: {},
+     isPending: false
    }
   },
 
@@ -72,7 +78,9 @@ export default {
 
   axios.get('http://localhost:5000/api/mentor/' + this.$route.params.id)
   .then((result) => {
+      this.isPending = true
    this.user = result.data;
+   this.isPending = false
    // eslint-disable-next-line no-console
    console.log(this.user);
 

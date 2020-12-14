@@ -1,5 +1,6 @@
 <template>
 <div>
+    <p class="text-red-500">{{mentorId}}</p>
     <Hero />
    <Waves />
     <Presentation />
@@ -18,8 +19,13 @@ export default {
       Waves,
       Hero
     },
-    created() {
-        this.loadMentors()
+    //created() {
+    //    this.loadMentors()
+    //},
+    computed: {
+mentorId() {
+            return this.$store.getters['mentorId']
+        },
     },
     methods: {
         async loadMentors() {
