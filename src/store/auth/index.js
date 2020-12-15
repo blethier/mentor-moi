@@ -21,7 +21,7 @@ const actions = {
             email: payload.email,
             password: payload.password,     
            }
-    await axios.post('http://localhost:5000/api/user/register',userData)
+    await axios.post('https://mentor-moi.herokuapp.com/api/user/register',userData)
     .then(res => {
         console.log(res.data);
         context.commit('setUser', {
