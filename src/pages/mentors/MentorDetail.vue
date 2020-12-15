@@ -86,7 +86,7 @@ export default {
 
   mounted () {
 
-  axios.get('https://mentor-moi.herokuapp.com/api/mentor/' + this.$route.params.id)
+  axios.get('https://mentor-moi-prod.herokuapp.com/api/mentor/' + this.$route.params.id)
   .then((result) => {
       this.isPending = true
    this.user = result.data;
