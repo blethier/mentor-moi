@@ -27,8 +27,9 @@
                 {{techno}}
             </span>
         </div>
-        <div>
-            <div v-for="(social, index)  in user.socials" :key="index" class="mr-4  p-3 text-center">
+        <div v-if="isAuth">
+            
+            <div  v-for="(social, index)  in user.socials" :key="index" class="mr-4  p-3 text-center">
                       <a v-if="social.linkedin"  :href="social.linkedin">
                 <font-awesome-icon v-if="social.linkedin" class="text-3xl mr-2" :icon="['fab', 'linkedin']" />  
   </a>
@@ -52,6 +53,15 @@
 
   
                     </div>
+        </div>
+        <div class="text-center text-xl font-black bg text-red-600" v-if="!isAuth">
+            <router-link to="/auth">
+<font-awesome-icon  class="text-2xl mr-2" :icon="'lock'" />  
+            <p>
+                Connectez-vous pour contacter le mentor
+            </p>
+            </router-link>
+            
         </div>
     </div>
   </div>
@@ -89,7 +99,11 @@ export default {
   computed : {
       name() {
           return this.user.firstName + ' ' + this.user.lastName
+      },
+      isAuth(){
+          return this.$store.getters.isAuth
       }
-  }
+  },
+
 }
 </script>

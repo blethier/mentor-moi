@@ -5,10 +5,57 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
-import state from './state'
-import * as mutations from './mutations'
+//import state from './state'
+//import * as mutations from './mutations'
 //import * as actions from './actions'
 //import * as getters from './getters'
+
+const state = {
+  technos : [
+    'React js',
+    'Php',
+    'Symfony',
+    'Go',
+    'Python',
+    'Java',
+    'VueJs',
+    'Laravel',
+    'Wordpress',
+    'Magento',
+    'C#',
+    'C++',
+    'Zend',
+    'Node Js',
+    'Express',
+    'SQL',
+    'Angular',
+    'ASP',
+    'CSS',
+    'Tailwind CSS',
+    'Bootstrap',
+    'JQuery',
+    'Javascript',
+    'Ruby',
+    'Swift',
+    'React Native',
+    'Spring',
+    'Flutter',
+    'Ionic',
+    'Django',
+    'Backbone js',
+    'Mongo DB',
+    'PostgreSQL',
+    'Zend',
+    'Test',
+    'TDD',
+    'AWS',
+],
+mentors: [],
+oneMentor : {},
+token: localStorage.getItem('user-token') || '',
+userAuth: localStorage.getItem('user-email') || '',
+userId: localStorage.getItem('userId') || '',
+}
 
 
 const actions = {
@@ -19,6 +66,7 @@ const actions = {
      lastName: data.lastName,
      email: data.email,
      avatar: data.avatar,
+     disponible: data.disponible,
      title: data.title,
      presentation: data.presentation,
      technos: data.technos,
@@ -35,7 +83,8 @@ const actions = {
     context.commit('setMentorId', res.data.mentor)
     context.commit('registerMentor', {...mentorData})
     }).catch(err => {
-    console.log(err.response);
+      const error = new Error(err.response || 'Erreur')
+      throw error;
     });
 
     
@@ -62,12 +111,9 @@ const actions = {
            // remove headers
          }
        }).then(res => {
-         console.log('ONE MENTOR' + '' + JSON.stringify(res.data) )
-        // localStorage.setItem('oneMentor', JSON.stringify(res.data))
          context.commit('setOneMentor', res.data)
        }).catch(err => {
          console.log(err.response);
-        // localStorage.removeItem('oneMentor')
        });
  
        
@@ -79,13 +125,14 @@ const actions = {
        }
 await axios.post('http://localhost:5000/api/user/register',userData)
 .then(res => {
-    console.log(res.data.user);
     context.commit('setUser', {
     userId: res.data.user._id
 })
 })
 .catch(err => {
     console.log(err.response);
+    const error = new Error(err.response.data || 'Email existe déjà')
+    throw error;
 })
 
 },
@@ -142,10 +189,12 @@ await axios.post('http://localhost:5000/api/user/login',userData)
 })
 })
 .catch(err => {
-  console.log(err.response.data);
   localStorage.removeItem('user-token')
   localStorage.removeItem('user-email')
   localStorage.removeItem('userId')
+  console.log(err.response);
+  const error = new Error(err.response.data || 'Erreur')
+  throw error;
 })
 
 },
@@ -168,14 +217,21 @@ logout(context) {
 
 const getters = {
 
-  oneMentor: (state) => {
-    return state.oneMentor
-  },
+  allMentors: (state) => state.mentors,
 
+  oneMentor: (state) =>  state.oneMentor,
+
+  isMentor : (state) =>  { 
+    const  mentors =  state.mentors
+  const userId =  state.userId
+    const thisMentors =   mentors.find(mentor => mentor.userId === userId ) 
+    const length = thisMentors?._id.length ?? 0
+     return length > 1 ? true : false
+},
   
-   hasMentors: (state) => {
-    return state.mentors && state.mentors.length > 0
-  },
+  // hasMentors: (state) => {
+  //  return state.mentors && state.mentors.length > 0
+  //},
 
   
    allTechnos: (state) => {
@@ -207,36 +263,48 @@ const getters = {
   const  mentors = state.mentors
 const userId =   state.userId
   const thisMentors =  mentors?.find(mentor => mentor.userId === userId ) 
-  return state.mentorId ?? thisMentors?._id 
+  return  thisMentors?._id ?? state.mentorId
   
 },
 
 
- isMentor : state => {
-  //const  mentors =  state.mentors
-  //const userId =  state.userId
-  //return mentors?.some(mentor => mentor.userId === userId ) ?? null
-  const  mentors =  state.mentors
-const userId =  state.userId
-  return   mentors.find(mentor => mentor.userId === userId ) 
- // const length = thisMentors?._id.length ?? 0
-  // return length > 1 ? true : false
 }
 
+const mutations = {
+
+   registerMentor : (state, payload) => {
+    return state.mentors.push(payload);
+  },
 
 
+   updateMentor : (state, payload) => {
+    return state.mentors.push(payload);
+  },
 
-  
+ setMentors : (state, payload) => {
+  return state.mentors = payload;
+},
 
+ setMentorId : (state, payload) => {
+  return state.mentorId = payload;
+},
 
+ setOneMentor : (state, payload) => {
+  return state.oneMentor = payload;
+},
 
+ setErrors : (state, payload) => {
+  return state.errors = payload;
+},
 
+ setUser : (state, payload) => {
+  state.userId = payload.userId
+  state.token = payload.token
+  state.userAuth = payload.userAuth
+      }
 
-
-
-
+      
 }
-
 
 
 export default new Vuex.Store({

@@ -3,9 +3,14 @@
     <div class="h-full border-2 border-red-400 bg-red-400 rounded-lg overflow-hidden">
       <img class="h-12  w-full object-cover object-center" src="https://images.unsplash.com/photo-1470290449668-02dd93d9420a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80" alt="background">
       <div class="flex bg-red-400  justify-center -mt-8">
+        
         <router-link :to="mentorsDetailsLink" >
           <img :src="avatar" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
         </router-link>
+        <span class="relative inline-block">
+  <svg class="w-10 h-10 text-gray-700 fill-current" viewBox="0 0 20 20"><path d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+  <span :class="disponible === 'Oui' ? 'bg-green-500' : 'bg-pink-500' " class="absolute top-2 right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 rounded-full">Disponible</span>
+</span>
       </div>
       
       <div class="p-6 bg-red-400">
@@ -14,16 +19,20 @@
         </router-link>
           <h1 class="text-center italic text-xl font-medium mb-3">{{ title }}</h1>
           <p class="text-center text-xl mb-3">{{presentation}} </p>
-          <div class="flex items-center flex-wrap mb-6">
-            <span v-for="(techno, index) in technos" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold  my-1 mr-2">{{ techno }}</span>         
+          <div class="text-center mb-6">
+            <span v-for="(techno, index) in technos" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
           </div>  
-          <router-link to="/auth" v-if="!isLoggedIn" class=" bg-red-700 rounded-lg text-center ">
-              <p class="text-white">
-                  Connectez-vous pour contacter le mentor
-              </p>
-          </router-link>
-          <div v-if="isLoggedIn" class="flex items-center flex-wrap ">
-            <div  class="flex items-center mr-2 no-underline hover:underline" v-for="(social, index) in socials" :key="index">
+          <div class="text-xl font-black  text-center bg-red-300 rounded-full py-2 text-white" v-if="!isLoggedIn">
+            <router-link to="/auth">
+<font-awesome-icon  class="text-2xl mr-2" :icon="'lock'" />  
+            <p>
+                Connectez-vous pour contacter le mentor
+            </p>
+            </router-link>
+            
+        </div>
+          <div v-if="isLoggedIn" class=" text-center">
+            <div  class=" mr-2 no-underline hover:underline" v-for="(social, index) in socials" :key="index">
              
               
 
@@ -55,7 +64,7 @@
 
 <script>
 export default {
-    props: ['id','firstName', 'lastName', 'title', 'presentation','avatar', 'city', 'technos', 'socials'],
+    props: ['id','firstName', 'lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials'],
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName

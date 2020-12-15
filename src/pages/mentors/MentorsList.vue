@@ -8,7 +8,7 @@
         <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
         <section class="text-gray-700 body-font">
             <div class="container px-5  mx-auto">
-                <div v-if="hasMentors" class="flex flex-wrap -m-4">
+                <div  class="flex flex-wrap -m-4">
                     <section class="text-gray-700 body-font">
                         <div class="container px-5 py-12 mx-auto">
                             <div class="flex flex-wrap -m-4">
@@ -17,6 +17,7 @@
                                                                                 :title="mentor.title"
                                                                                 :avatar="mentor.avatar"
                                                                                 :role="mentor.role"
+                                                                                :disponible="mentor.disponible"
                                                                                 :presentation="mentor.presentation"
                                                                                 :city="mentor.city"
                                                                                 :technos="mentor.technos"
@@ -26,9 +27,7 @@
                             </div>
                     </section>                        
                 </div>
-                <div v-else class="container px-5 py-24 mx-auto">
-                    <h1>TODO view no mentors</h1>
-                </div>
+                
             </div>
         </section>
 
@@ -48,24 +47,19 @@ export default {
         isPending: false
         };
     },
-    created() {
+    mounted(){
         this.loadMentors(),
         this.loadOneMentor()
+        
     },
     computed: {
         filteredMentors() {
-            const mentors = this.$store.state['mentors']
-                if (!this.search)
-                    return mentors
-            const filterValue = this.search.toLowerCase()
-            const filter = event => 
-                event.title.toLowerCase().includes(filterValue) ||
-                event.technos.some(tag => tag.toLowerCase().includes(filterValue))
-      
-            return mentors.filter(filter)
+          return  this.filter()
         },
         hasMentors() {
-            return !this.isPending && this.$store.getters['hasMentors']
+           
+            const  mentors =  this.$store.state.mentors
+            return  mentors && mentors.length > 0
         },
         hasRole() {
             return this.$store.getters['role']
@@ -79,10 +73,23 @@ export default {
         
     },
     methods: {
+             
+        filter(){
+const mentors = this.$store.getters.allMentors
+                if (!this.search)
+                    return mentors
+            const filterValue = this.search.toLowerCase()
+            const filter = event => 
+                event.title.toLowerCase().includes(filterValue) ||
+                event.technos.some(tag => tag.toLowerCase().includes(filterValue))
+      
+            return mentors.filter(filter)
+        },
         async loadMentors() {
-            this.isPending = true
-            await this.$store.dispatch('loadMentors');
-            this.isPending = false
+            
+            
+         this.$store.dispatch('loadMentors');
+
         },
         async loadOneMentor() {
             
@@ -93,7 +100,7 @@ export default {
     
 setTimeout(()=>{
     this.$store.dispatch('loadOneMentor');
-},1000);
+},2000);
             
         }
     }

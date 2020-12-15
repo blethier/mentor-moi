@@ -10,10 +10,10 @@
 					></div>
 					<!-- Col -->
 					<div class="w-full lg:w-1/2 bg-red-200 p-5 rounded-lg lg:rounded-l-none">
-						<h3 v-if="mode === 'login'" class="pt-4 text-2xl text-red-600 text-center">Connectez vous</h3>
-						<h3 v-if="mode === 'signup'" class="pt-4 text-2xl text-red-600 text-center">Inscrivez vous</h3>
-						<ValidationObserver v-slot="{ handleSubmit }">
-						<form @submit.prevent="handleSubmit(submitForm)" class="px-8 pt-6 pb-8 mb-4  rounded">
+						<h3 v-if="mode === 'login'" class="pt-4 text-2xl text-red-500 text-center">Connectez vous</h3>
+						<h3 v-if="mode === 'signup'" class="pt-4 text-2xl text-red-500 text-center">Inscrivez vous</h3>
+						<ValidationObserver v-slot="{ invalid }">
+						<form @submit.prevent="submitForm" class="px-8 pt-6 pb-8 mb-4  rounded">
 							<div class="mb-4">
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="username">
 									Email
@@ -22,12 +22,14 @@
 								<input
 									class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="email"
+									required
 									v-model.trim="email"
 									type="email"
 									placeholder="JohnDoe@gmail.com"
 								/>
-  <p class="text-green-700 italic">{{ errors[0] }}</p>
+  <p class="text-red-700 italic">{{ errors[0] }}</p>
 </ValidationProvider>
+<p class="text-red-500 italic"> {{error}} </p>
 							</div>
 
 							
@@ -36,31 +38,33 @@
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="password">
 									Mot de passe
 								</label>
-								<ValidationProvider rules="length:6" v-slot="{ errors }">
+								<ValidationProvider rules="min:6" v-slot="{ errors }">
 								<input
 									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
+									required
 									v-model.trim="password"
 									type="password"
-									placeholder="******************"
+									placeholder="Votre mot de passe"
 								/>
-								<p class="text-green-700 italic">{{ errors[0] }}</p>
+								<p class="text-red-500 italic">{{ errors[0] }}</p>
 								</ValidationProvider>
 							</div>
 
 							<div v-if="mode === 'signup'" class="mb-4">
 								<label class="block mb-2 text-sm font-bold text-gray-700" for="password">
-									COON Mot de passe
+									Mot de passe
 								</label>
 								<ValidationProvider rules="confirmed:confirmation" v-slot="{ errors }">
 								<input
 									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
+									required
 									v-model.trim="passwordSignup"
 									type="password"
-									placeholder="******************"
+									placeholder="Votre mot de passe"
 								/>
-								<p class="text-green-700 italic">{{ errors[0] }}</p>
+								<p class="text-red-700 italic">{{ errors[0] }}</p>
 								</ValidationProvider>
 							</div>
 
@@ -76,7 +80,7 @@
 									v-model="repeatPassword"
 									
 									type="password"
-									placeholder="******************"
+									placeholder="Confirmez votre mot de passe"
 								/>
 								<span>{{ errors[0] }}</span>
 								</ValidationProvider>
@@ -89,9 +93,10 @@
 							
 							<div class="mb-6 text-center">
 								<button
-									class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
+									class="w-full px-4 py-2 font-bold text-white rounded-full focus:outline-none focus:shadow-outline"
+									:class="invalid ?  'bg-red-500 cursor-not-allowed disabled disabled:opacity-50' : 'bg-red-500'"
 									type="submit"
-									
+									:disabled="invalid"
 								>
 									{{submitButtonText}}
 								</button>
@@ -105,6 +110,7 @@
 									{{switchModeButton}}
 								</a>
 							</div>
+							
 						
 						</form>
 						</ValidationObserver>
@@ -124,13 +130,11 @@ export default {
 			passwordSignup: '',
 			repeatPassword: '',
 			value: '',
+			error : null,
 			formIsValid: null,
 			mode: 'login'
 		}
 	},
-    created() {
-        this.loadMentors()
-    },
 	computed: {
 		submitButtonText() {
 			if (this.mode === 'login') {
@@ -148,31 +152,52 @@ export default {
 		}
 	},
 	methods: {
-		submitForm() {
-	
+		async submitForm() {
+		
+			
+				
 			if (this.mode === 'login'){
-
-         this.$store.dispatch('login', {
+			try {
+        await this.$store.dispatch('login', {
 					email: this.email,
 					password: this.password
 				})
 				this.$router.replace('/mentors')
+				this.$swal('Connexion réussie');
+			} catch (error) {
+				// eslint-disable-next-line no-console
+			console.log(error)
+			this.error = error.message || 'Erreur'
+			this.$swal('Veuillez corrigez vos erreurs');
+			}
+	
+	
       }
  
 			
        else {
-		this.$store.dispatch('signup', {
+
+		try {
+			await this.$store.dispatch('signup', {
 					email: this.email,
 					password: this.passwordSignup
 				})
-      }
-			}
-
-
-
+				this.$swal('Votre compte a bien été crée');
+				this.mode === 'login'
+		} catch (error) {
+			// eslint-disable-next-line no-console
+			console.log(error)
+			this.error = error.message || 'Erreur'
+			this.$swal('Veuillez corrigez vos erreurs');
+		}
+		
+		
 				
-			
-		,
+				
+				
+      }
+			},
+
 		switchAuthMode() {
 			if (this.mode === 'login') {
 				this.mode = 'signup';

@@ -102,7 +102,6 @@ export default {
 //Gravatar,
 Avatar
     },
-  name: 'Navbar',
   data() {
     return {
       open: false,
@@ -118,13 +117,13 @@ Avatar
   
   computed: {
         userAuth() {
-            return this.$store.getters['userAuth']
+            return this.$store.getters.userAuth
         },
         isLoggedIn() {
-            return this.$store.getters['isAuth']
+            return this.$store.getters.isAuth
         },
         isMentor() {
-          return this.isMentors()
+          return  this.$store.getters.isMentor
         }
         
         
@@ -146,15 +145,7 @@ Avatar
         this.open = false
         this.openMenu = false
         }
-      },
-       isMentors() {
-           const  mentorss =  this.$store.state.mentors
-const userId =  this.$store.state.userId
-  const thisMentors =   mentorss?.find(mentor => mentor.userId === userId ) 
-  const length = thisMentors?._id.length ?? 0
-   return length > 1 ? true : false
-            //return this.$store.getters['isMentor']
-        }
+      }
 
   }
 };

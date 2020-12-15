@@ -7,14 +7,24 @@
 </template>
 
 <script>
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-
+  import Navbar from './components/Navbar'
+   import Footer from './components/Footer'
 export default {
+
   components: {
-      Navbar,
-      Footer
-  }
+   Navbar,
+   Footer
+  },
+  mounted(){
+    this.loadMentors()
+  },
+   methods: {
+         loadMentors() {
+            this.isPending = true
+             this.$store.dispatch('loadMentors');
+            this.isPending = false
+        }
+   }
 }
 </script>
 
