@@ -143,6 +143,7 @@ async updateMentor(context, data) {
   const mentorData = {
     userId: context.getters.userId,
    firstName: data.firstName,
+   disponible: data.disponible,
    lastName: data.lastName,
    email: data.email,
    avatar: data.avatar,

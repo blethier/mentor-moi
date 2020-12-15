@@ -17,6 +17,6 @@
 }
 
 .red-nav {
-    @apply bg-red-400;
+    @apply bg-red-300;
 }
 @tailwind utilities;

@@ -47,7 +47,7 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="country" class="block  text-gray-700">Disponible</label>
-                <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="disponible" :options="disponibility" :multiple="false"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Choississez 4 technos max"  :allowEmpty="false"  :preselect-first="false"/>       
+                <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="disponible" :options="disponibility" :multiple="false"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Etes vous disponible ?"  :allowEmpty="false"  :preselect-first="true"/>       
               </div>
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">

@@ -64,9 +64,9 @@
           -->
           <div :class="openMenu ? 'block': 'hidden'" class="invertedDarkMode z-50 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
               <div class="px-2 pt-2 pb-3 space-y-1">
-            <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-red-400  " role="menuitem">Devenir Mentor</router-link>
-            <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-red-400  " role="menuitem">Modifier mon profil</router-link>
-            <p @click="logout" href="#" class="block px-4 py-2 hover:bg-red-400  " role="menuitem">Déconnexion</p>
+            <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-red-300  " role="menuitem">Devenir Mentor</router-link>
+            <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-red-300  " role="menuitem">Modifier mon profil</router-link>
+            <p @click="logout" href="#" class="block px-4 py-2 hover:bg-red-300  " role="menuitem">Déconnexion</p>
               </div>
            
           </div>
@@ -83,9 +83,9 @@
   <div :class="open ? 'block': 'hidden'" class=" sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
-      <router-link to="/" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Acceuil</router-link>
-      <router-link to="/mentors" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Liste des mentors</router-link>
-      <router-link to="/auth" v-if="!isLoggedIn" class=" hover:bg-red-400  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
+      <router-link to="/" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Acceuil</router-link>
+      <router-link to="/mentors" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Liste des mentors</router-link>
+      <router-link to="/auth" v-if="!isLoggedIn" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
     </div>
   </div>
 </nav>

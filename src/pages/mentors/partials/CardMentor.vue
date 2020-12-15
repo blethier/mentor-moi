@@ -1,19 +1,19 @@
 <template> 
   <div class="p-4 md:w-1/3">
-    <div class="h-full border-2 border-red-400 bg-red-400 rounded-lg overflow-hidden">
-      <img class="h-12  w-full object-cover object-center" src="https://images.unsplash.com/photo-1470290449668-02dd93d9420a?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=750&q=80" alt="background">
-      <div class="flex bg-red-400  justify-center -mt-8">
+    <div class="h-full border-2 border-red-300 bg-red-300 rounded-lg overflow-hidden">
+      <img class="h-12  w-full object-cover object-center" src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80" alt="background">
+      <div class="flex bg-red-300  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
           <img :src="avatar" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
         </router-link>
-        <span class="relative inline-block">
-  <svg class="w-10 h-10 text-gray-700 fill-current" viewBox="0 0 20 20"><path d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
-  <span :class="disponible === 'Oui' ? 'bg-green-500' : 'bg-pink-500' " class="absolute top-2 right-2 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 rounded-full">Disponible</span>
+        <span class="relative left-12 inline-block">
+
+  <span :class="disponible === 'Oui' ? 'bg-green-600' : 'bg-red-500' " class="absolute bottom-12 right-2 inline-flex items-center justify-center px-4 py-2  font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 rounded-full">{{isDisponible}}</span>
 </span>
       </div>
       
-      <div class="p-6 bg-red-400">
+      <div class="p-6 bg-red-300">
         <router-link :to="mentorsDetailsLink" >
           <h2 class="tracking-widest text-center text-2xl font-bold underline mb-1">{{ fullName }}</h2>
         </router-link>
@@ -74,7 +74,14 @@ export default {
       },
       isLoggedIn() {
             return this.$store.getters['isAuth']
-        }
+      },
+      isDisponible() {
+			if (this.disponible === 'Oui') {
+				return 'Disponible'
+			} else {
+				return 'Indisponible'
+			}
+		}
     }
 }
 </script>

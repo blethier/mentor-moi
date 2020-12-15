@@ -47,6 +47,12 @@
                 </ValidationProvider>
               </div>
 
+              <div class="col-span-6 sm:col-span-3">
+                <label for="country" class="block  text-gray-700">Disponible</label>
+                <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="disponible" :options="disponibility" :multiple="false"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Etes vous disponible ?"  :allowEmpty="false"  :preselect-first="false"/>       
+              </div>
+
+
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <label for="city" class="block ">Twitter</label>
                 <ValidationProvider :rules="{ regex: /^[^<>*%:&\\]*$/ }" v-slot="{ errors }">
@@ -144,6 +150,7 @@
    this.$store.dispatch('loadOneMentor');
    this.firstName =  this.$store.state.oneMentor.firstName
    this.lastName =  this.$store.state.oneMentor.lastName,
+   this.disponible =  this.$store.state.oneMentor.disponible,
   this.title =  this.$store.state.oneMentor.title,
   this.avatar =  this.$store.state.oneMentor.avatar,
   this.presentation =  this.$store.state.oneMentor.presentation,
@@ -159,6 +166,7 @@
       lastName: '',
       title:'',
       avatar: '',
+      disponible: '',
       presentation:'',
       technos: [],
       socials: [
@@ -169,7 +177,11 @@
         github: ''
         }
         ],
-        formIsValid: true
+        formIsValid: true,
+        disponibility : [
+          'Oui',
+          'Non'
+        ]
     }
   },
 
@@ -196,6 +208,7 @@
         const formData = {
           firstName:this.firstLetter(this.firstName) ,
           lastName: this.firstLetter(this.lastName),
+          disponible : this.disponible,
           avatar: this.avatar,
           title: this.firstLetter(this.title),
           presentation: this.presentation,
