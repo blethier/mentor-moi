@@ -7,15 +7,18 @@
         <router-link :to="mentorsDetailsLink" >
           <img :src="avatar" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
         </router-link>
-        <span class="relative left-12 inline-block">
-
-  <span :class="disponible === 'Oui' ? 'bg-green-600' : 'bg-red-500' " class="absolute bottom-12 right-2 inline-flex items-center justify-center px-4 py-2  font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 rounded-full">{{isDisponible}}</span>
-</span>
+       
       </div>
+       
       
       <div class="p-6 bg-red-300">
+
+      
+
+  <span :class="disponible === 'Oui' ? 'bg-green-600' : 'bg-red-500' " class=" px-4 py-2  font-bold leading-none text-red-100 transform  rounded-full">{{isDisponible}}</span>
+
         <router-link :to="mentorsDetailsLink" >
-          <h2 class="tracking-widest text-center text-2xl font-bold underline mb-1">{{ fullName }}</h2>
+          <h2 class="tracking-widest text-center text-2xl mt-6 font-bold underline mb-1">{{ fullName }}</h2>
         </router-link>
           <h1 class="text-center italic text-xl font-medium mb-3">{{ title }}</h1>
           <p class="text-center text-xl mb-3">{{presentation}} </p>
@@ -31,7 +34,8 @@
             </router-link>
             
         </div>
-          <div v-if="isLoggedIn" class=" text-center">
+        
+          <div v-if="isLoggedIn && disponible === 'Oui'" class=" text-center">
             <div  class=" mr-2 no-underline hover:underline" v-for="(social, index) in socials" :key="index">
              
               
@@ -56,6 +60,13 @@
 
             </div>
           </div>
+
+          <div class="text-xl font-black  text-center bg-red-300 rounded-full py-2 text-white" v-else-if="isLoggedIn">
+<font-awesome-icon  class="text-2xl mr-2" :icon="'hand-paper'" />  
+            <p>
+                Désolé le mentor n'est pas disponible pour le moment
+            </p>            
+        </div>
           
         </div>
       </div>

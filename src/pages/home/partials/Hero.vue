@@ -13,7 +13,7 @@
           Le mentorat offre la possibilité de poser des questions, de demander des conseils ou de l'aide pour développer leurs compétences et leurs connaissances en développement Web
         </p>
         <div class="flex justify-center">
-          <button class="inline-flex text-white bg-red-400 border-0 py-2 px-6 focus:outline-none rounded text-lg">Voir les mentors</button>
+          <router-link to="/mentors" class="inline-flex text-gray-800 bg-red-400 border-0 py-2 px-6 focus:outline-none rounded text-lg">Voir les mentors</router-link>
         </div>
       </div>
       <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 rounded-full">

@@ -93,14 +93,12 @@ const mentors = this.$store.getters.allMentors
         },
         async loadOneMentor() {
             
-
+this.$store.dispatch('loadOneMentor');
 
 // eslint-disable-next-line no-console
  
     
-setTimeout(()=>{
-    this.$store.dispatch('loadOneMentor');
-},2000);
+
             
         }
     }
