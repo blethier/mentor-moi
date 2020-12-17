@@ -41,6 +41,7 @@ export default {
       token: localStorage.getItem('user-token') || '',
       userAuth: localStorage.getItem('user-email') || '',
       userId: localStorage.getItem('userId') || '',
+      thisUser : {}
       //mentorId: localStorage.getItem('mentor-id') ,
       //oneMentor : JSON.parse(localStorage.getItem('oneMentor')) 
 };

@@ -110,6 +110,7 @@ Avatar
   },
    created() {
     window.addEventListener('click', this.close)
+    window.addEventListener('beforeunload', this.logout)
   },
    beforeDestroy() {
     window.removeEventListener('click', this.close)

@@ -77,7 +77,9 @@ export default {
         filter(){
 const mentors = this.$store.getters.allMentors
                 if (!this.search)
+                
                     return mentors
+
             const filterValue = this.search.toLowerCase()
             const filter = event => 
                 event.title.toLowerCase().includes(filterValue) ||
@@ -93,14 +95,12 @@ const mentors = this.$store.getters.allMentors
         },
         async loadOneMentor() {
             
-
+this.$store.dispatch('loadOneMentor');
 
 // eslint-disable-next-line no-console
  
     
-setTimeout(()=>{
-    this.$store.dispatch('loadOneMentor');
-},2000);
+
             
         }
     }

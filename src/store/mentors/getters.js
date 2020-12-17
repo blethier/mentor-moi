@@ -36,9 +36,6 @@ const userId =   state.userId
 }
 
 export const isMentor =  (state) => {
-  //const  mentors =  state.mentors
-  //const userId =  state.userId
-  //return mentors?.some(mentor => mentor.userId === userId ) ?? null
   const  mentors =  state.mentors
 const userId =  state.userId
   const thisMentors =  mentors.find(mentor => mentor.userId === userId ) 

@@ -148,14 +148,14 @@
    // this.$store.dispatch('loadOneMentor');
    this.$store.dispatch('loadMentors');
    this.$store.dispatch('loadOneMentor');
-   this.firstName =  this.$store.state.oneMentor.firstName
-   this.lastName =  this.$store.state.oneMentor.lastName,
-   this.disponible =  this.$store.state.oneMentor.disponible,
-  this.title =  this.$store.state.oneMentor.title,
-  this.avatar =  this.$store.state.oneMentor.avatar,
-  this.presentation =  this.$store.state.oneMentor.presentation,
-  this.socials =  this.$store.state.oneMentor.socials,
-  this.technos =  this.$store.state.oneMentor.technos
+   this.firstName =  this.$store.getters.oneMentor.firstName
+   this.lastName =  this.$store.getters.oneMentor.lastName,
+   this.disponible =  this.$store.getters.oneMentor.disponible,
+  this.title =  this.$store.getters.oneMentor.title,
+  this.avatar =  this.$store.getters.oneMentor.avatar,
+  this.presentation =  this.$store.getters.oneMentor.presentation,
+  this.socials =  this.$store.getters.oneMentor.socials,
+  this.technos =  this.$store.getters.oneMentor.technos
   
   
   

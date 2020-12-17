@@ -5,11 +5,6 @@ import axios from 'axios';
 
 Vue.use(Vuex);
 
-//import state from './state'
-//import * as mutations from './mutations'
-//import * as actions from './actions'
-//import * as getters from './getters'
-
 const state = {
   technos : [
     'React js',
@@ -217,6 +212,7 @@ logout(context) {
 };
 
 const getters = {
+
 
   allMentors: (state) => state.mentors,
 

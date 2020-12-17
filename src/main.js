@@ -8,7 +8,7 @@ import { ValidationProvider, extend, ValidationObserver } from 'vee-validate';
 import { email, alpha_spaces, confirmed, min, required, regex } from 'vee-validate/dist/rules';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesome/free-brands-svg-icons'
-import { faHeart, faMapMarkerAlt, faAt, faGlobe, faLock } from '@fortawesome/free-solid-svg-icons'
+import { faHeart, faMapMarkerAlt, faAt, faGlobe, faLock, faHandPaper } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 
@@ -22,7 +22,8 @@ library.add(faGithubSquare,
             faMapMarkerAlt,
             faAt,
             faGlobe,
-            faLock)
+            faLock,
+            faHandPaper)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -58,9 +59,7 @@ extend('email', {
 
   const options = {
     confirmButtonColor: '#41b882',
-    background: '#f87171',
-    colorText: '#fffff'
-    
+    background: '#f87171'  
   };
 
 
