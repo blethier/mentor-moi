@@ -36,9 +36,6 @@ export default {
 this.mentorProfile()
   },
   computed : {
-      name() {
-          return this.user.firstName + ' ' + this.user.lastName
-      },
       isAuth(){
           return this.$store.getters.isAuth
       },
@@ -62,9 +59,15 @@ this.mentorProfile()
 </script>
 
 <style scoped>
-div /deep/ p {
-      background-color: lightgreen;
+div /deep/ h2 {
+      text-decoration: none;
+      cursor: default;
     }
+div /deep/ img {
+      text-decoration: none;
+      cursor: default;
+    }
+
 
 
 </style>

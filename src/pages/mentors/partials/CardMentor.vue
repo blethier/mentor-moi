@@ -75,7 +75,7 @@
 
 <script>
 export default {
-    props: ['id','firstName', 'lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials'],
+    props: ['id','firstName', 'name', 'lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials'],
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName
