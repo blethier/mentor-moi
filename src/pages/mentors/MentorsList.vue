@@ -77,7 +77,9 @@ export default {
         filter(){
 const mentors = this.$store.getters.allMentors
                 if (!this.search)
+                
                     return mentors
+
             const filterValue = this.search.toLowerCase()
             const filter = event => 
                 event.title.toLowerCase().includes(filterValue) ||

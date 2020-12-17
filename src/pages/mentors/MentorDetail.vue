@@ -1,24 +1,23 @@
 <template>
     <div class="font-sans container flex justify-center leading-tight   p-8">
         <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
-  <CardMentor  :firstName="user.firstName"
-                                                                            :lastName="user.lastName"
-                                                                                :title="user.title"
-                                                                                :avatar="user.avatar"
-                                                                                :role="user.role"
-                                                                                :disponible="user.disponible"
-                                                                                :presentation="user.presentation"
-                                                                                :city="user.city"
-                                                                                :technos="user.technos"
-                                                                                :socials="user.socials"
-                                                                                :id="user._id" /> 
+  <CardMentor  :firstName="thisMentor.firstName"
+                                                                            :lastName="thisMentor.lastName"
+                                                                                :title="thisMentor.title"
+                                                                                :avatar="thisMentor.avatar"
+                                                                                :role="thisMentor.role"
+                                                                                :disponible="thisMentor.disponible"
+                                                                                :presentation="thisMentor.presentation"
+                                                                                :technos="thisMentor.technos"
+                                                                                :socials="thisMentor.socials"
+                                                                                :id="thisMentor._id" /> 
 </div>
      
   
 </template>
 
 <script>
-import axios from 'axios'
+
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 import CardMentor from './partials/CardMentor.vue'
 
@@ -28,21 +27,13 @@ export default {
      data () {
     return {
      user: {},
+     thisMentor: {},
      isPending: false
    }
   },
 
   mounted () {
-
-  axios.get('https://mentor-moi.herokuapp.com/api/mentor/' + this.$route.params.id)
-  .then((result) => {
-      this.isPending = true
-   this.user = result.data;
-   this.isPending = false
-   // eslint-disable-next-line no-console
-   console.log(this.user);
-
-   })
+this.mentorProfile()
   },
   computed : {
       name() {
@@ -57,15 +48,22 @@ export default {
 			} else {
 				return 'Indisponible'
 			}
-		}
+        }
   },
+  methods : {
+      mentorProfile(){
+          const mentorId = this.$store.getters.allMentors
+          const thisMentor = mentorId.filter(mentor => mentor._id === this.$route.params.id)
+          this.thisMentor = thisMentor[0]
+      }
+  }
 
 }
 </script>
 
 <style scoped>
 div /deep/ p {
-      background-color: red;
+      background-color: lightgreen;
     }
 
 
