@@ -94,10 +94,14 @@ const mentors = this.$store.getters.allMentors
 
         },
         async loadOneMentor() {
-            
-this.$store.dispatch('loadOneMentor');
+            // eslint-disable-next-line no-console
+            console.log(this.mentorId)
+            if(this.mentorId) {
+        this.$store.dispatch('loadOneMentor');        
+            }
 
-// eslint-disable-next-line no-console
+
+
  
     
 
