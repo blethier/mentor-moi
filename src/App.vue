@@ -15,7 +15,7 @@ export default {
    Navbar,
    Footer
   },
-  mounted(){
+  created(){
     this.loadMentors()
   },
    methods: {
