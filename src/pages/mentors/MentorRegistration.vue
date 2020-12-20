@@ -214,7 +214,7 @@ import axios from 'axios';
       formData.append('avatar',this.avatar, this.avatar.name);
         // eslint-disable-next-line no-console
         console.log(formData)
-        await axios.post('https://mentor-moi-prod.herokuapp.com/api/mentors', formData, {
+        await axios.post('https://mentor-moi.herokuapp.com/api/mentors', formData, {
     headers: {
       // remove headers
     }
