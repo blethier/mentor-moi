@@ -9,7 +9,7 @@
             <div class="flex flex-col justify-center md:justify-start my-auto pt-8 md:pt-0 px-8 md:px-24 lg:px-32">
                 <p class="text-center mb-4 text-3xl">Mentor</p>
                 <ValidationObserver v-slot="{ invalid }">
-                 <form class="flex flex-col pt-3 md:pt-8" @submit.prevent="submitForm">
+                 <form class="flex flex-col pt-3 md:pt-8" enctype="multipart/form-data" @submit.prevent="submitForm">
         <div class="shadow overflow-hidden sm:rounded-md">
           <div class="px-4 py-5 bg-red-300 sm:p-6">
             <div class="grid grid-cols-6 gap-6">
@@ -32,7 +32,12 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="avatar" class="block  text-gray-700">Avatar(lien)</label>
-                <input type="text" id="avatar" v-model.trim="avatar" placeholder="https://images.unsplash.com/photo-1591622414979-6ef6664b2589?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsYWNrJTIwbGl2ZXMlMjBtYXR0ZXJ8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60" class="mt-1 h-6 block w-full shadow-sm py-4 px-2 rounded-md">
+                   <input 
+          type="file"
+          ref="avatar"
+          @change="onSelect"
+        />
+         <p class="text-red-500 italic">{{ message }}</p>
               </div>
 
               
@@ -135,6 +140,8 @@
 
 <script>
   import Multiselect from 'vue-multiselect'
+import axios from 'axios';
+
  
 
   export default {
@@ -143,6 +150,7 @@
   },
   data () {
     return {
+      message: '',
       firstName: '',
       lastName: '',
       title:'',
@@ -172,24 +180,50 @@
         }
   },
   methods : {  
+    onSelect(){
+      const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+      const avatar = this.$refs.avatar.files[0];
+      this.avatar = avatar;
+      // eslint-disable-next-line no-console
+      console.log(avatar)
+      if(!allowedTypes.includes(avatar.type)){
+        this.message = "Filetype is wrong!!"
+      }
+      if(avatar.size>15000000){
+        this.message = 'Taille max 500kb, format JPG, JPEG ou PNG'
+      }
+    },
     firstLetter(word) {
 
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 },
       async submitForm() {
 
+
         try {
-          const formData = {
-          firstName: this.firstLetter(this.firstName) ,
-          lastName: this.firstLetter(this.lastName),
-          avatar: this.avatar,
-          disponible : this.disponible,
-          title: this.firstLetter(this.title),
-          presentation: this.presentation,
-          technos: this.technos,
-          socials: this.socials
-        };
-        
+       
+         const formData = new FormData();
+         formData.append('firstName',this.firstLetter(this.firstName));
+         formData.append('lastName',this.firstLetter(this.lastName));
+         formData.append('disponible' ,this.disponible)
+         formData.append('title', this.firstLetter(this.title))
+         formData.append('presentation', this.presentation)
+         formData.append('technos' ,this.technos)
+         formData.append('socials' , JSON.stringify(this.socials) )
+         formData.append('userId' ,this.$store.getters.userId)
+      formData.append('avatar',this.avatar, this.avatar.name);
+        // eslint-disable-next-line no-console
+        console.log(formData)
+        await axios.post('https://mentor-moi-prod.herokuapp.com/api/mentors', formData, {
+    headers: {
+      // remove headers
+    }
+    }).then(res => {
+    // eslint-disable-next-line no-console
+    console.log('RESPONSE' + ' ' + res.data.mentor);
+    //this.$store.context.commit('setMentorId', res.data.mentor)
+    //this.$store.context.commit('registerMentor', {...formData})
+    })
          this.$store.dispatch('registerMentor',formData);
         this.$router.replace('/mentors')
         this.$swal('Compte mentor créer');

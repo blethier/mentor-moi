@@ -5,7 +5,7 @@
       <div class="flex bg-red-300  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
-          <img :src="avatar" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
+          <img :src="`https://mentor-moi-prod.herokuapp.com/${avatar}`" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
         </router-link>
        
       </div>
@@ -34,9 +34,8 @@
             </router-link>
             
         </div>
-        
           <div v-if="isLoggedIn && disponible === 'Oui'" class=" text-center">
-            <div  class=" mr-2 no-underline hover:underline" v-for="(social, index) in socials" :key="index">
+            <div  class=" mr-2 no-underline hover:underline" v-for="(social, index) in socialsContact" :key="index">
              
               
 
@@ -79,6 +78,9 @@ export default {
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName
+      },
+      socialsContact(){
+          return JSON.parse(this.socials)
       },
       mentorsDetailsLink() {
         return this.$route.path + '/' + this.id

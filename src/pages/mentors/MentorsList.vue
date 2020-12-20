@@ -11,8 +11,8 @@
                 <div  class="flex flex-wrap -m-4">
                     <section class="text-gray-700 body-font">
                         <div class="container px-5 py-12 mx-auto">
-                            <div class="flex flex-wrap -m-4">
-                                <CardMentor v-for="mentor in filteredMentors" :key="mentor._id" :firstName="mentor.firstName"
+                            <div v-if="hasMentors" class="flex flex-wrap -m-4">
+                                <CardMentor  v-for="mentor in filteredMentors" :key="mentor._id" :firstName="mentor.firstName"
                                                                             :lastName="mentor.lastName"
                                                                                 :title="mentor.title"
                                                                                 :avatar="mentor.avatar"
@@ -23,7 +23,20 @@
                                                                                 :technos="mentor.technos"
                                                                                 :socials="mentor.socials"
                                                                                 :id="mentor._id" /> 
+                                                         
                                 </div>
+                              
+                                    <div v-if="noMentor" class="darkMode mt-10 text-center body-font">
+  <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
+    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded" alt="hero" src="../../assets/img/dev.svg">
+    <div class="text-center lg:w-2/3 w-full">
+      <h4 class="title-font sm:text-4xl text-3xl mb-4 font-medium ">Aucun mentor</h4>
+      
+      
+    </div>
+  </div>
+</div>
+                                
                             </div>
                     </section>                        
                 </div>
@@ -70,6 +83,9 @@ export default {
         mentorId() {
             return this.$store.getters['mentorId']
         },
+        noMentor(){
+            return this.filteredMentors.length === 0
+        }
         
     },
     methods: {
@@ -82,7 +98,7 @@ const mentors = this.$store.getters.allMentors
 
             const filterValue = this.search.toLowerCase()
             const filter = event => 
-                event.title.toLowerCase().includes(filterValue) ||
+                
                 event.technos.some(tag => tag.toLowerCase().includes(filterValue))
       
             return mentors.filter(filter)

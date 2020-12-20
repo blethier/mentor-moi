@@ -54,36 +54,7 @@ userId: localStorage.getItem('userId') || '',
 
 
 const actions = {
-  async registerMentor(context, data) {
-    const mentorData = {
-    userId: context.getters.userId,
-     firstName: data.firstName,
-     lastName: data.lastName,
-     email: data.email,
-     avatar: data.avatar,
-     disponible: data.disponible,
-     title: data.title,
-     presentation: data.presentation,
-     technos: data.technos,
-     socials: data.socials      
-    };
-
-
-    await axios.post('https://mentor-moi-prod.herokuapp.com/api/mentors', mentorData, {
-    headers: {
-      // remove headers
-    }
-    }).then(res => {
-    console.log('RESPONSE' + ' ' + res.data.mentor);
-    context.commit('setMentorId', res.data.mentor)
-    context.commit('registerMentor', {...mentorData})
-    }).catch(err => {
-      const error = new Error(err.response || 'Erreur')
-      throw error;
-    });
-
-    
-  },
+ 
 
   async loadMentors(context) {
    await axios.get('https://mentor-moi-prod.herokuapp.com/api/mentors', {
@@ -106,6 +77,7 @@ const actions = {
            // remove headers
          }
        }).then(res => {
+         console.log(res.data)
          context.commit('setOneMentor', res.data)
        }).catch(err => {
          console.log(err.response);
