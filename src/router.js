@@ -10,6 +10,7 @@ import MentorUpdate from './pages/mentors/MentorUpdate.vue'
 import UserAuth from './pages/auth/UserAuth.vue'
 
 import NotFound from './pages/NotFound.vue'
+import store from './store/mentors/index'
 
 Vue.use(VueRouter);
 
@@ -30,5 +31,21 @@ const router = new VueRouter({
     base: process.env.BASE_URL,
     routes,
   });
+
+  router.beforeEach((to, from, next) => {
+    
+    if (to.fullPath === '/register') {
+      if (!store.state.token) {
+        next('/auth');
+      }
+    }
+    if (to.fullPath === '/register') {
+      if (store.state.accessToken) {
+        next('/mentors');
+      }
+    }
+    next();
+  });
+  
 
 export default router;

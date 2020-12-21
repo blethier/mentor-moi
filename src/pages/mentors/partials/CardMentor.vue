@@ -23,7 +23,7 @@
           <h1 class="text-center italic text-xl font-medium mb-3">{{ title }}</h1>
           <p class="text-center text-xl mb-3">{{presentation}} </p>
           <div class="text-center mb-6">
-            <span v-for="(techno, index) in technos" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
+            <span v-for="(techno, index) in technoss" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
           </div>  
           <div class="text-xl font-black  text-center bg-red-300 rounded-full py-2 text-white" v-if="!isLoggedIn">
             <router-link to="/auth">
@@ -81,6 +81,9 @@ export default {
       },
       socialsContact(){
           return JSON.parse(this.socials)
+      },
+      technoss(){
+           return JSON.parse(this.technos)
       },
       mentorsDetailsLink() {
         return this.$route.path + '/' + this.id

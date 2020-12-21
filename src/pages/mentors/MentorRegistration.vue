@@ -30,6 +30,8 @@
               </ValidationProvider>
               </div>
 
+               
+
               <div class="col-span-6 sm:col-span-3">
                 <label for="avatar" class="block  text-gray-700">Avatar(lien)</label>
                    <input 
@@ -208,10 +210,10 @@ import axios from 'axios';
          formData.append('disponible' ,this.disponible)
          formData.append('title', this.firstLetter(this.title))
          formData.append('presentation', this.presentation)
-         formData.append('technos' ,this.technos)
+         formData.append('technos' ,JSON.stringify(this.technos))
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)
-      formData.append('avatar',this.avatar, this.avatar.name);
+        formData.append('avatar',this.avatar, this.avatar.name);
         // eslint-disable-next-line no-console
         console.log(formData)
         await axios.post('https://mentor-moi.herokuapp.com/api/mentors', formData, {

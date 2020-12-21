@@ -105,7 +105,7 @@ await axios.post('https://mentor-moi.herokuapp.com/api/user/register',userData)
 },
 
 
-async updateMentor(context, data) {
+/* async updateMentor(context, data) {
   const id = context.getters.mentorId
   const mentorData = {
     userId: context.getters.userId,
@@ -130,11 +130,8 @@ async updateMentor(context, data) {
   context.commit('setOneMentor', mentorData)
   }).catch(err => {
   console.log(err.response.data);
-
-  });
-
-  
-},
+  });  
+}, */
 
 
 
