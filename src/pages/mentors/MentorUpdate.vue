@@ -160,7 +160,7 @@ import axios from 'axios';
   this.title =  this.$store.getters.oneMentor.title,
   this.avatar =  this.$store.getters.oneMentor.avatar,
   this.presentation =  this.$store.getters.oneMentor.presentation,
-  this.socials =  this.$store.getters.oneMentor.socials,
+  this.socials =  JSON.parse(this.$store.getters.oneMentor.socials),
   this.technos =  JSON.parse(this.$store.getters.oneMentor.technos)
   
   
@@ -234,7 +234,7 @@ import axios from 'axios';
          formData.append('disponible' ,this.disponible)
          formData.append('title', this.firstLetter(this.title))
          formData.append('presentation', this.presentation)
-         formData.append('technos' ,this.technos)
+         formData.append('technos' ,JSON.stringify(this.technos))
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)
         formData.append('avatar',this.avatar, this.avatar.name);

@@ -38,6 +38,7 @@
             <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
             <router-link  to="/" class="  px-3 py-2 rounded-md text-sm font-medium">Accueil</router-link>
             <router-link to="/mentors" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">Liste des mentors</router-link>
+            <router-link to="/faq" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">F.A.Q</router-link>
             <router-link v-if="!isLoggedIn" to="/auth" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">Se connecter</router-link>
           </div>
         </div>
@@ -85,6 +86,7 @@
       <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
       <router-link to="/" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Acceuil</router-link>
       <router-link to="/mentors" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Liste des mentors</router-link>
+      <router-link to="/faq" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">F.A.Q</router-link>
       <router-link to="/auth" v-if="!isLoggedIn" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
     </div>
   </div>

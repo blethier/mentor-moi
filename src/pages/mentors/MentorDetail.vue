@@ -26,7 +26,6 @@ export default {
     components : {PulseLoader, CardMentor},
      data () {
     return {
-     user: {},
      thisMentor: {},
      isPending: false
    }
@@ -45,7 +44,7 @@ this.mentorProfile()
 			} else {
 				return 'Indisponible'
 			}
-        }
+        },
   },
   methods : {
       mentorProfile(){

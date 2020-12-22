@@ -81,7 +81,7 @@ export default {
             return this.$store.getters['isAuth']
         },
         mentorId() {
-            return this.$store.getters['mentorId']
+            return this.$store.getters.mentorId
         },
         noMentor(){
             return this.filteredMentors.length === 0
@@ -105,14 +105,12 @@ const mentors = this.$store.getters.allMentors
         },
         async loadMentors() {
             
-            
+        this.isPending = true    
          this.$store.dispatch('loadMentors');
-
+        this.isPending = false
         },
         async loadOneMentor() {
-            // eslint-disable-next-line no-console
-            console.log(this.mentorId)
-            if(this.mentorId) {
+            if(this.mentorId !== undefined) {
         this.$store.dispatch('loadOneMentor');        
             }
 
