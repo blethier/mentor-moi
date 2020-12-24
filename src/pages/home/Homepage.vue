@@ -18,6 +18,9 @@ export default {
       Waves,
       Hero
     },
+    created(){
+this.loadMentors()
+    },
 
     methods: {
         async loadMentors() {
