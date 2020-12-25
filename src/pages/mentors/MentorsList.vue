@@ -112,14 +112,7 @@ const mentors = this.$store.getters.allMentors
         async loadOneMentor() {
             if(this.mentorId !== undefined) {
         this.$store.dispatch('loadOneMentor');        
-            }
-
-
-
- 
-    
-
-            
+            }  
         }
     }
     }
