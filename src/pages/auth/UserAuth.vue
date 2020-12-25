@@ -1,12 +1,12 @@
 <template>
-    <div class="container mx-auto">
+    <div class="container lg:h-screen mx-auto">
 			<div class="flex justify-center px-6 my-12">
 				<!-- Row -->
 				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
 					<!-- Col -->
 					<div
 						class="w-full h-auto bg-red-400 hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
-						:style="{ backgroundImage: 'url(' + require('../../assets/img/auth.svg') + ')' }"
+						:style="{ backgroundImage: 'url(' + require('../../assets/img/jay.jpg') + ')' }"
 					></div>
 					<!-- Col -->
 					<div class="w-full lg:w-1/2 bg-red-200 p-5 rounded-lg lg:rounded-l-none">

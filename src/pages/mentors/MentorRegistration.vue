@@ -46,7 +46,7 @@
 
               <div class="col-span-6 sm:col-span-4">
                 <label for="title" class="block  text-gray-700">Titre du profil</label>
-                <ValidationProvider rules="alpha_spaces" v-slot="{ errors }">
+                <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input type="text" required placeholder="Développeur Front" v-model.trim="title" id="title" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
                <p class="text-red-500 italic">{{ errors[0] }}</p>
               </ValidationProvider>

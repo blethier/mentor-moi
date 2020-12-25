@@ -1,5 +1,5 @@
 <template>
-    <div class="font-sans container flex justify-center leading-tight   p-8">
+    <div class="font-sans lg:h-screen container flex justify-center leading-tight   p-8">
         <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
   <CardMentor  :firstName="thisMentor.firstName"
                                                                             :lastName="thisMentor.lastName"

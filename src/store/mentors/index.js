@@ -37,6 +37,7 @@ const state = {
     'Flutter',
     'Ionic',
     'Django',
+    'Dart',
     'Backbone js',
     'Mongo DB',
     'PostgreSQL',

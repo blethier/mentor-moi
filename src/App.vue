@@ -1,5 +1,5 @@
 <template>
-<div class="darkMode">
+<div class="darkMode h-auto">
   <Navbar />
     <router-view></router-view>
   <Footer />
