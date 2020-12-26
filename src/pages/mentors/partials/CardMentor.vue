@@ -5,7 +5,7 @@
       <div class="flex bg-red-300  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
-          <img :src="avatar" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
+          <img :src="`https://mentor-moi.herokuapp.com/${avatar}`" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
         </router-link>
        
       </div>
