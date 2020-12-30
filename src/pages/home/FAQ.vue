@@ -1,6 +1,6 @@
 <template>
     <div>
-      <section class="text-red-300 lg:h-screen">
+      <section class="text-red-300 h-screen ">
         <div class="container px-5 py-24 mx-auto">
           <div class="text-center mb-20">
             <h1 class="sm:text-3xl text-2xl underline font-medium text-center title-font  mb-4">

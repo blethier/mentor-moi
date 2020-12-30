@@ -1,7 +1,7 @@
 <template>
    <footer class=" body-font text-lg">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
-    <router-link class="flex  font-medium items-center md:justify-start justify-center ">
+    <router-link to="/" class="flex  font-medium items-center md:justify-start justify-center ">
        <img class="block   h-14 w-auto" src="../assets/img/minilogo.png" alt="logo">
     </router-link>
     <p class=" text-xl sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-red-200 sm:py-2 sm:mt-0 mt-4">

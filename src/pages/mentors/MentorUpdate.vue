@@ -33,9 +33,10 @@
 
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="avatar" class="block  text-gray-700">Avatar(lien)</label>
+                <label for="avatar" class="block  text-gray-700">Avatar</label>
                    <input 
           type="file"
+          required
           ref="avatar"
           @change="onSelect"
         />
@@ -213,10 +214,10 @@ import axios from 'axios';
       // eslint-disable-next-line no-console
       console.log(avatar)
       if(!allowedTypes.includes(avatar.type)){
-        this.message = "Filetype is wrong!!"
+        this.message = "format JPG, JPEG ou PNG"
       }
-      if(avatar.size>15000000){
-        this.message = 'Taille max 500kb, format JPG, JPEG ou PNG'
+      if(avatar.size> 2 * 1024 * 1024 * 1024){
+        this.message = 'Taille max 2MB'
       }
     },
     firstLetter(word) {
@@ -252,10 +253,18 @@ import axios from 'axios';
     })
          
         this.$router.replace('/mentors')
-        this.$swal('Compte mentor modifié');
+        this.$toast.success('Profil modifié avec succès', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
         } catch (error) {
           this.error = error.message || 'Erreur'
-          this.$swal('Erreurs');
+          this.$toast.error('Une erreur est survenue,veuillez vérifiez le formulaire', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
         }
 
         

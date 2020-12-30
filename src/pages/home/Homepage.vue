@@ -18,22 +18,5 @@ export default {
       Waves,
       Hero
     },
-    created(){
-this.loadMentors()
-this.loadOneMentor()
-    },
-
-    methods: {
-        async loadMentors() {
-            this.isPending = true
-            await this.$store.dispatch('loadMentors');
-            this.isPending = false
-        },
-         async loadOneMentor() {
-            if(this.mentorId !== undefined) {
-        this.$store.dispatch('loadOneMentor');        
-            }  
-        }
-    }
 }
 </script>

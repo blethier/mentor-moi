@@ -1,5 +1,5 @@
 <template>
-    <div class="container lg:h-screen mt-12 mx-auto px-4">
+    <div class="container h-screen mt-12 mx-auto px-4">
         <div class="relative text-gray-600">
             <input type="search" name="serch" placeholder="Filtrer les mentors par techno" v-model="search" class="bg-red-300 placeholder-gray-800 text-gray-800 w-full h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
             
@@ -61,7 +61,7 @@ export default {
         };
     },
     mounted(){
-        //this.loadMentors(),
+        this.loadMentors(),
         this.loadOneMentor()
         
     },

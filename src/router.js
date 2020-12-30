@@ -35,7 +35,13 @@ const router = new VueRouter({
 
   router.beforeEach((to, from, next) => {
     
+    
     if (to.fullPath === '/register') {
+      if (!store.state.token) {
+        next('/auth');
+      }
+    }
+    if (to.fullPath === '/updateMentors') {
       if (!store.state.token) {
         next('/auth');
       }

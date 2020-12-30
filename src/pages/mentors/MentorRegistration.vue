@@ -227,10 +227,18 @@ import axios from 'axios';
     //this.$store.context.commit('registerMentor', {...formData})
     })
         this.$router.replace('/mentors')
-        this.$swal('Compte mentor créer');
+        this.$toast.success('Profil mentor crée avec succès', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
         } catch (error) {
           this.error = error.message || 'Erreur'
-          this.$swal('Erreurs');
+         this.$toast.error('Une erreur est survenue,veuillez vérifiez le formulaire', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
         }
 
         

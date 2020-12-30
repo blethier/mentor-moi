@@ -5,7 +5,7 @@
       <div class="flex bg-red-300  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
-          <img :src="avatar" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
+          <img :src="avatar" class="rounded-full object-cover object-top border-solid border-white  h-24 w-24 border-2 -mt-3">		
         </router-link>
        
       </div>
@@ -14,8 +14,17 @@
       <div class="p-6 bg-red-300">
 
       
+<!-- component -->
+<!-- This is an example component -->
 
-  <span :class="disponible === 'Oui' ? 'bg-green-600' : 'bg-red-500' " class=" px-4 py-2  font-bold leading-none text-red-100 transform  rounded-full">{{isDisponible}}</span>
+<div
+    class="px-4 h-6 w-32 rounded-full  font-semibold flex items-center cursor-pointer"
+    :class="disponibleColor"
+  >
+    <span  class="w-3 h-3 animate-pulse rounded-full mr-1" :class="disponible === 'Oui' ? 'bg-green-500' : '' "></span>
+   {{isDisponible}}
+  </div>
+  
 
         <router-link :to="mentorsDetailsLink" >
           <h2 class="tracking-widest text-center text-2xl mt-6 font-bold underline mb-1">{{ fullName }}</h2>
@@ -83,7 +92,7 @@ export default {
           return JSON.parse(this.socials)
       },
       technoss(){
-           return JSON.parse(this.technos)
+           return JSON.parse(this.technos ?? null)
       },
       mentorsDetailsLink() {
         return this.$route.path + '/' + this.id
@@ -97,7 +106,14 @@ export default {
 			} else {
 				return 'Indisponible'
 			}
-		}
+    }, 
+    disponibleColor(){
+      if (this.disponible === 'Oui'){
+        return 'bg-green-100 text-green-500'
+      } else {
+        return 'bg-red-100 text-red-500'
+      }
+    }
     }
 }
 </script>

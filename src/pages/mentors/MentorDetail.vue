@@ -1,7 +1,7 @@
 <template>
     <div class="font-sans lg:h-screen container flex justify-center leading-tight   p-8">
-        <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
-  <CardMentor  :firstName="thisMentor.firstName"
+       
+  <CardMentor   :firstName="thisMentor.firstName"
                                                                             :lastName="thisMentor.lastName"
                                                                                 :title="thisMentor.title"
                                                                                 :avatar="thisMentor.avatar"
@@ -18,12 +18,12 @@
 
 <script>
 
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
 import CardMentor from './partials/CardMentor.vue'
 
 
 export default {
-    components : {PulseLoader, CardMentor},
+    components : { CardMentor},
      data () {
     return {
      thisMentor: {},
