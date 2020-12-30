@@ -1,5 +1,5 @@
 <template>
-<div class="darkMode">
+<div class="darkMode ">
   <Navbar />
     <router-view></router-view>
   <Footer />
@@ -15,16 +15,6 @@ export default {
    Navbar,
    Footer
   },
-  created(){
-    this.loadMentors()
-  },
-   methods: {
-         loadMentors() {
-            this.isPending = true
-             this.$store.dispatch('loadMentors');
-            this.isPending = false
-        }
-   }
 }
 </script>
 
@@ -33,6 +23,5 @@ export default {
 
 * {
   font-family: 'Josefin Sans', sans-serif;
-  font-size : 18px;
 }
 </style>

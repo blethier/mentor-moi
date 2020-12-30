@@ -10,7 +10,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesome/free-brands-svg-icons'
 import { faHeart, faMapMarkerAlt, faAt, faGlobe, faLock, faHandPaper } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
+import VueToast from 'vue-toast-notification';
+// Import one of the available themes
+//import 'vue-toast-notification/dist/theme-default.css';
+import 'vue-toast-notification/dist/theme-sugar.css';
 
 import store from './store/mentors'
 
@@ -69,10 +72,13 @@ import('./assets/styles/index.css');
 Vue.config.productionTip = false
 Vue.use(Vuex);
 Vue.use(VueSweetalert2, options);
+Vue.use(VueToast);
 Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
-
-
+let instance = Vue.$toast.open('You did it!');
+instance.dismiss();
+// Dismiss all opened toast immediately
+Vue.$toast.clear();
 
 
 new Vue({

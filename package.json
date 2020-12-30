@@ -26,6 +26,7 @@
     "vue-router": "^3.4.9",
     "vue-spinner": "^1.0.4",
     "vue-sweetalert2": "^4.1.1",
+    "vue-toast-notification": "^0.6.0",
     "vuex": "^3.5.1"
   },
   "devDependencies": {
@@ -35,7 +36,7 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   },
   "eslintConfig": {
     "root": true,

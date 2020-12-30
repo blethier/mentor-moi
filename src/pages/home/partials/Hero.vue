@@ -1,24 +1,42 @@
 <template>
-    <section class="darkMode ">
-    <div class="container mx-auto flex px-5 py-12 md:flex-row flex-col items-center">
-      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-        <h1 class="font-sans sm:text-4xl text-3xl mb-4 font-bold text-red-400">
-            Progresser avec un mentor
-        </h1>
-        <p class="mb-4 leading-relaxed">
-            Connecter les Développeurs Juniors (ou pas) avec des mentors expérimentés spécialisés dans leurs domaines, afin de progresser grâce à l'entraide.
-        </p>
-        <p class="mb-8 leading-relaxed">
+    <section class="darkMode mt-12 ">
+    <div class="relative bg-red-300 overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="relative z-10 pb-8 bg-red-300 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-red-300 transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="50,0 100,0 50,100 0,100" />
+      </svg>
+
+      <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+        
+      </div>
+
+    
+
+      <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+        <div class="sm:text-center lg:text-left">
+          <h1 class="text-4xl tracking-tight font-extrabold sm:text-5xl md:text-6xl">
+            <span class="block xl:inline">Boostez votre carrière avec </span>
+            <span class="block text-red-700 xl:inline">un Mentor</span>
+          </h1>
+          <p class="mt-3 text-xl sm:mt-5 sm:max-w-xl sm:mx-auto md:mt-5  lg:mx-0">
+            Vous êtes étudiant, en reconversion professionnelle ou même déja en poste ? On ne cesse d'apprendre dans le milieu de l'informatique, optez pour le mentorat pour booster votre carrière.
+          </p>
           
-          Le mentorat offre la possibilité de poser des questions, de demander des conseils ou de l'aide pour développer leurs compétences et leurs connaissances en développement Web
-        </p>
-        <div class="flex justify-center">
-          <router-link to="/mentors" class="inline-flex text-gray-800 bg-red-400 border-0 py-2 px-6 focus:outline-none rounded text-lg">Voir les mentors</router-link>
+            
+            <div class="mt-10 text-center sm:mt-8 sm:ml-3">
+              <router-link to="/mentors" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 bg-red-700 md:text-lg md:px-10">
+                Voir les mentors
+              </router-link>
+            </div>
+         
         </div>
-      </div>
-      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 rounded-full">
-        <img class="object-cover object-center rounded" alt="hero" src="../../../assets/img/hero.svg"/>
-      </div>
+      </main>
     </div>
+  </div>
+  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.pexels.com/photos/3277808/pexels-photo-3277808.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+  </div>
+</div>
   </section>
 </template>

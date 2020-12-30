@@ -33,15 +33,21 @@
 
 
               <div class="col-span-6 sm:col-span-3">
-                <label for="avatar" class="block ">Avatar(lien)</label>
-                <input type="text" id="avatar" v-model.trim="avatar" placeholder="https://images.unsplash.com/photo-1591622414979-6ef6664b2589?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTR8fGJsYWNrJTIwbGl2ZXMlMjBtYXR0ZXJ8ZW58MHx8MHw%3D&auto=format&fit=crop&w=500&q=60" class="mt-1 h-6 block w-full shadow-sm py-4 px-2 rounded-md">
+                <label for="avatar" class="block  text-gray-700">Avatar</label>
+                   <input 
+          type="file"
+          required
+          ref="avatar"
+          @change="onSelect"
+        />
+         <p class="text-red-500 italic">{{ message }}</p>
               </div>
 
               
 
               <div class="col-span-6 sm:col-span-4">
                 <label for="title" class="block ">Titre du profil</label>
-                <ValidationProvider rules="alpha_spaces" v-slot="{ errors }">
+                <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input type="text" required placeholder="Développeur Front" v-model.trim="title" id="title" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
               <p class="text-red-500 italic">{{ errors[0] }}</p>
                 </ValidationProvider>
@@ -134,6 +140,7 @@
 
 <script>
   import Multiselect from 'vue-multiselect'
+import axios from 'axios';
 
  
 
@@ -154,8 +161,8 @@
   this.title =  this.$store.getters.oneMentor.title,
   this.avatar =  this.$store.getters.oneMentor.avatar,
   this.presentation =  this.$store.getters.oneMentor.presentation,
-  this.socials =  this.$store.getters.oneMentor.socials,
-  this.technos =  this.$store.getters.oneMentor.technos
+  this.socials =  JSON.parse(this.$store.getters.oneMentor.socials),
+  this.technos =  JSON.parse(this.$store.getters.oneMentor.technos)
   
   
   
@@ -163,6 +170,7 @@
   data () {
     return {
       firstName: '',
+      message : '',
       lastName: '',
       title:'',
       avatar: '',
@@ -199,25 +207,70 @@
         }
   },
   methods : {  
+    onSelect(){
+      const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
+      const avatar = this.$refs.avatar.files[0];
+      this.avatar = avatar;
+      // eslint-disable-next-line no-console
+      console.log(avatar)
+      if(!allowedTypes.includes(avatar.type)){
+        this.message = "format JPG, JPEG ou PNG"
+      }
+      if(avatar.size> 2 * 1024 * 1024 * 1024){
+        this.message = 'Taille max 2MB'
+      }
+    },
     firstLetter(word) {
 
   return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
 },
-      async submitForm() {
+       async submitForm() {
 
-        const formData = {
-          firstName:this.firstLetter(this.firstName) ,
-          lastName: this.firstLetter(this.lastName),
-          disponible : this.disponible,
-          avatar: this.avatar,
-          title: this.firstLetter(this.title),
-          presentation: this.presentation,
-          technos: this.technos,
-          socials: this.socials
-        };
+
+        try {
+          const id = this.$store.getters.mentorId;
+         const formData = new FormData();
+         formData.append('firstName',this.firstLetter(this.firstName));
+         formData.append('lastName',this.firstLetter(this.lastName));
+         formData.append('disponible' ,this.disponible)
+         formData.append('title', this.firstLetter(this.title))
+         formData.append('presentation', this.presentation)
+         formData.append('technos' ,JSON.stringify(this.technos))
+         formData.append('socials' , JSON.stringify(this.socials) )
+         formData.append('userId' ,this.$store.getters.userId)
+        formData.append('avatar',this.avatar, this.avatar.name);
         // eslint-disable-next-line no-console
-        await this.$store.dispatch('updateMentor',formData);
+        console.log(formData)
+        await axios.patch(`https://mentor-moi.herokuapp.com/api/mentors/${id}`, formData, {
+      headers: {
+      // remove headers
+    }
+    }).then(res => {
+    // eslint-disable-next-line no-console
+    console.log('RESPONSE' + ' ' + res);
+    //this.$store.context.commit('setMentorId', res.data.mentor)
+    //this.$store.context.commit('registerMentor', {...formData})
+    })
+         
         this.$router.replace('/mentors')
+        this.$toast.success('Profil modifié avec succès', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
+        } catch (error) {
+          this.error = error.message || 'Erreur'
+          this.$toast.error('Une erreur est survenue,veuillez vérifiez le formulaire', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
+        }
+
+        
+      
+      
+        
       }
   }
 }

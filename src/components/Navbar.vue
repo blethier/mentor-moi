@@ -1,5 +1,5 @@
 <template>
-    <div class="darkMode antialiased mb-6" >
+    <div class="darkMode antialiased py-2 mb-6" >
    <!-- This example requires Tailwind CSS v2.0+ -->
 <nav class="darkMode">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -30,16 +30,16 @@
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <router-link to="/" class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden h-20 w-auto" src="../assets/img/new.png" alt="Workflow">
-          <img class="hidden lg:block h-10 w-auto" src="../assets/img/minilogo.png" alt="Workflow">
+          <img class="block lg:hidden mt-8 h-20 w-auto" src="../assets/img/minilogo.png" alt="Workflow">
+          <img class="hidden lg:block h-10 w-auto" src="../assets/img/newlogo.png" alt="Workflow">
         </router-link>
          <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
-            <router-link  to="/" class="  px-3 py-2 rounded-md text-sm font-medium">Accueil</router-link>
-            <router-link to="/mentors" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">Liste des mentors</router-link>
-             <router-link to="/faq" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">F.A.Q</router-link>
-            <router-link v-if="!isLoggedIn" to="/auth" active-class="red-nav" class="  px-3 py-2 rounded-md text-sm font-medium">Se connecter</router-link>
+            <router-link  to="/" class="  px-3 py-2 rounded-md text-lg font-medium">Accueil</router-link>
+            <router-link to="/mentors" active-class="red-nav" class="  px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
+            <router-link to="/faq" active-class="red-nav" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
+            <router-link v-if="!isLoggedIn" to="/auth" active-class="red-nav" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
           </div>
         </div>
       </div>
@@ -48,9 +48,9 @@
         <!-- Profile dropdown -->
         <div v-if="isLoggedIn" class="ml-12 relative">
           <div>
-            <button @click="toggleMenu" class=" flex text-sm rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
+            <button @click="toggleMenu" class=" flex text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
               <span class="sr-only">Open user menu</span>
-              <Avatar :username="userAuth" :size=50 color="white" background-color="#F87171" />
+              <Avatar :username="userAuth" :size=50 color="white" background-color="#FCA5A5" />
             </button>
           </div>
           <!--
@@ -112,7 +112,7 @@ Avatar
   },
    created() {
     window.addEventListener('click', this.close)
-    window.addEventListener('beforeunload', this.logout)
+   // window.addEventListener('beforeunload', this.logout)
   },
    beforeDestroy() {
     window.removeEventListener('click', this.close)

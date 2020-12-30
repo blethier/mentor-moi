@@ -5,7 +5,7 @@
       <div class="flex bg-red-300  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
-          <img :src="`https://mentor-moi-prod.herokuapp.com/${avatar}`" class="rounded-full object-cover border-solid border-white object-center h-24 w-24 border-2 -mt-3">		
+          <img :src="avatar" class="rounded-full object-cover object-top border-solid border-white  h-24 w-24 border-2 -mt-3">		
         </router-link>
        
       </div>
@@ -14,8 +14,17 @@
       <div class="p-6 bg-red-300">
 
       
+<!-- component -->
+<!-- This is an example component -->
 
-  <span :class="disponible === 'Oui' ? 'bg-green-600' : 'bg-red-500' " class=" px-4 py-2  font-bold leading-none text-red-100 transform  rounded-full">{{isDisponible}}</span>
+<div
+    class="px-4 h-6 w-32 rounded-full  font-semibold flex items-center cursor-pointer"
+    :class="disponibleColor"
+  >
+    <span  class="w-3 h-3 animate-pulse rounded-full mr-1" :class="disponible === 'Oui' ? 'bg-green-500' : '' "></span>
+   {{isDisponible}}
+  </div>
+  
 
         <router-link :to="mentorsDetailsLink" >
           <h2 class="tracking-widest text-center text-2xl mt-6 font-bold underline mb-1">{{ fullName }}</h2>
@@ -23,7 +32,7 @@
           <h1 class="text-center italic text-xl font-medium mb-3">{{ title }}</h1>
           <p class="text-center text-xl mb-3">{{presentation}} </p>
           <div class="text-center mb-6">
-            <span v-for="(techno, index) in technos" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
+            <span v-for="(techno, index) in technoss" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
           </div>  
           <div class="text-xl font-black  text-center bg-red-300 rounded-full py-2 text-white" v-if="!isLoggedIn">
             <router-link to="/auth">
@@ -39,21 +48,21 @@
              
               
 
-                 <a v-if="social.web"  :href="social.web">
+                 <a v-if="social.web" target="_blank" rel="noopener" :href="social.web">
                 <font-awesome-icon v-if="social.web" class="text-3xl mr-2" :icon="'globe'" />  
   </a>
 
-                 <a v-if="social.github"  :href="social.github">
+                 <a v-if="social.github" target="_blank" rel="noopener" :href="`https://github.com/${social.github}`">
                 <font-awesome-icon v-if="social.github" class="text-3xl mr-2" :icon="['fab', 'github-square']" />  
   </a> 
 
-                 <a v-if="social.twitter"  :href="social.twitter">
+                 <a v-if="social.twitter" target="_blank" rel="noopener" :href="`https://twitter.com/${social.twitter}`">
                 <font-awesome-icon v-if="social.twitter" class="text-3xl mr-2" :icon="['fab', 'twitter-square']" />  
   </a>
-                 <a v-if="social.discord"  :href="social.discord">
+                 <a v-if="social.discord" target="_blank" rel="noopener" :href="social.discord">
                 <font-awesome-icon v-if="social.discord" class="text-3xl mr-2" :icon="['fab', 'discord']" />  
   </a>
-  <a v-if="social.linkedin"  :href="social.linkedin">
+  <a v-if="social.linkedin" target="_blank" rel="noopener" :href="`https://linkedin.com/in/${social.linkedin}`">
                 <font-awesome-icon v-if="social.linkedin" class="text-3xl mr-2" :icon="['fab', 'linkedin']" />  
   </a>
 
@@ -82,6 +91,9 @@ export default {
       socialsContact(){
           return JSON.parse(this.socials)
       },
+      technoss(){
+           return JSON.parse(this.technos ?? null)
+      },
       mentorsDetailsLink() {
         return this.$route.path + '/' + this.id
       },
@@ -94,7 +106,14 @@ export default {
 			} else {
 				return 'Indisponible'
 			}
-		}
+    }, 
+    disponibleColor(){
+      if (this.disponible === 'Oui'){
+        return 'bg-green-100 text-green-500'
+      } else {
+        return 'bg-red-100 text-red-500'
+      }
+    }
     }
 }
 </script>

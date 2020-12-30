@@ -30,6 +30,8 @@
               </ValidationProvider>
               </div>
 
+               
+
               <div class="col-span-6 sm:col-span-3">
                 <label for="avatar" class="block  text-gray-700">Avatar(lien)</label>
                    <input 
@@ -44,7 +46,7 @@
 
               <div class="col-span-6 sm:col-span-4">
                 <label for="title" class="block  text-gray-700">Titre du profil</label>
-                <ValidationProvider rules="alpha_spaces" v-slot="{ errors }">
+                <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input type="text" required placeholder="Développeur Front" v-model.trim="title" id="title" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
                <p class="text-red-500 italic">{{ errors[0] }}</p>
               </ValidationProvider>
@@ -57,7 +59,7 @@
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <label for="city" class="block  text-gray-700">Twitter</label>
-                <ValidationProvider :rules="{ regex: /^[^<>*%:&\\]*$/ }" v-slot="{ errors }">
+                <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input  v-model.trim="socials[0].twitter" type="text" name="city" id="twitter" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
                 <p class="text-red-500 italic">{{ errors[0] }}</p>
               </ValidationProvider>
@@ -65,7 +67,7 @@
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label for="state" class="block  text-gray-700">Linkedin</label>
-                 <ValidationProvider :rules="{ regex: /^[^<>*%:&\\]*$/ }" v-slot="{ errors }">
+                 <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input  v-model.trim="socials[0].linkedin" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
                <p class="text-red-500 italic">{{ errors[0] }}</p>
               </ValidationProvider>
@@ -73,7 +75,7 @@
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label for="state" class="block  text-gray-700">Github</label>
-                 <ValidationProvider :rules="{ regex: /^[^<>*%:&\\]*$/ }" v-slot="{ errors }">
+                 <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input  v-model.trim="socials[0].github" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
                <p class="text-red-500 italic">{{ errors[0] }}</p>
               </ValidationProvider>
@@ -81,7 +83,7 @@
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label for="state" class="block  text-gray-700">Discord</label>
-                <ValidationProvider :rules="{ regex: /^[^<>*%:&\\]*$/ }" v-slot="{ errors }">
+                <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input  v-model.trim="socials[0].discord" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
               <p class="text-red-500 italic">{{ errors[0] }}</p>
               </ValidationProvider>
@@ -89,7 +91,7 @@
 
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                 <label for="state" class="block  text-gray-700">Site perso</label>
-                 <ValidationProvider :rules="{ regex: /^[^<>*%:&\\]*$/ }" v-slot="{ errors }">
+                 <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <input  v-model.trim="socials[0].web" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
                <p class="text-red-500 italic">{{ errors[0] }}</p>
               </ValidationProvider>
@@ -103,7 +105,7 @@
               </div>
 
               <div class="col-span-6 sm:col-span-4">
-                 <ValidationProvider :rules="{ regex: /^[^<>*%:&\\]*$/ }" v-slot="{ errors }">
+                 <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
                 <label for="presentation" class="block  text-gray-700">Présentation</label>
                 <textarea v-model.trim="presentation" required  id="presentation" class="w-full px-3 py-2 text-gray-700 border rounded-lg resize-none" rows="4"></textarea>
               <p class="text-red-500 italic">{{ errors[0] }}</p>
@@ -208,10 +210,10 @@ import axios from 'axios';
          formData.append('disponible' ,this.disponible)
          formData.append('title', this.firstLetter(this.title))
          formData.append('presentation', this.presentation)
-         formData.append('technos' ,this.technos)
+         formData.append('technos' ,JSON.stringify(this.technos))
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)
-      formData.append('avatar',this.avatar, this.avatar.name);
+        formData.append('avatar',this.avatar, this.avatar.name);
         // eslint-disable-next-line no-console
         console.log(formData)
         await axios.post('https://mentor-moi-prod.herokuapp.com/api/mentors', formData, {
@@ -224,12 +226,19 @@ import axios from 'axios';
     //this.$store.context.commit('setMentorId', res.data.mentor)
     //this.$store.context.commit('registerMentor', {...formData})
     })
-         this.$store.dispatch('registerMentor',formData);
         this.$router.replace('/mentors')
-        this.$swal('Compte mentor créer');
+        this.$toast.success('Profil mentor crée avec succès', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
         } catch (error) {
           this.error = error.message || 'Erreur'
-          this.$swal('Erreurs');
+         this.$toast.error('Une erreur est survenue,veuillez vérifiez le formulaire', {
+  position: 'bottom-left',
+  duration: 5000
+
+})
         }
 
         
