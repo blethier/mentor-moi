@@ -50,7 +50,7 @@
 <script>
 import CardMentor from './partials/CardMentor'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
-import { page } from 'vue-analytics'
+
 
 export default {
     components: {CardMentor, PulseLoader},
@@ -89,9 +89,6 @@ export default {
         
     },
     methods: {
-         track () {
-      page('/mentors')
-    },
              
         filter(){
 const mentors = this.$store.getters.allMentors

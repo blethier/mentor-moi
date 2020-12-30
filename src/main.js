@@ -74,7 +74,8 @@ Vue.use(Vuex);
 Vue.use(VueSweetalert2, options);
 Vue.use(VueToast);
 Vue.use(VueAnalytics, {
-  id: 'G-HDDCN68BFZ'
+  id: 'G-HDDCN68BFZ',
+  router
 })
 Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
