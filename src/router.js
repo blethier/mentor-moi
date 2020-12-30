@@ -8,6 +8,7 @@ import MentorDetail from './pages/mentors/MentorDetail.vue'
 import MentorRegistration from './pages/mentors/MentorRegistration.vue'
 import MentorUpdate from './pages/mentors/MentorUpdate.vue'
 import UserAuth from './pages/auth/UserAuth.vue'
+import VueAnalytics from 'vue-analytics'
 
 import NotFound from './pages/NotFound.vue'
 import store from './store/mentors/index'
