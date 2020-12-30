@@ -10,7 +10,7 @@ import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesom
 import { faHeart, faMapMarkerAlt, faAt, faGlobe, faLock, faHandPaper } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueToast from 'vue-toast-notification';
-import VueAnalytics from 'vue-analytics'
+//import VueAnalytics from 'vue-analytics'
 //import 'vue-toast-notification/dist/theme-default.css';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
@@ -59,10 +59,6 @@ extend('email', {
     message: 'Les caractères spéciaux ne sont pas acceptés'
   });
 
-  const options = {
-    confirmButtonColor: '#41b882',
-    background: '#f87171'  
-  };
 
 
 
@@ -71,10 +67,10 @@ import('./assets/styles/index.css');
 Vue.config.productionTip = false
 Vue.use(Vuex);
 Vue.use(VueToast);
-Vue.use(VueAnalytics, {
-  id: 'G-HDDCN68BFZ',
-  router
-})
+//Vue.use(VueAnalytics, {
+//  id: 'G-HDDCN68BFZ',
+//  router
+//})
 Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
 let instance = Vue.$toast.open('You did it!');

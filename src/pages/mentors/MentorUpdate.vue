@@ -259,6 +259,8 @@ import axios from 'axios';
 
 })
         } catch (error) {
+          // eslint-disable-next-line no-console
+          console.log(error)
           this.error = error.message || 'Erreur'
           this.$toast.error('Une erreur est survenue,veuillez vérifiez le formulaire', {
   position: 'bottom-left',
