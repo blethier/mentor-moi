@@ -37,9 +37,9 @@
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
             <router-link  to="/" class="  px-3 py-2 rounded-md text-lg font-medium">Accueil</router-link>
-            <router-link to="/mentors" active-class="red-nav" class="  px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
-            <router-link to="/faq" active-class="red-nav" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
-            <router-link v-if="!isLoggedIn" to="/auth" active-class="red-nav" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
+            <router-link to="/mentors" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
+            <router-link to="/faq" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
+            <router-link v-if="!isLoggedIn" to="/auth" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
           </div>
         </div>
       </div>
@@ -50,7 +50,7 @@
           <div>
             <button @click="toggleMenu" class=" flex text-lg rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true">
               <span class="sr-only">Open user menu</span>
-              <Avatar :username="userAuth" :size=50 color="white" background-color="#FCA5A5" />
+              <Avatar :username="userAuth" :size=50 color="white" background-color="#a67c50" />
             </button>
           </div>
           <!--
@@ -65,9 +65,9 @@
           -->
           <div :class="openMenu ? 'block': 'hidden'" class="invertedDarkMode z-50 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
               <div class="px-2 pt-2 pb-3 space-y-1">
-            <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-red-300  " role="menuitem">Devenir Mentor</router-link>
-            <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-red-300  " role="menuitem">Modifier mon profil</router-link>
-            <p @click="logout" href="#" class="block px-4 py-2 hover:bg-red-300  " role="menuitem">Déconnexion</p>
+            <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-sands  " role="menuitem">Devenir Mentor</router-link>
+            <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-sands " role="menuitem">Modifier mon profil</router-link>
+            <p @click="logout" href="#" class="block px-4 py-2 hover:bg-sands " role="menuitem">Déconnexion</p>
               </div>
            
           </div>
@@ -84,10 +84,10 @@
   <div :class="open ? 'block': 'hidden'" class=" sm:hidden">
     <div class="px-2 pt-2 pb-3 space-y-1">
       <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
-      <router-link to="/" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Acceuil</router-link>
-      <router-link to="/mentors" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Liste des mentors</router-link>
-      <router-link to="/faq" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">F.A.Q</router-link>
-      <router-link to="/auth" v-if="!isLoggedIn" class=" hover:bg-red-300  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
+      <router-link to="/" class="  block px-3 py-2 rounded-md text-base font-medium">Acceuil</router-link>
+      <router-link to="/mentors" class="  block px-3 py-2 rounded-md text-base font-medium">Liste des mentors</router-link>
+      <router-link to="/faq" class="  block px-3 py-2 rounded-md text-base font-medium">F.A.Q</router-link>
+      <router-link to="/auth" v-if="!isLoggedIn" class="  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
     </div>
   </div>
 </nav>

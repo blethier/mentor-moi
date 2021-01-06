@@ -1,9 +1,23 @@
 <template>
-    <div class="container h-screen mt-12 mx-auto px-4">
-        <div class="relative text-gray-600">
-            <input type="search" name="serch" placeholder="Filtrer les mentors par techno" v-model="search" class="bg-red-300 placeholder-gray-800 text-gray-800 w-full h-10 px-5 pr-10 rounded-full text-sm focus:outline-none">
-            
+    <div class="container  mt-6 mx-auto px-4">
+        <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+    <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mb-10 md:mb-0">
+      <img class="object-cover object-center rounded" alt="hero" src="https://images.pexels.com/photos/3875096/pexels-photo-3875096.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+    </div>
+    <div class="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
+      <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-darkSands">Knausgaard typewriter readymade marfa</h1>
+      <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
+      <div class="flex w-full md:justify-start justify-center items-end">
+        <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4" >
+          <input type="search" v-model="search" class="w-full bg-sands bg-opacity-50 rounded border border-darkSands focus:ring-2 focus:ring-sand focus:bg-transparent focus:border-darkSands text-base outline-none darkMode py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" data-kwimpalastatus="alive" data-kwimpalaid="1609853631472-5">
         </div>
+    
+      </div>
+      
+      
+    </div>
+  </div>
+
     
         <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
         <section class="text-gray-700 body-font">
@@ -50,6 +64,7 @@
 <script>
 import CardMentor from './partials/CardMentor'
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
+
 
 
 export default {

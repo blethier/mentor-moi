@@ -1,8 +1,8 @@
 <template> 
   <div class="p-4 md:w-1/3">
-    <div class="h-full border-2 border-red-300 bg-red-300 rounded-lg overflow-hidden">
-      <img class="h-12  w-full object-cover object-center" src="https://images.unsplash.com/photo-1491895200222-0fc4a4c35e18?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1934&q=80" alt="background">
-      <div class="flex bg-red-300  justify-center -mt-8">
+    <div class="h-full border-4 border-darkSands  bg-sands rounded-lg overflow-hidden">
+      <img class="h-12  w-full bg-red-800 object-cover object-center" src="https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8anVuZ2xlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="background">
+      <div class="flex bg-sands  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
           <img :src="avatar" class="rounded-full object-cover object-top border-solid border-white  h-24 w-24 border-2 -mt-3">		
@@ -11,7 +11,7 @@
       </div>
        
       
-      <div class="p-6 bg-red-300">
+      <div class="p-6 bg-sands">
 
       
 <!-- component -->
@@ -34,7 +34,7 @@
           <div class="text-center mb-6">
             <span v-for="(techno, index) in technoss" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
           </div>  
-          <div class="text-xl font-black  text-center bg-red-300 rounded-full py-2 text-white" v-if="!isLoggedIn">
+          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-white" v-if="!isLoggedIn">
             <router-link to="/auth">
 <font-awesome-icon  class="text-2xl mr-2" :icon="'lock'" />  
             <p>
@@ -69,7 +69,7 @@
             </div>
           </div>
 
-          <div class="text-xl font-black  text-center bg-red-300 rounded-full py-2 text-white" v-else-if="isLoggedIn">
+          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-white" v-else-if="isLoggedIn">
 <font-awesome-icon  class="text-2xl mr-2" :icon="'hand-paper'" />  
             <p>
                 Désolé le mentor n'est pas disponible pour le moment

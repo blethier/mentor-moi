@@ -1,5 +1,5 @@
 <template>
-    <div class="container h-screen mx-auto">
+    <div class="container text-gray-800 h-screen mx-auto">
 			<div class="flex justify-center px-6 my-12">
 				<!-- Row -->
 				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
@@ -9,18 +9,18 @@
 						:style="{ backgroundImage: 'url(' + require('../../assets/img/jay.jpg') + ')' }"
 					></div>
 					<!-- Col -->
-					<div class="w-full lg:w-1/2 bg-red-200 p-5 rounded-lg lg:rounded-l-none">
-						<h3 v-if="mode === 'login'" class="pt-4 text-2xl text-red-500 text-center">Connectez vous</h3>
-						<h3 v-if="mode === 'signup'" class="pt-4 text-2xl text-red-500 text-center">Inscrivez vous</h3>
+					<div class="w-full lg:w-1/2 bg-sands p-5 rounded-lg lg:rounded-l-none">
+						<h3 v-if="mode === 'login'" class="pt-4 text-2xl  text-center">Connectez vous</h3>
+						<h3 v-if="mode === 'signup'" class="pt-4 text-2xl  text-center">Inscrivez vous</h3>
 						<ValidationObserver v-slot="{ invalid }">
 						<form @submit.prevent="submitForm" class="px-8 pt-6 pb-8 mb-4  rounded">
 							<div class="mb-4">
-								<label class="block mb-2 text-sm font-bold text-gray-700" for="username">
+								<label class="block mb-2 text-sm font-bold " for="username">
 									Email
 								</label>
 								<ValidationProvider rules="email" v-slot="{ errors }">
 								<input
-									class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="w-full px-3 py-2 text-sm leading-tight  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="email"
 									required
 									v-model.trim="email"
@@ -35,12 +35,12 @@
 							
 							
 							<div v-if="mode === 'login'" class="mb-4">
-								<label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+								<label class="block mb-2 text-sm font-bold " for="password">
 									Mot de passe
 								</label>
 								<ValidationProvider rules="min:6" v-slot="{ errors }">
 								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight  border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
 									required
 									v-model.trim="password"
@@ -52,12 +52,12 @@
 							</div>
 
 							<div v-if="mode === 'signup'" class="mb-4">
-								<label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+								<label class="block mb-2 text-sm font-bold " for="password">
 									Mot de passe
 								</label>
 								<ValidationProvider rules="confirmed:confirmation" v-slot="{ errors }">
 								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight  border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									id="password"
 									required
 									v-model.trim="passwordSignup"
@@ -71,12 +71,12 @@
 							
 
 							<div v-if="mode === 'signup'" class="mb-4">
-								<label class="block mb-2 text-sm font-bold text-gray-700" for="password">
+								<label class="block mb-2 text-sm font-bold " for="password">
 									Confirmez Mot de passe
 								</label>
 								<ValidationProvider v-slot="{ errors }" vid="confirmation">
 								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
+									class="w-full px-3 py-2 mb-3 text-sm leading-tight  border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
 									v-model="repeatPassword"
 									
 									type="password"
@@ -94,7 +94,7 @@
 							<div class="mb-6 text-center">
 								<button
 									class="w-full px-4 py-2 font-bold text-white rounded-full focus:outline-none focus:shadow-outline"
-									:class="invalid ?  'bg-red-500 cursor-not-allowed disabled disabled:opacity-50' : 'bg-red-500'"
+									:class="invalid ?  'bg-darkSands cursor-not-allowed disabled disabled:opacity-50' : 'bg-darkSands'"
 									type="submit"
 									:disabled="invalid"
 								>

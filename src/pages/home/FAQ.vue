@@ -1,9 +1,9 @@
 <template>
     <div>
-      <section class="text-red-300 h-screen ">
+      <section class=" h-screen ">
         <div class="container px-5 py-24 mx-auto">
           <div class="text-center mb-20">
-            <h1 class="sm:text-3xl text-2xl underline font-medium text-center title-font  mb-4">
+            <h1 class="sm:text-3xl text-2xl underline font-medium text-darkSands text-center title-font  mb-4">
               Foire Aux Questions
             </h1>
             <p class="text-base darkMode leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
@@ -13,7 +13,7 @@
           <div class="flex flex-wrap lg:w-4/5 darkMode sm:mx-auto sm:mb-2 -mx-2">
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Pourquoi un mentor ?
                 </summary>
 
@@ -23,7 +23,7 @@
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800 bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800 bg-sands rounded-md py-2 px-4">
                   Le service est il payant?
                 </summary>
 
@@ -37,7 +37,7 @@
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   C'est quoi un mentor?
                 </summary>
 
@@ -49,7 +49,7 @@
               </details>
 
                <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment devenir Mentor?
                 </summary>
 
@@ -63,7 +63,7 @@
             </div>
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Quel est le rôle de Mentor-moi ?
                 </summary>
 
@@ -77,7 +77,7 @@
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment se déroule la recherche de mentor?
                 </summary>
 
@@ -110,7 +110,7 @@
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   C'est quoi un mentoré ?
                 </summary>
 
@@ -123,7 +123,7 @@
               </details>
 
                <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-red-300 rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment mettre fin au mentorat ?
                 </summary>
 
