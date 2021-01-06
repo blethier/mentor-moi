@@ -39,6 +39,7 @@
             <router-link  to="/" class="  px-3 py-2 rounded-md text-lg font-medium">Accueil</router-link>
             <router-link to="/mentors" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
             <router-link to="/faq" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
+            <router-link to="/jobs" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">JOBS</router-link>
             <router-link v-if="!isLoggedIn" to="/auth" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
           </div>
         </div>
