@@ -21,10 +21,10 @@
     
         <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
         <section class="text-gray-700 body-font">
-            <div class="container px-5  mx-auto">
+            <div class="">
                 <div  class="flex flex-wrap -m-4">
                     <section class="text-gray-700 body-font">
-                        <div class="container px-5 py-12 mx-auto">
+                        <div class=" px-5 py-12 mx-">
                             <div v-if="hasMentors" class="flex flex-wrap -m-4">
                                 <CardMentor  v-for="mentor in filteredMentors" :key="mentor._id" :firstName="mentor.firstName"
                                                                             :lastName="mentor.lastName"

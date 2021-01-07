@@ -182,7 +182,7 @@ export default {
 					email: this.email,
 					password: this.passwordSignup
 				})
-				this.$swal('Votre compte a bien été crée');
+				//this.$swal('Votre compte a bien été crée');
 				this.mode === 'login'
 		} catch (error) {
 			// eslint-disable-next-line no-console

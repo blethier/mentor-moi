@@ -19,7 +19,7 @@ module.exports = {
       transparent: 'transparent',
       current: 'currentColor',
       sands: '#EDC9Af',
-      darkSands: '#a67c50',
+      darkSands: '#A67C50',
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -67,7 +67,7 @@ module.exports = {
       72: '18rem',
       80: '20rem',
       96: '24rem',
-      610: '610px'
+      500: '500px'
     },
     animation: {
       none: 'none',

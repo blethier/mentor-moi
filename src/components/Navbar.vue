@@ -30,8 +30,8 @@
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <router-link to="/" class="flex-shrink-0 flex items-center">
-          <img class="block lg:hidden mt-8 h-20 w-auto" src="../assets/img/minilogo.png" alt="Workflow">
-          <img class="hidden lg:block h-10 w-auto" src="../assets/img/newlogo.png" alt="Workflow">
+          <img class="block lg:hidden mt-8 h-16 w-auto" src="../assets/img/minilogo.svg" alt="Workflow">
+          <img class="hidden lg:block h-14 w-auto" src="../assets/img/logo.svg" alt="Workflow">
         </router-link>
          <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">

@@ -1,6 +1,6 @@
 <template> 
   <div class="p-4 md:w-1/3">
-    <div class="h-full border-4 border-darkSands  bg-sands rounded-lg overflow-hidden">
+    <div class=" h-500 border-4 border-darkSands  bg-sands rounded-lg overflow-hidden">
       <img class="h-12  w-full bg-red-800 object-cover object-center" src="https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8anVuZ2xlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="background">
       <div class="flex bg-sands  justify-center -mt-8">
         
