@@ -99,7 +99,6 @@ router.patch('/mentors/:id', upload.single('avatar'),async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         avatar: result.secure_url,
-        //avatar: req.body.avatar,
         title: req.body.title,
         disponible: req.body.disponible,
         presentation: req.body.presentation,
