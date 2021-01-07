@@ -61,7 +61,7 @@ router.post('/mentors', upload.single('avatar') , async (req, res) => {
       });
       try {
           const savedMentor = await mentor.save();
-          //SEND FILE TO CLOUDINARY
+          // SEND FILE TO CLOUDINARY
    
 
   
