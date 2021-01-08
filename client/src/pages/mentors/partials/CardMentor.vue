@@ -1,11 +1,11 @@
 <template> 
   <div class="p-4 md:w-1/3">
-    <div class=" h-500 border-4 border-darkSands  bg-sands rounded-lg overflow-hidden">
+    <div class=" h-500 border-4 border-green-700  bg-sands rounded-lg overflow-hidden">
       <img class="h-12  w-full bg-red-800 object-cover object-center" src="https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8anVuZ2xlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="background">
       <div class="flex bg-sands  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
-          <img :src="avatar" class="rounded-full object-cover object-top border-solid border-white  h-24 w-24 border-2 -mt-3">		
+          <img :src="avatar" class="rounded-full object-cover object-top border-solid border-darkSands  h-24 w-24 border-4 -mt-3">		
         </router-link>
        
       </div>
@@ -21,7 +21,7 @@
     class="px-4 h-6 w-32 rounded-full  font-semibold flex items-center cursor-pointer"
     :class="disponibleColor"
   >
-    <span  class="w-3 h-3 animate-pulse rounded-full mr-1" :class="disponible === 'Oui' ? 'bg-green-500' : '' "></span>
+    <span  class="w-3 h-3 animate-pulse rounded-full mr-1" :class="disponible === 'Oui' ? 'bg-green-200' : '' "></span>
    {{isDisponible}}
   </div>
   
@@ -32,12 +32,12 @@
           <h1 class="text-center italic text-xl font-medium mb-3">{{ title }}</h1>
           <p class="text-center text-xl mb-3">{{presentation}} </p>
           <div class="text-center mb-6">
-            <span v-for="(techno, index) in technoss" :key="index" class="inline-block bg-gray-700 text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
+            <span v-for="(techno, index) in technoss" :key="index" class="inline-block border border-black bg-darkSands text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
           </div>  
-          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-white" v-if="!isLoggedIn">
+          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-darkSands" v-if="!isLoggedIn">
             <router-link to="/auth">
 <font-awesome-icon  class="text-2xl mr-2" :icon="'lock'" />  
-            <p>
+            <p class="">
                 Connectez-vous pour contacter le mentor
             </p>
             </router-link>
@@ -69,7 +69,7 @@
             </div>
           </div>
 
-          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-white" v-else-if="isLoggedIn">
+          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-darkSands" v-else-if="isLoggedIn">
 <font-awesome-icon  class="text-2xl mr-2" :icon="'hand-paper'" />  
             <p>
                 Désolé le mentor n'est pas disponible pour le moment
@@ -109,9 +109,9 @@ export default {
     }, 
     disponibleColor(){
       if (this.disponible === 'Oui'){
-        return 'bg-green-100 text-green-500'
+        return 'bg-green-700 text-green-100'
       } else {
-        return 'bg-red-100 text-red-500'
+        return 'bg-red-700 text-red-100'
       }
     }
     }

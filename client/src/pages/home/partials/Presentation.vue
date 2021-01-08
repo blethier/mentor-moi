@@ -16,7 +16,7 @@
             
           </div>
           <div class="ml-4">
-            <h4 class="text-lg  leading-6 font-medium ">
+            <h4 class="text-xl  leading-6 font-black ">
               Competitive exchange rates
             </h4>
             <p class="mt-2 text-base ">
@@ -30,7 +30,7 @@
             <img class="flex items-center justify-center h-20 w-20 rounded-md  " src="../../../assets/img/employees.svg" alt="">
           </div>
           <div class="ml-4">
-            <h4 class="text-lg  leading-6 font-medium ">
+            <h4 class="text-xl  leading-6 font-black ">
               No hipen fees
             </h4>
             <p class="mt-2 text-base ">
@@ -44,7 +44,7 @@
              <img class="flex items-center justify-center h-20 w-20 rounded-md  " src="../../../assets/img/employee.svg" alt="">
           </div>
           <div class="ml-4">
-            <h4 class="text-lg  leading-6 font-medium ">
+            <h4 class="text-xl  leading-6 font-black ">
               Transfers are instant
             </h4>
             <p class="mt-2 text-base ">
@@ -58,7 +58,7 @@
            <img class="flex items-center justify-center h-20 w-20 rounded-md  " src="../../../assets/img/career.svg" alt="">
           </div>
           <div class="ml-4">
-            <h4 class="text-lg  leading-6 font-medium ">
+            <h4 class="text-xl  leading-6 font-black ">
               Mobile notifications
             </h4>
             <p class="mt-2 text-base ">

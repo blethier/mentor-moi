@@ -50,7 +50,7 @@ router.post('/login', async (req, res) => {
 
     //Create and assign token
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET , {
-        expiresIn : '24h'
+        expiresIn : '3h'
     });
     res.header('auth-token', token).send({user, token})
 });

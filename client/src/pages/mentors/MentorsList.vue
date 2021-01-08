@@ -9,7 +9,7 @@
       <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
       <div class="flex w-full md:justify-start justify-center items-end">
         <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4" >
-          <input type="search" v-model="search" class="w-full bg-sands bg-opacity-50 rounded border border-darkSands focus:ring-2 focus:ring-sand focus:bg-transparent focus:border-darkSands text-base outline-none darkMode py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" data-kwimpalastatus="alive" data-kwimpalaid="1609853631472-5">
+          <input type="search" v-model="search" class="w-full bg-sands bg-opacity-50 rounded border-2 border-green-700 focus:ring-2 focus:ring-sand  focus:border-green-700 text-base outline-none darkMode py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" data-kwimpalastatus="alive" data-kwimpalaid="1609853631472-5">
         </div>
     
       </div>
@@ -19,7 +19,9 @@
   </div>
 
     
-        <pulse-loader v-if="isPending" color="#F87171" class="text-center text-red-500" ></pulse-loader>
+        <p v-if="loading" class="text-center">
+      <font-awesome-icon class="animate-spin text-darkSands text-5xl" icon="sync-alt" />
+    </p>
         <section class="text-gray-700 body-font">
             <div class="">
                 <div  class="flex flex-wrap -m-4">
@@ -63,16 +65,15 @@
 
 <script>
 import CardMentor from './partials/CardMentor'
-import PulseLoader from 'vue-spinner/src/PulseLoader.vue'
 
 
 
 export default {
-    components: {CardMentor, PulseLoader},
+    components: {CardMentor},
     data() {
     return {
         search : '',
-        isPending: false
+        loading: false
         };
     },
     mounted(){
@@ -120,9 +121,9 @@ const mentors = this.$store.getters.allMentors
         },
         async loadMentors() {
             
-        this.isPending = true    
-         this.$store.dispatch('loadMentors');
-        this.isPending = false
+        this.loading = true    
+        await this.$store.dispatch('loadMentors');
+        this.loading = false
         },
         async loadOneMentor() {
             if(this.mentorId !== undefined) {

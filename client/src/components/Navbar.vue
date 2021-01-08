@@ -39,7 +39,7 @@
             <router-link  to="/" class="  px-3 py-2 rounded-md text-lg font-medium">Accueil</router-link>
             <router-link to="/mentors" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
             <router-link to="/faq" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
-            <router-link to="/jobs" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">JOBS</router-link>
+            <router-link to="/jobs" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Trouver un poste</router-link>
             <router-link v-if="!isLoggedIn" to="/auth" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
           </div>
         </div>
@@ -68,6 +68,7 @@
               <div class="px-2 pt-2 pb-3 space-y-1">
             <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-sands  " role="menuitem">Devenir Mentor</router-link>
             <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-sands " role="menuitem">Modifier mon profil</router-link>
+            <router-link v-if="isMentor" to="/jobs" class="block px-4 py-2 hover:bg-sands " role="menuitem">Trouver un poste</router-link>
             <p @click="logout" href="#" class="block px-4 py-2 hover:bg-sands " role="menuitem">Déconnexion</p>
               </div>
            

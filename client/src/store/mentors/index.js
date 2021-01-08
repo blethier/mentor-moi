@@ -47,7 +47,7 @@ const state = {
     'AWS',
 ],
 mentors: [],
-oneMentor : {},
+oneMentor : JSON.parse(localStorage.getItem('oneMentor'))  || {},
 token: localStorage.getItem('user-token') || '',
 userAuth: localStorage.getItem('user-email') || '',
 userId: localStorage.getItem('userId') || '',
@@ -79,7 +79,8 @@ const actions = {
          }
        }).then(res => {
          console.log(res.data)
-         context.commit('setOneMentor', res.data)
+         localStorage.setItem('oneMentor', JSON.stringify(res.data) )
+        // context.commit('setOneMentor', res.data)
        }).catch(err => {
          console.log(err.response);
        });
@@ -167,6 +168,7 @@ await axios.post('https://mevn-mentor-moi.herokuapp.com/api/user/login',userData
 logout(context) {
   localStorage.removeItem('user-token')
   localStorage.removeItem('user-email')
+  localStorage.removeItem('oneMentor')
   localStorage.removeItem('mentor-id')
   localStorage.removeItem('userId')
   context.commit('setOneMentor', null)

@@ -163,12 +163,12 @@ export default {
 					password: this.password
 				})
 				this.$router.replace('/mentors')
-				this.$swal('Connexion réussie');
+
 			} catch (error) {
 				// eslint-disable-next-line no-console
 			console.log(error)
 			this.error = error.message || 'Erreur'
-			this.$swal('Veuillez corrigez vos erreurs');
+			//this.$swal('Veuillez corrigez vos erreurs');
 			}
 	
 	
@@ -188,7 +188,7 @@ export default {
 			// eslint-disable-next-line no-console
 			console.log(error)
 			this.error = error.message || 'Erreur'
-			this.$swal('Veuillez corrigez vos erreurs');
+			//this.$swal('Veuillez corrigez vos erreurs');
 		}
 		
 		

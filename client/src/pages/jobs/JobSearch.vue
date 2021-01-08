@@ -16,21 +16,29 @@
     </Hero>
     <form @submit.prevent="fetchJobs" class="flex my-14 lg:w-2/3 w-full sm:flex-row flex-col mx-auto px-8 sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
       <div class="relative flex-grow w-full" data-children-count="1">
-        <input required type="search"  v-model="searchJobs" class="w-full bg-sands rounded border-4 border-darkSands focus:border-darkSands  focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 " >
+        <input  required type="search" placeholder="Poste"  v-model="searchJobs" class="w-full bg-sands placeholder-black rounded border-4 border-darkSands focus:border-darkSands  focus:ring-2 focus:ring-indigo-200 text-lg italic font-black outline-none text-black py-1 px-3 leading-8 " >
       </div>
       <div class="relative flex-grow w-full" data-children-count="1">
         <Places
-          class="w-full bg-sands font-black rounded border-4 border-darkSands focus:border-darkSands  focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 "
+          class="w-full bg-sands font-black rounded border-4 border-darkSands focus:border-darkSands placeholder-black focus:ring-2 focus:ring-indigo-200 text-lg italic font-black outline-none text-black h-12 py-1 px-3 leading-8 "
     v-model="city"
-    placeholder="Where are we going ?"
+    placeholder="Ville"
    
     :options="options">
   </Places>
       
       </div>
-      <button type="submit" class="text-white font-black bg-darkSands border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Button</button>
-      <button type="button"  @click="clear" class="text-white font-black bg-red-400 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Clear</button>
+      <button type="submit" class="text-white font-black bg-darkSands border-0 py-2 px-8 focus:outline-none  rounded text-lg">Rechercher</button>
+      <button type="button"  @click="clear" class="text-white font-black bg-green-700 border-0 py-2 px-8 focus:outline-none  rounded text-lg">Effacer</button>
     </form>
+
+    <p  class="text-center text-3xl font-black text-green-700">
+      Il y a {{jobs.length}} annonces
+    </p>
+
+    <p v-if="loading" class="text-center">
+      <font-awesome-icon class="animate-spin text-darkSands text-5xl" icon="sync-alt" />
+    </p>
 
     <div class="flex justify-center" v-if="showJobs.length === 0">
       <img class=" h-96" src="../../assets/img/empty.svg" alt="">
@@ -43,7 +51,7 @@
                 <!-- component  -->
 <div class="w-full lg:flex">
   
-  <div class="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+  <div class="border-r w-full border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
     <div class="mb-8">
       <p class="text-lg italic text-green-800 flex items-center">
         {{job.company.display_name}}
@@ -134,7 +142,7 @@ showJobs () {
  let length = this.jobs.length 
  // eslint-disable-next-line no-console
  console.log(length)
- return length / this.perPage
+ return Math.round(length / this.perPage)
 },
 nextIsDisabled() {
   return this.page === this.lastPage || this.lastPage === 0 
@@ -146,17 +154,19 @@ prevIsDisabled() {
     methods: {
       
         fetchJobs() {
-            axios.get(`https://api.adzuna.com/v1/api/jobs/fr/search/${this.page}?app_id=efa0cea7&app_key=f9f5a984f67f6477312f48226670b1da&results_per_page=400&what=${this.searchJobs}&where=${this.city}&distance=15&sort_by=date` )
+          this.loading = true
+            axios.get(`https://api.adzuna.com/v1/api/jobs/fr/search/${this.page}?app_id=efa0cea7&app_key=f9f5a984f67f6477312f48226670b1da&results_per_page=100&what=${this.searchJobs}&where=${this.city}&distance=15&sort_by=date` )
                 .then(response => {
                     
                     
-                    // eslint-disable-next-line no-console
-                    console.log(response.data.results)
-                    this.searchJobs = ''
-                    this.city = ''
-                    this.loading = true
+                    
+                    
+                    
+                    
                     this.jobs = response.data.results
                     this.loading = false
+                    this.searchJobs = ''
+                    this.city = ''
                 }).catch(e => {
                     // eslint-disable-next-line no-console
                     console.log(e)
@@ -164,14 +174,12 @@ prevIsDisabled() {
         },
         
         clear(){
-            this.jobs = null
+            this.jobs = []
         },
          prevPage () {
-  this.loading = true
   this.page--
 },
 nextPage () {
-  this.loading = true
   this.page++
 },
  
@@ -193,5 +201,8 @@ nextPage () {
 
 .ap-cursor{
   background-color: black;
+}
+.ap-input-icon svg  {
+  display: none;
 }
 </style>
