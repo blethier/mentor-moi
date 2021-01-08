@@ -9,7 +9,7 @@ import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesom
 import { faHeart, faMapMarkerAlt, faAt, faGlobe, faLock, faHandPaper } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueToast from 'vue-toast-notification';
-// Import one of the available themes
+
 //import 'vue-toast-notification/dist/theme-default.css';
 import 'vue-toast-notification/dist/theme-sugar.css';
 
