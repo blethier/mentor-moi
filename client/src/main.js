@@ -9,12 +9,9 @@ import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesom
 import { faHeart, faMapMarkerAlt, faAt, faLock, faHandPaper, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueToast from 'vue-toast-notification';
-<<<<<<< HEAD:src/main.js
 
-=======
 import moment from 'moment';
 // Import one of the available themes
->>>>>>> 8421b34bb91c4c5263a1980caca64efd8f476882:client/src/main.js
 //import 'vue-toast-notification/dist/theme-default.css';
 import 'vue-toast-notification/dist/theme-sugar.css';
 

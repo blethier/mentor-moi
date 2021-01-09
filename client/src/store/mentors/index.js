@@ -58,7 +58,7 @@ const actions = {
  
 
   async loadMentors(context) {
-   await axios.get('https://mevn-mentor-moi.herokuapp.com/api/mentors', {
+   await axios.get('https://mentor-moi.herokuapp.com/api/mentors', {
     headers: {
           // remove headers
         }
@@ -73,7 +73,7 @@ const actions = {
 
   async loadOneMentor(context) {
     const id = context.getters.mentorId
-    await axios.get(`https://mevn-mentor-moi.herokuapp.com/api/mentor/${id}`, {
+    await axios.get(`https://mentor-moi.herokuapp.com/api/mentor/${id}`, {
      headers: {
            // remove headers
          }
@@ -92,7 +92,7 @@ const actions = {
         email: payload.email,
         password: payload.password,     
        }
-await axios.post('https://mevn-mentor-moi.herokuapp.com/api/user/register',userData)
+await axios.post('https://mentor-moi.herokuapp.com/api/user/register',userData)
 .then(res => {
     context.commit('setUser', {
     userId: res.data.user._id
@@ -123,7 +123,7 @@ await axios.post('https://mevn-mentor-moi.herokuapp.com/api/user/register',userD
   };
 
 
-  await axios.patch(`https://mevn-mentor-moi.herokuapp.com/api/mentors/${id}`, mentorData, {
+  await axios.patch(`https://mentor-moi.herokuapp.com/api/mentors/${id}`, mentorData, {
   headers: {
     // remove headers
   }
@@ -143,7 +143,7 @@ async login(context, payload){
       email: payload.email,
       password: payload.password,     
      }
-await axios.post('https://mevn-mentor-moi.herokuapp.com/api/user/login',userData)
+await axios.post('https://mentor-moi.herokuapp.com/api/user/login',userData)
 .then(res => {
   console.log(res.data);
   localStorage.setItem('user-token', res.data.token)
