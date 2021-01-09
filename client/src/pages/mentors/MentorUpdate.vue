@@ -151,8 +151,7 @@ import axios from 'axios';
     mounted: async function() {
     // eslint-disable-next-line no-console
     console.log('MONTE');
-   // this.$store.dispatch('loadMentors')
-   // this.$store.dispatch('loadOneMentor');
+
    this.$store.dispatch('loadMentors');
    this.$store.dispatch('loadOneMentor');
    this.firstName =  this.$store.getters.oneMentor.firstName
