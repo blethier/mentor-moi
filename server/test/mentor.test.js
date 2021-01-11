@@ -92,12 +92,12 @@ test("should delete one Mentor", async () => {
 
 test("Should post Mentor", async () => {
 	const data = await Mentor.create( {
-        firstName: 'Todd',
+        firstName: 'Marios-bros',
         lastName:'Test',
         avatar: 'https://images.unsplash.com/photo-1495681796091-d84e65e2ad51?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3341&q=80',
         title: 'Dev front',
         disponible: 'Oui',
-        presentation: 'Hello je suis Mans',
+        presentation: 'Hello je suis un test qui viens du back',
         technos: '["Python","Zend","Swift","Test"]',
         socials: '[{"web":"","linkedin":"","discord":"","twitter":"","github":""}]'
 })
@@ -115,7 +115,7 @@ test("Should post Mentor", async () => {
         .field('socials' , data.socials)
         .expect(201)
         .end((err) => {
-          console.log(err)
+         
         });
 		
 })
