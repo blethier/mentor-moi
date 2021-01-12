@@ -100,7 +100,7 @@ export default {
             return this.$store.getters.mentorId
         },
         noMentor(){
-            return this.filteredMentors.length === 0
+            return this.filteredMentors?.length === 0
         }
         
     },

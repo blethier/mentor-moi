@@ -10,7 +10,7 @@ exports.delete = (req, res) => {
             message: `Ce Mentor n'existe pas`
           });
         } else {
-          res.send({
+          res.status(204).send({
             message: "Mentor supprimé!"
           });
         }

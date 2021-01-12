@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex';
 import router from './router'
 import App from './App.vue'
+import VueRouter from 'vue-router'
 import { ValidationProvider, extend, ValidationObserver } from 'vee-validate';
 import { email, alpha_spaces, confirmed, min, required, regex } from 'vee-validate/dist/rules';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -9,6 +10,7 @@ import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesom
 import { faHeart, faMapMarkerAlt, faAt, faLock, faHandPaper, faSyncAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueToast from 'vue-toast-notification';
+
 import moment from 'moment';
 // Import one of the available themes
 //import 'vue-toast-notification/dist/theme-default.css';
@@ -81,9 +83,10 @@ instance.dismiss();
 // Dismiss all opened toast immediately
 Vue.$toast.clear();
 
+Vue.use(VueRouter)
 
 new Vue({
-    router,
+    router: router,
     store,
     render: h => h(App),
 }).$mount('#app')

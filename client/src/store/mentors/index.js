@@ -123,7 +123,7 @@ await axios.post('https://mevn-mentor-moi.herokuapp.com/api/user/register',userD
   };
 
 
-  await axios.patch(`https://mevn-mentor-moi.herokuapp.com/api/mentors/${id}`, mentorData, {
+  await axios.patch(`https://mentor-moi.herokuapp.com/api/mentors/${id}`, mentorData, {
   headers: {
     // remove headers
   }
