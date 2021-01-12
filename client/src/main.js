@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex';
 import router from './router'
 import App from './App.vue'
+import VueRouter from 'vue-router'
 import { ValidationProvider, extend, ValidationObserver } from 'vee-validate';
 import { email, alpha_spaces, confirmed, min, required, regex } from 'vee-validate/dist/rules';
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -82,9 +83,10 @@ instance.dismiss();
 // Dismiss all opened toast immediately
 Vue.$toast.clear();
 
+Vue.use(VueRouter)
 
 new Vue({
-    router,
+    router: router,
     store,
     render: h => h(App),
 }).$mount('#app')

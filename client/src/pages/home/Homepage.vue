@@ -31,6 +31,7 @@ import Waves from '../../components/Waves'
 import Hero from '../../components/Hero'
 
 export default {
+  name: 'Homepage',
     components: {
       Presentation,
       Job,
