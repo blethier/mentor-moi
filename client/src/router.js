@@ -9,6 +9,7 @@ import MentorRegistration from './pages/mentors/MentorRegistration.vue'
 import MentorUpdate from './pages/mentors/MentorUpdate.vue'
 import UserAuth from './pages/auth/UserAuth.vue'
 import JobSearch from './pages/jobs/JobSearch.vue'
+import Reconversion from './pages/home/Reconversion.vue'
 
 import NotFound from './pages/NotFound.vue'
 import store from './store/mentors/index'
@@ -24,6 +25,7 @@ const routes = [
         {path: '/auth', component: UserAuth},
         {path: '/faq', component: FAQ},
         {path: '/jobs', component: JobSearch},
+        {path: '/conseils', component: Reconversion},
         //{path: '/login', component: null},
         {path: '/:notFound(.*)', component: NotFound}
 

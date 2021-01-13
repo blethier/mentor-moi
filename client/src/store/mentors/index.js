@@ -46,6 +46,23 @@ const state = {
     'TDD',
     'AWS',
 ],
+articles: [
+{
+  name : 'Alex Soyes',
+  image: require('@/assets/img/alexsoyes.png'),
+  link: 'https://alexsoyes.com/'
+},
+{
+  name : 'Rayed Benbrahim',
+  image: require('@/assets/img/rayed.png'),
+  link: 'https://practicalprogramming.fr/devenir-developpeur/'
+},
+{
+  name : 'Mehdi Zed',
+  image: require('@/assets/img/jesuisundev.png'),
+  link: 'https://www.jesuisundev.com/'
+}
+],
 mentors: [],
 oneMentor : JSON.parse(localStorage.getItem('oneMentor'))  || {},
 token: localStorage.getItem('user-token') || '',
@@ -187,6 +204,7 @@ const getters = {
 
 
   allMentors: (state) => state.mentors,
+  allArticles: (state) => state.articles,
 
   oneMentor: (state) =>  state.oneMentor,
 
