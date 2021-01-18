@@ -134,13 +134,21 @@ export default {
 					email: this.email,
 					password: this.passwordSignup
 				})
-				//this.$swal('Votre compte a bien été crée');
-				this.$router.replace('/login')
+                this.$router.replace('/login')
+                  this.$toast.success('Inscription réussie', {
+  position: 'bottom-right',
+  duration: 5000
+
+})
 		} catch (error) {
 			// eslint-disable-next-line no-console
 			console.log(error)
 			this.error = error.message || 'Erreur'
-			//this.$swal('Veuillez corrigez vos erreurs');
+			this.$toast.success('Veuillez corriger vos erreurs', {
+  position: 'bottom-right',
+  duration: 5000
+
+})
 		
 		
 		

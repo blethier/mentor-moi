@@ -115,13 +115,22 @@ export default {
 					email: this.email,
 					password: this.password
 				})
-				this.$router.replace('/mentors')
+                this.$router.replace('/mentors')
+                 this.$toast.success('Connexion réussie', {
+  position: 'bottom-right',
+  duration: 5000
+
+})
 
 			} catch (error) {
 				// eslint-disable-next-line no-console
-			console.log(error)
-			this.error = error.message || 'Erreur'
-			//this.$swal('Veuillez corrigez vos erreurs');
+			
+			this.error = error.message || 'Erreur';
+			this.$toast.error('Veuillez corriger vos erreurs', {
+  position: 'bottom-right',
+  duration: 5000
+
+})
 	
 	
       }

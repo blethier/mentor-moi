@@ -1,23 +1,35 @@
 <template> 
-  <div class="p-4 md:w-1/3">
-    <div class=" h-500 border-4 border-green-700  bg-sands rounded-lg overflow-hidden">
+  <div class="text-gray-700 p-4 md:w-1/3">
+    <div  class=" h-500 border-4 border-green-700  bg-sands rounded-lg overflow-hidden">
       <img class="h-12  w-full bg-red-800 object-cover object-center" src="https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8anVuZ2xlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="background">
       <div class="flex bg-sands  justify-center -mt-8">
         
         <router-link :to="mentorsDetailsLink" >
           <img :src="avatar" class="rounded-full object-cover object-top border-solid border-darkSands  h-24 w-24 border-4 -mt-3">		
         </router-link>
+
+       
        
       </div>
-       
-      
-      <div class="p-6 bg-sands">
+       <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-green-700" v-if="!isLoggedIn">
+            <router-link to="/login">
+<font-awesome-icon  class="text-2xl mr-2" :icon="'lock'" />  
+            <p >
+                Connectez-vous pour contacter le mentor
+            </p>
+            </router-link>
+            
+        </div>
+       <p class="text-xl text-red-600">
+            {{price}}
+        </p>
+      <div class="p-6 blurry bg-sands">
 
       
 <!-- component -->
 <!-- This is an example component -->
 
-<div
+<div 
     class="px-4 h-6 w-32 rounded-full  font-semibold flex items-center cursor-pointer"
     :class="disponibleColor"
   >
@@ -34,15 +46,7 @@
           <div class="text-center mb-6">
             <span v-for="(techno, index) in technoss" :key="index" class="inline-block border border-black bg-darkSands text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
           </div>  
-          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-darkSands" v-if="!isLoggedIn">
-            <router-link to="/auth">
-<font-awesome-icon  class="text-2xl mr-2" :icon="'lock'" />  
-            <p class="">
-                Connectez-vous pour contacter le mentor
-            </p>
-            </router-link>
-            
-        </div>
+          
           <div v-if="isLoggedIn && disponible === 'Oui'" class=" text-center">
             <div  class=" mr-2 no-underline hover:underline" v-for="(social, index) in socialsContact" :key="index">
              
@@ -83,7 +87,7 @@
 
 <script>
 export default {
-    props: ['id','firstName', 'name', 'lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials'],
+    props: ['id','firstName', 'name', 'price','lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials'],
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName
@@ -119,7 +123,15 @@ export default {
 </script>
 
 <style scoped>
-.height {
+/*.height {
   height: 500px;
-}
+}*/
+/*.blurry {
+  -webkit-filter: blur(5px);
+-moz-filter: blur(5px);
+-o-filter: blur(5px);
+-ms-filter: blur(5px);
+filter: blur(5px);
+
+}*/
 </style>

@@ -2,6 +2,7 @@
     <div class="font-sans lg:h-screen container flex justify-center leading-tight   p-8">
        
   <CardMentor   :firstName="thisMentor.firstName"
+      :price="thisMentor.price"
                                                                             :lastName="thisMentor.lastName"
                                                                                 :title="thisMentor.title"
                                                                                 :avatar="thisMentor.avatar"

@@ -7,7 +7,6 @@ import MentorsList from './pages/mentors/MentorsList.vue'
 import MentorDetail from './pages/mentors/MentorDetail.vue'
 import MentorRegistration from './pages/mentors/MentorRegistration.vue'
 import MentorUpdate from './pages/mentors/MentorUpdate.vue'
-import UserAuth from './pages/auth/UserAuth.vue'
 import JobSearch from './pages/jobs/JobSearch.vue'
 import Reconversion from './pages/home/Reconversion.vue'
 import Login from './pages/auth/Login.vue'
@@ -24,7 +23,6 @@ const routes = [
         {path: '/mentors/:id', component: MentorDetail,pros: true},
         {path: '/register', component: MentorRegistration},
         {path: '/updateMentors', component: MentorUpdate},
-        {path: '/auth', component: UserAuth},
         {path: '/faq', component: FAQ},
         {path: '/jobs', component: JobSearch},
         {path: '/conseils', component: Reconversion},
