@@ -10,6 +10,8 @@ import MentorUpdate from './pages/mentors/MentorUpdate.vue'
 import UserAuth from './pages/auth/UserAuth.vue'
 import JobSearch from './pages/jobs/JobSearch.vue'
 import Reconversion from './pages/home/Reconversion.vue'
+import Login from './pages/auth/Login.vue'
+import Signup from './pages/auth/Signup.vue'
 
 import NotFound from './pages/NotFound.vue'
 import store from './store/mentors/index'
@@ -26,7 +28,8 @@ const routes = [
         {path: '/faq', component: FAQ},
         {path: '/jobs', component: JobSearch},
         {path: '/conseils', component: Reconversion},
-        //{path: '/login', component: null},
+        {path: '/login', component: Login},
+        {path: '/signup', component: Signup},
         {path: '/:notFound(.*)', component: NotFound}
 
 ];
@@ -42,12 +45,12 @@ const router = new VueRouter({
     
     if (to.fullPath === '/register') {
       if (!store.state.token) {
-        next('/auth');
+        next('/login');
       }
     }
     if (to.fullPath === '/updateMentors') {
       if (!store.state.token) {
-        next('/auth');
+        next('/login');
       }
     }
     if (to.fullPath === '/register') {
