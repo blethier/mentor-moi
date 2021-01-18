@@ -51,6 +51,7 @@ router.post('/mentors', upload.single('avatar') , async (req, res) => {
         title: req.body.title,
         disponible: req.body.disponible,
         presentation: req.body.presentation,
+        price: req.body.price,
         technos: req.body.technos,
         socials: req.body.socials,
         userId: req.body.userId,
@@ -103,6 +104,7 @@ router.patch('/mentors/:id', upload.single('avatar'),async (req, res) => {
         disponible: req.body.disponible,
         presentation: req.body.presentation,
         technos: req.body.technos,
+        price: req.body.price,
         socials: req.body.socials,
         userId: req.body.userId,
 
