@@ -53,6 +53,13 @@
                 </ValidationProvider>
               </div>
 
+               <div class="col-span-6 sm:col-span-4">
+                <label for="price" class="block  text-gray-700">Prix /mois</label>
+               
+                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="price" id="price" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+           
+              </div>
+
               <div class="col-span-6 sm:col-span-3">
                 <label for="country" class="block  text-gray-700">Disponible</label>
                 <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="disponible" :options="disponibility" :multiple="false"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Etes vous disponible ?"  :allowEmpty="false"  :preselect-first="false"/>       
@@ -154,11 +161,13 @@ import axios from 'axios';
    // this.$store.dispatch('loadMentors')
    // this.$store.dispatch('loadOneMentor');
    this.$store.dispatch('loadMentors');
+   
    this.$store.dispatch('loadOneMentor');
    this.firstName =  this.$store.getters.oneMentor.firstName
    this.lastName =  this.$store.getters.oneMentor.lastName,
    this.disponible =  this.$store.getters.oneMentor.disponible,
   this.title =  this.$store.getters.oneMentor.title,
+  this.price =  this.$store.getters.oneMentor.price,
   this.avatar =  this.$store.getters.oneMentor.avatar,
   this.presentation =  this.$store.getters.oneMentor.presentation,
   this.socials =  JSON.parse(this.$store.getters.oneMentor.socials),
@@ -174,6 +183,7 @@ import axios from 'axios';
       lastName: '',
       title:'',
       avatar: '',
+      price: '',
       disponible: '',
       presentation:'',
       technos: [],
@@ -193,9 +203,8 @@ import axios from 'axios';
     }
   },
 
-    created  () {
-    
-    
+    async created  () {
+     
   },
   computed : {
       allTechnos() {
@@ -235,6 +244,7 @@ import axios from 'axios';
          formData.append('disponible' ,this.disponible)
          formData.append('title', this.firstLetter(this.title))
          formData.append('presentation', this.presentation)
+          formData.append('price', this.price)
          formData.append('technos' ,JSON.stringify(this.technos))
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)

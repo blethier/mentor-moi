@@ -72,7 +72,7 @@
 							</div>
 							<hr class="mb-6 border-t" />
 							<div class="text-center">
-								<router-link to="signup"	@click="switchAuthMode"
+								<router-link to="signup"	
 									class="inline-block cursor-pointer text-red-500 align-baseline "
 									
 								>

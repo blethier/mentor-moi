@@ -64,7 +64,7 @@ articles: [
 }
 ],
 mentors: [],
-oneMentor : JSON.parse(localStorage.getItem('oneMentor'))  || {},
+oneMentor :   {},
 token: localStorage.getItem('user-token') || '',
 userAuth: localStorage.getItem('user-email') || '',
 userId: localStorage.getItem('userId') || '',
@@ -96,8 +96,8 @@ const actions = {
          }
        }).then(res => {
          console.log(res.data)
-         localStorage.setItem('oneMentor', JSON.stringify(res.data) )
-        // context.commit('setOneMentor', res.data)
+         //localStorage.setItem('oneMentor', JSON.stringify(res.data) )
+        context.commit('setOneMentor', res.data)
        }).catch(err => {
          console.log(err.response);
        });
@@ -206,7 +206,7 @@ const getters = {
   allMentors: (state) => state.mentors,
   allArticles: (state) => state.articles,
 
-  oneMentor: (state) =>  state.oneMentor,
+  oneMentor: (state) =>  state?.oneMentor,
 
   isMentor : (state) =>  { 
     const  mentors =  state.mentors

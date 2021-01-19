@@ -20,8 +20,8 @@
             </router-link>
             
         </div>
-       <p class="text-xl text-red-600">
-            {{price}}
+       <p class="text-2xl mt-4 ml-4 font-black  text-green-700">
+            {{priceName}}
         </p>
       <div class="p-6 blurry bg-sands">
 
@@ -91,6 +91,13 @@ export default {
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName
+      },
+      priceName(){
+	if (this.price === 0) {
+				return 'Gratuit'
+			} else {
+				return this.price + '€ / mois'
+			} 
       },
       socialsContact(){
           return JSON.parse(this.socials)

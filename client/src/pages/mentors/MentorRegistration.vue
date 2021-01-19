@@ -55,7 +55,7 @@
               <div class="col-span-6 sm:col-span-4">
                 <label for="price" class="block  text-gray-700">Prix /mois</label>
                
-                <input type="number" required placeholder="0 si gratuit" v-model.trim="price" id="price" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="price" id="price" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
            
               </div>
 
@@ -165,7 +165,7 @@ import axios from 'axios';
       title:'',
       avatar: '',
       error : '',
-      price : null,
+      price : 0,
       presentation:'',
       disponible : null,
       technos: [],
