@@ -8,7 +8,7 @@
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-darkSands">Knausgaard typewriter readymade marfa</h1>
       <p class="mb-8 leading-relaxed">Chillwaggg&ave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
       <div class="flex w-full md:justify-start justify-center items-end">
-        <div class="relative mr-4 lg:w-full xl:w-1/2 w-2/4" >
+        <div v-if="isLoggedIn" class="relative mr-4 lg:w-full xl:w-1/2 w-2/4" >
           <input type="search" v-model="search" class="w-full bg-sands bg-opacity-50 rounded border-2 border-green-700 focus:ring-2 focus:ring-sand  focus:border-green-700 text-base outline-none darkMode py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" data-kwimpalastatus="alive" data-kwimpalaid="1609853631472-5">
         </div>
     

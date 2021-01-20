@@ -23,7 +23,7 @@
        <p class="text-2xl mt-4 ml-4 font-black  text-green-700">
             {{priceName}}
         </p>
-      <div class="p-6 blurry bg-sands">
+      <div :class="!isLoggedIn ? 'blurry' : ''" class="p-6  bg-sands">
 
       
 <!-- component -->
@@ -130,15 +130,15 @@ export default {
 </script>
 
 <style scoped>
-/*.height {
+.height {
   height: 500px;
-}*/
-/*.blurry {
+}
+.blurry {
   -webkit-filter: blur(5px);
 -moz-filter: blur(5px);
 -o-filter: blur(5px);
 -ms-filter: blur(5px);
 filter: blur(5px);
 
-}*/
+}
 </style>
