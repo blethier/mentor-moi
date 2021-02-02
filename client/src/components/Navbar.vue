@@ -40,7 +40,8 @@
             <router-link to="/mentors" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
             <router-link to="/faq" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
             <router-link to="/jobs" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Trouver un poste</router-link>
-            <router-link v-if="!isLoggedIn" to="/auth" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
+            <router-link to="/conseils" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Ressources</router-link>
+            <router-link v-if="!isLoggedIn" to="/login" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
           </div>
         </div>
       </div>
@@ -68,7 +69,6 @@
               <div class="px-2 pt-2 pb-3 space-y-1">
             <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-sands  " role="menuitem">Devenir Mentor</router-link>
             <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-sands " role="menuitem">Modifier mon profil</router-link>
-            <router-link v-if="isMentor" to="/jobs" class="block px-4 py-2 hover:bg-sands " role="menuitem">Trouver un poste</router-link>
             <p @click="logout" href="#" class="block px-4 py-2 hover:bg-sands " role="menuitem">Déconnexion</p>
               </div>
            
@@ -89,7 +89,9 @@
       <router-link to="/" class="  block px-3 py-2 rounded-md text-base font-medium">Acceuil</router-link>
       <router-link to="/mentors" class="  block px-3 py-2 rounded-md text-base font-medium">Liste des mentors</router-link>
       <router-link to="/faq" class="  block px-3 py-2 rounded-md text-base font-medium">F.A.Q</router-link>
-      <router-link to="/auth" v-if="!isLoggedIn" class="  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
+       <router-link to="/jobs" class="  block px-3 py-2 rounded-md text-base font-medium">Emploi</router-link>
+        <router-link to="/conseils" class="  block px-3 py-2 rounded-md text-base font-medium">Ressources</router-link>
+      <router-link to="/login" v-if="!isLoggedIn" class="  block px-3 py-2 rounded-md text-base font-medium">Se connecter</router-link>
     </div>
   </div>
 </nav>
@@ -143,7 +145,7 @@ Avatar
     },
     logout() {
         this.$store.dispatch('logout');
-        this.$router.replace('/auth').catch(()=>{})
+        this.$router.replace('/login').catch(()=>{})
     },
      close(e) {
       if (! this.$el.contains(e.target)) {

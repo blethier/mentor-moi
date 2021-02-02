@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const User = require('../models/User');
 
 const user1 = {
-    email: 'mans@gail.com',
+    email: 'preprod@gail.com',
     password: '123456'
 }
 

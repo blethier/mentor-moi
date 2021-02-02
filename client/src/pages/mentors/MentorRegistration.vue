@@ -11,7 +11,7 @@
                 <ValidationObserver v-slot="{ invalid }">
                  <form class="flex flex-col pt-3 md:pt-8" enctype="multipart/form-data" @submit.prevent="submitForm">
         <div class="shadow overflow-hidden sm:rounded-md">
-          <div class="px-4 py-5 bg-red-300 sm:p-6">
+          <div class="px-4 py-5 bg-darkSands sm:p-6">
             <div class="grid grid-cols-6 gap-6">
 
               <div class="col-span-6 sm:col-span-3">
@@ -52,9 +52,16 @@
               </ValidationProvider>
               </div>
 
+              <div class="col-span-6 sm:col-span-4">
+                <label for="price" class="block  text-gray-700">Prix /mois</label>
+               
+                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="price" id="price" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+           
+              </div>
+
               <div class="col-span-6 sm:col-span-3">
                 <label for="country" class="block  text-gray-700">Disponible</label>
-                <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="disponible" :options="disponibility" :multiple="false"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Etes vous disponible ?"  :allowEmpty="false"  :preselect-first="true"/>       
+                <multiselect class="bg-darkSands w-full py-2 px-2" v-model.trim="disponible" :options="disponibility" :multiple="false"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Etes vous disponible ?"  :allowEmpty="false"  :preselect-first="true"/>       
               </div>
 
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">
@@ -101,7 +108,7 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="country" class="block  text-gray-700">Technos</label>
-                <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="technos" :options="allTechnos" :multiple="true" :max="4"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Choississez 4 technos max"  :allowEmpty="false"  :preselect-first="false"/>       
+                <multiselect class="bg-darkSands w-full py-2 px-2" v-model.trim="technos" :options="allTechnos" :multiple="true" :max="4"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Choississez 4 technos max"  :allowEmpty="false"  :preselect-first="false"/>       
               </div>
 
               <div class="col-span-6 sm:col-span-4">
@@ -115,7 +122,7 @@
             </div>
             
           </div>
-          <div class="px-4 py-3 bg-red-300 text-right sm:px-6">
+          <div class="px-4 py-3 bg-darkSands text-right sm:px-6">
             <p class="text-red-500 italic"> {{error}} </p>
             <button 
             type="submit" 
@@ -158,6 +165,7 @@ import axios from 'axios';
       title:'',
       avatar: '',
       error : '',
+      price : 0,
       presentation:'',
       disponible : null,
       technos: [],
@@ -210,6 +218,7 @@ import axios from 'axios';
          formData.append('disponible' ,this.disponible)
          formData.append('title', this.firstLetter(this.title))
          formData.append('presentation', this.presentation)
+         formData.append('price', this.price)
          formData.append('technos' ,JSON.stringify(this.technos))
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)
@@ -223,8 +232,7 @@ import axios from 'axios';
     }).then(res => {
     // eslint-disable-next-line no-console
     console.log('RESPONSE' + ' ' + res.data.mentor);
-    //this.$store.context.commit('setMentorId', res.data.mentor)
-    //this.$store.context.commit('registerMentor', {...formData})
+
     })
         this.$router.replace('/mentors')
         this.$toast.success('Profil mentor crée avec succès', {
