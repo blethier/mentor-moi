@@ -158,8 +158,7 @@ import axios from 'axios';
     mounted: async function() {
     // eslint-disable-next-line no-console
    this.$store.dispatch('loadMentors');
-   
-   this.$store.dispatch('loadOneMentor');
+   await this.$store.dispatch('loadOneMentor');
    this.firstName =  this.$store.getters.oneMentor.firstName
    this.lastName =  this.$store.getters.oneMentor.lastName,
    this.disponible =  this.$store.getters.oneMentor.disponible,
@@ -210,7 +209,8 @@ import axios from 'axios';
 
         Onementor() {
           return this.$store.state.oneMentor
-        }
+        },
+        
   },
   methods : {  
     onSelect(){
