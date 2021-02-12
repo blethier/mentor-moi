@@ -46,6 +46,53 @@ const state = {
     'TDD',
     'AWS',
 ],
+jobs: [
+{
+  title: 'WEB DESIGNER',
+  image: require('@/assets/img/designer.jpg'),
+  description: 'Il est en charge de la conception et de la réalisation visuelle d’un site internet. Il va regrouper les éléments essentiels au projet : arborescence du site, architecture, ergonomie, interactivité et charte graphique.'
+},
+{
+  title: 'FRONT-END',
+  image: require('@/assets/img/frontend.jpg'),
+  description: 'Le développeur Front-End développe les éléments d’un site avec lesquels on peut interagir, il va intervenir à la fois au niveau du design et du développement.'
+},
+{
+  title: 'BACK-END',
+  image: require('@/assets/img/backend.jpg'),
+  description: 'Le développeur Back-End travaille sur le back-office et sur tous les éléments d’un projet web tel que : configuration et développement serveur, maintenance ou encore bases de données.'
+},
+{
+  title: 'MOBILE',
+  image: require('@/assets/img/mobile.jpg'),
+  description: 'Le développeur mobile réalise vos applications que ce soit une application uniquement consultable sur smartphone ou la version mobile d’un site internet.'
+},
+{
+  title: 'DEVOPS',
+  image: require('@/assets/img/devops.jpg'),
+  description: 'De façon très générale, ses tâches principales consistent à mettre en place, gérer et administrer des systèmes informatiques.'
+},
+{
+  title: 'CHEF DE PROJET WEB',
+  image: require('@/assets/img/cheffe.jpg'),
+  description: 'Le métier de Chef·fe de Projets Web coordonne et dirige un projet web du début à la fin. Il a de larges connaissances dans le secteur du digital et des notions dans les différents secteurs d’activité techniques de ses collaborateurs.'
+},
+{
+  title: 'DATA ANALYST',
+  image: require('@/assets/img/analyst.jpg'),
+  description: 'Le Data Analyst traite les extractions de bases de données. Il les analyse et se charge de leur interprétation afin que l’entreprise puisse en tirer des améliorations business.'
+},
+{
+  title: 'DATA SCIENTIST',
+  image: require('@/assets/img/scientist.jpg'),
+  description: 'Il consiste à analyser de manière pointue des données massives, couramment appelées « Big Data », concernant à la fois les clients, les prospects et les employés.'
+},
+{
+  title: 'CHIEF TECHNICAL OFFICER (CTO)',
+  image: require('@/assets/img/cto.jpg'),
+  description: 'Le CTO est en charge de l’innovation technique et du déploiement de technologies adaptées au développement et à l’efficacité des activités d’une entreprise.'
+}
+],
 articles: [
 {
   name : 'Alex Soyes',
@@ -205,7 +252,7 @@ const getters = {
 
   allMentors: (state) => state.mentors,
   allArticles: (state) => state.articles,
-
+  allJobs: (state) => state.jobs,
   oneMentor: (state) =>  state?.oneMentor,
 
   isMentor : (state) =>  { 
