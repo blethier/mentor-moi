@@ -11,6 +11,9 @@ import JobSearch from './pages/jobs/JobSearch.vue'
 import Reconversion from './pages/home/Reconversion.vue'
 import Login from './pages/auth/Login.vue'
 import Signup from './pages/auth/Signup.vue'
+import Cookie from './pages/home/Cookie.vue'
+import Terms from './pages/home/Terms.vue'
+import Code from './pages/home/Code.vue'
 
 import NotFound from './pages/NotFound.vue'
 import store from './store/mentors/index'
@@ -28,6 +31,9 @@ const routes = [
         {path: '/conseils', component: Reconversion},
         {path: '/login', component: Login},
         {path: '/signup', component: Signup},
+        {path: '/cookie-consent', component: Cookie},
+        {path: '/terms', component: Terms},
+        {path: '/code-of-conduct', component: Code},
         {path: '/:notFound(.*)', component: NotFound}
 
 ];

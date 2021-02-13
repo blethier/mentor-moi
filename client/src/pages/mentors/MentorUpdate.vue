@@ -159,19 +159,7 @@ import axios from 'axios';
     // eslint-disable-next-line no-console
 
    // this.$store.dispatch('loadMentors')
-   // this.$store.dispatch('loadOneMentor');
-   this.$store.dispatch('loadMentors');
    
-   this.$store.dispatch('loadOneMentor');
-   this.firstName =  this.$store.getters.oneMentor.firstName
-   this.lastName =  this.$store.getters.oneMentor.lastName,
-   this.disponible =  this.$store.getters.oneMentor.disponible,
-  this.title =  this.$store.getters.oneMentor.title,
-  this.price =  this.$store.getters.oneMentor.price,
-  this.avatar =  this.$store.getters.oneMentor.avatar,
-  this.presentation =  this.$store.getters.oneMentor.presentation,
-  this.socials =  JSON.parse(this.$store.getters.oneMentor.socials),
-  this.technos =  JSON.parse(this.$store.getters.oneMentor.technos)
   
   
   
@@ -204,7 +192,20 @@ import axios from 'axios';
   },
 
     async created  () {
-     
+     // eslint-disable-next-line no-console
+     // this.$store.dispatch('loadOneMentor');
+   this.$store.dispatch('loadMentors');
+   
+   
+   this.firstName =  localStorage.getItem('firstName'),
+   this.lastName =  localStorage.getItem('lastName'),
+   this.disponible =  localStorage.getItem('disponible'),
+  this.title =  localStorage.getItem('title'),
+  this.price =  localStorage.getItem('price'),
+  this.avatar =  localStorage.getItem('avatar'),
+  this.presentation =  localStorage.getItem('presentation'),
+  this.socials =  JSON.parse(localStorage.getItem('socials')),
+  this.technos =  JSON.parse(localStorage.getItem('technos'))
   },
   computed : {
       allTechnos() {

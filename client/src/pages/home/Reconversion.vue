@@ -1,5 +1,5 @@
 <template>
-<div class="text-gray-600 body-font">
+<div class="text-gray-600 body-font lg:h-screen h-auto">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap w-full mb-20">
       <div class="lg:w-1/2 w-full mb-6 lg:mb-0">

@@ -142,8 +142,15 @@ const actions = {
            // remove headers
          }
        }).then(res => {
-         console.log(res.data)
-         //localStorage.setItem('oneMentor', JSON.stringify(res.data) )
+         localStorage.setItem('firstName', res.data.firstName )
+         localStorage.setItem('lastName', res.data.lastName )
+         localStorage.setItem('disponible', res.data.disponible )
+         localStorage.setItem('avatar', res.data.avatar )
+         localStorage.setItem('price', res.data.price )
+         localStorage.setItem('presentation', res.data.presentation )
+         localStorage.setItem('title', res.data.title )
+         localStorage.setItem('socials', res.data.socials )
+         localStorage.setItem('technos', res.data.technos )
         context.commit('setOneMentor', res.data)
        }).catch(err => {
          console.log(err.response);
@@ -235,6 +242,15 @@ logout(context) {
   localStorage.removeItem('oneMentor')
   localStorage.removeItem('mentor-id')
   localStorage.removeItem('userId')
+  localStorage.removeItem('firstName' )
+  localStorage.removeItem('lastName')
+  localStorage.removeItem('disponible')
+  localStorage.removeItem('avatar' )
+  localStorage.removeItem('price' )
+  localStorage.removeItem('presentation' )
+  localStorage.removeItem('title' )
+  localStorage.removeItem('socials')
+  localStorage.removeItem('technos')
   context.commit('setOneMentor', null)
   context.commit('setUser', {
     token: null,
