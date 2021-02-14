@@ -70,11 +70,9 @@
                                 <div class="px-4 py-2 font-semibold">Ville</div>
                                 <div class="px-4 py-2">Arlington Heights, IL, Illinois</div>
                             </div>
-                            <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Birthday</div>
-                                <div class="px-4 py-2">Feb 06, 1998</div>
-                            </div>
-                            <div  v-for="(social, index) in socialsContact" :key="index">
+        
+                            <div v-if="isAuth">
+                            <div v-for="(social, index) in socialsContact" :key="index">
 
                             <div class="grid grid-cols-2" v-if="social.web" >
                               <p class="px-4 py-2 font-semibold">Site web</p>
@@ -103,6 +101,7 @@
 
 
                             </div>
+                            </div>
                         </div>
                     </div>
                     <div class="invertedDarkMode p-3 shadow-sm rounded-sm">
@@ -119,9 +118,9 @@
                                 </span>
                                 <span class="tracking-wide">Techno</span>
                             </div>
-                            <ul class="list-inside flex-row flex ">
+                            <ul class="list-inside  align-middle lg:flex-row lg:flex ">
                                 <li v-for="(technos, index) in technoss" :key="index">
-                                    <div class="text-base mr-4 font-semibold inline-block py-1 px-2 uppercase rounded  bg-sands last:mr-0">
+                                    <div class="text-base lg:mr-4 font-semibold inline-block py-1 px-2 uppercase rounded  bg-sands last:mr-0">
                                       {{technos}}
                                     </div>
                                     

@@ -119,7 +119,6 @@ userId: localStorage.getItem('userId') || '',
 
 
 const actions = {
- 
 
   async loadMentors(context) {
    await axios.get('https://mentor-moi.herokuapp.com/api/mentors', {
@@ -339,6 +338,7 @@ const mutations = {
   return state.mentorId = payload;
 },
 
+
  setOneMentor : (state, payload) => {
   return state.oneMentor = payload;
 },
@@ -347,12 +347,12 @@ const mutations = {
   return state.errors = payload;
 },
 
+
  setUser : (state, payload) => {
   state.userId = payload.userId
   state.token = payload.token
   state.userAuth = payload.userAuth
-      }
-
+      },
       
 }
 

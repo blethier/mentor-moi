@@ -1,10 +1,12 @@
 <template> 
-   <div class="mb-6 w-full   md:w-1/2 lg:w-1/3 px-3">
-          <div class="py-24 h-full w-full invertedDarkMode rounded shadow text-center">
+   <div class="mb-6  md:w-1/2 lg:w-1/3 px-3">
+          <div class="py-24 h-full invertedDarkMode rounded shadow text-center">
             
+          
+
                
-  <span class="mr-2">{{isDisponible}}</span>
-  <span class="inline-flex items-center animate-pulse justify-center px-2 py-2 text-xs font-bold leading-none rounded-full" :class="disponible === 'Oui' ? 'bg-green-700' : '' "></span>
+  <span v-if="isLoggedIn" class="mr-2">{{isDisponible}}</span>
+  <span v-if="isLoggedIn" class="inline-flex items-center animate-pulse justify-center px-2 py-2 text-xs font-bold leading-none rounded-full" :class="disponible === 'Oui' ? 'bg-green-700' : '' "></span>
             
            
    
@@ -23,7 +25,7 @@
               {{presentation}}
             </p>
 
-            <div class="flex justify-center my-6" v-if="isLoggedIn">
+            <div class="flex justify-center my-6" >
                 <div v-for="(technos, index) in technoss" :key="index">
                   <span class=" mr-2 px-2 py-1  font-bold leading-none text-white bg-darkSands rounded-full">
                     {{technos}}
@@ -73,7 +75,7 @@
 
 <script>
 export default {
-    props: ['id','firstName', 'name', 'price','lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials'],
+    props: ['id','firstName', 'name', 'price','lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials', 'mentor'],
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName
@@ -111,7 +113,7 @@ export default {
         return 'bg-red-700 text-red-100'
       }
     }
-    }
+    },
 }
 </script>
 

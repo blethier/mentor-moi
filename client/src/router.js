@@ -44,24 +44,16 @@ const router = new VueRouter({
     routes,
   });
 
+  const isLoggedIn = store.getters['isAuth']
+
   router.beforeEach((to, from, next) => {
     
-    
-    if (to.fullPath === '/register') {
+    if (to.fullPath === '/updateMentors' && !isLoggedIn) {
       if (!store.state.token) {
         next('/login');
       }
     }
-    if (to.fullPath === '/updateMentors') {
-      if (!store.state.token) {
-        next('/login');
-      }
-    }
-    if (to.fullPath === '/register') {
-      if (store.state.accessToken) {
-        next('/mentors');
-      }
-    }
+
     next();
   });
   

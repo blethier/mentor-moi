@@ -30,6 +30,7 @@
                             <div v-if="hasMentors" class="flex flex-wrap -m-4">
                                 <CardMentor  v-for="mentor in filteredMentors" :key="mentor._id" :firstName="mentor.firstName"
                                                                             :lastName="mentor.lastName"
+                                                                            :mentor="mentor"
                                                                                 :title="mentor.title"
                                                                                 :avatar="mentor.avatar"
                                                                                 :role="mentor.role"

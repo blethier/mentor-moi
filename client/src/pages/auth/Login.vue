@@ -18,14 +18,11 @@
 									Email
 								</label>
 								<ValidationProvider rules="email" v-slot="{ errors }">
-								<input
-									class="w-full px-3 py-2 text-sm leading-tight  border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-									id="email"
-									required
-									v-model.trim="email"
-									type="email"
-									placeholder="JohnDoe@gmail.com"
-								/>
+		
+								<div class="mb-3 flex p-4 mx-2 bg-gray-50 rounded">
+              <input required v-model.trim="email" class="w-full text-xs  bg-gray-50 outline-none" type="email" placeholder="name@email.com" data-kwimpalastatus="alive" data-kwimpalaid="1613148787270-15">
+              
+            </div>
   <p class="text-red-700 italic">{{ errors[0] }}</p>
 </ValidationProvider>
 <p class="text-red-500 italic"> {{error}} </p>
@@ -38,14 +35,16 @@
 									Mot de passe
 								</label>
 								<ValidationProvider rules="min:6" v-slot="{ errors }">
-								<input
-									class="w-full px-3 py-2 mb-3 text-sm leading-tight  border  rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-									id="password"
-									required
-									v-model.trim="password"
-									type="password"
-									placeholder="Votre mot de passe"
-								/>
+							
+								<div class="mb-6 flex p-4 mx-2 bg-gray-50 rounded">
+              <input :type="passwordFieldType" required v-model.trim="password" class="w-full text-xs bg-gray-50 outline-none" placeholder="Votre mot de passe" data-kwimpalastatus="alive" data-kwimpalaid="1613148787270-12">
+              <span class=" cursor-pointer" type="password" @click="switchVisibility">
+                <svg class="h-6 w-6 ml-4 my-auto text-gray-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+              </span>
+            </div>
 								<p class="text-red-500 italic">{{ errors[0] }}</p>
 								</ValidationProvider>
 							</div>
@@ -98,6 +97,7 @@ export default {
 			password: '',
 			passwordSignup: '',
 			repeatPassword: '',
+			passwordFieldType: 'password',
 			value: '',
 			error : null,
 			formIsValid: null,
@@ -106,6 +106,9 @@ export default {
 	},
 	
 	methods: {
+		switchVisibility() {
+      this.passwordFieldType = this.passwordFieldType === 'password' ? 'text' : 'password'
+  },
 		async submitForm() {
 		
 			
