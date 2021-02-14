@@ -26,7 +26,7 @@
                         <li class="flex items-center py-3">
                             <span>Statut</span>
                             <span class="ml-auto"><span
-                                    class="bg-green-500 py-1 px-2 rounded text-white ">{{isDisponible}}</span></span>
+                                    class=" py-1 px-2 rounded text-white " :class="mentors.disponible === 'Oui' ? 'bg-green-700' : 'bg-red-700' ">{{isDisponible}}</span></span>
                         </li>
                         <li class="flex items-center py-3">
                             <span>Membre depuis</span>
@@ -71,7 +71,7 @@
                                 <div class="px-4 py-2">{{mentors.city}}</div>
                             </div>
         
-                            <div v-if="isAuth">
+                            <div v-if="isAuth && mentors.disponible === 'Oui'">
                             <div v-for="(social, index) in socialsContact" :key="index">
 
                             <div class="grid grid-cols-2" v-if="social.web" >

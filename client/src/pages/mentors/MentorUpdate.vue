@@ -17,12 +17,6 @@
 
 
               <div class="col-span-6  sm:col-span-3">
-                <label for="firstName" class="block">VILLE</label>
-               
-                <input type="text" required placeholder="CITY" id="firstName"   class="mt-1 h-6 block py-4 px-2 w-full shadow-sm  rounded-md">
-              </div>
-
-              <div class="col-span-6  sm:col-span-3">
                 <label for="firstName" class="block">Prénom</label>
                 <ValidationProvider rules="alpha_spaces" v-slot="{ errors }">
                 <input type="text" required placeholder="John" id="firstName" v-model.trim="firstName"  class="mt-1 h-6 block py-4 px-2 w-full shadow-sm  rounded-md">
@@ -60,10 +54,10 @@
                 </ValidationProvider>
               </div>
 
-               <div class="col-span-6 sm:col-span-4">
-                <label for="city" class="block  text-gray-700">Prix /mois</label>
+                <div class="col-span-6 sm:col-span-4">
+                <label for="city" class="block  text-gray-700">Ville</label>
                
-                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="city" id="city" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+                <Places :options="options" required placeholder="Ville" v-model.trim="city" id="city" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md"/>
            
               </div>
 
@@ -115,7 +109,7 @@
 
               <div class="col-span-6 sm:col-span-3">
                 <label for="country" class="block ">Technos</label>
-                <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="technos" :options="allTechnos" :multiple="true" :max="4"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Choississez 4 technos max"  :allowEmpty="false"  :preselect-first="false"/>       
+                <multiselect class="bg-red-300 w-full py-2 px-2" v-model.trim="technos" :options="allTechnos" :multiple="true" :max="5"  :close-on-select="false" :clear-on-select="false" :preserve-search="true" required placeholder="Choississez 5 technos max"  :allowEmpty="false"  :preselect-first="false"/>       
               </div>
 
               <div class="col-span-6 sm:col-span-4">
@@ -155,12 +149,13 @@
 <script>
   import Multiselect from 'vue-multiselect'
 import axios from 'axios';
+import Places from 'vue-places';
 
- 
 
   export default {
   components: {
-    Multiselect
+    Multiselect,
+    Places
   },
     mounted: async function() {
     // eslint-disable-next-line no-console
@@ -182,6 +177,11 @@ import axios from 'axios';
       disponible: '',
       presentation:'',
       technos: [],
+      options: {
+        appId: 'plLTZK09YPDA',
+        apiKey: '97d61c2265bc0e13758407c8b69dfde6',
+        type: 'city',
+      },
       socials: [
         {web: '', 
         linkedin: '',

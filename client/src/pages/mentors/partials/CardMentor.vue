@@ -6,7 +6,7 @@
 
                
   <span v-if="isLoggedIn" class="mr-2">{{isDisponible}}</span>
-  <span v-if="isLoggedIn" class="inline-flex items-center animate-pulse justify-center px-2 py-2 text-xs font-bold leading-none rounded-full" :class="disponible === 'Oui' ? 'bg-green-700' : '' "></span>
+  <span v-if="isLoggedIn" class="inline-flex items-center animate-pulse justify-center px-2 py-2 text-xs font-bold leading-none rounded-full" :class="disponible === 'Oui' ? 'bg-green-700' : 'bg-red-700' "></span>
             
            
    
@@ -28,7 +28,7 @@
               {{presentation}}
             </p>
 
-            <div class="flex justify-center my-6" >
+            <div class="flex flex-wrap justify-center my-6" >
                 <div v-for="(technos, index) in technoss" :key="index">
                   <span class=" mr-2 px-2 py-1  font-bold leading-none text-white bg-darkSands rounded-full">
                     {{technos}}
@@ -62,7 +62,7 @@
             </div>
 </div>
 
-<div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-darkSands" v-else-if="isLoggedIn">
+<div class="text-xl font-black  text-center  py-2 text-darkSands" v-else-if="isLoggedIn">
 <font-awesome-icon  class="text-2xl mr-2" :icon="'hand-paper'" />  
             <p>
                 Désolé le mentor n'est pas disponible pour le moment
