@@ -9,7 +9,7 @@ const mentor1 = {
         lastName:'Test',
         title: 'Dev front',
         disponible: 'Oui',
-        price: 50,
+        city: 'Paris',
         presentation: 'Hello je suis Mans',
         technos: ["Python","Zend","Swift","Test"]
 }
@@ -34,7 +34,7 @@ afterAll(done => {
         lastName:'Test',
         title: 'Dev front',
         disponible: 'Oui',
-        price: 70,
+        city: 'Londres',
         presentation: 'Hello je suis Mans',
         technos: '["Python","Zend","Swift","Test"]',
         socials: '[{"web":"","linkedin":"","discord":"","twitter":"","github":""}]'
@@ -58,7 +58,7 @@ test('should get One Mentor', async () => {
         lastName:'Test',
         title: 'Dev front',
         disponible: 'Oui',
-        price: 90,
+        city: 'Nice',
         presentation: 'Hello je suis Mans',
         technos: '["Python","Zend","Swift","Test"]',
         socials: '[{"web":"","linkedin":"","discord":"","twitter":"","github":""}]'
@@ -80,7 +80,7 @@ test("should delete one Mentor", async () => {
         lastName:'Test',
         title: 'Dev front',
         disponible: 'Oui',
-        price: 120,
+        city: 'Nantes',
         presentation: 'Hello je suis Mans',
         technos: '["Python","Zend","Swift","Test"]',
         socials: '[{"web":"","linkedin":"","discord":"","twitter":"","github":""}]'
@@ -101,7 +101,7 @@ test("Should post Mentor", async () => {
         avatar: 'https://images.unsplash.com/photo-1495681796091-d84e65e2ad51?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3341&q=80',
         title: 'Dev front',
         disponible: 'Oui',
-        price: 45,
+        city: 'Lille',
         presentation: 'Hello je suis un test qui viens du back',
         technos: '["Python","Zend","Swift","Test"]',
         socials: '[{"web":"","linkedin":"","discord":"","twitter":"","github":""}]'
@@ -114,7 +114,7 @@ test("Should post Mentor", async () => {
         .field('lastName' , data.lastName)
         .field('title' , data.title)
         .field('avatar' , data.avatar )
-        .field('price' , data.price )
+        .field('city' , data.city )
         .field('disponible' , data.disponible)
         .field('presentation' , data.presentation)
         .field('technos' , data.technos)
@@ -132,7 +132,7 @@ test("Should post Mentor", async () => {
                 lastName:'Test',
                 avatar: 'https://images.unsplash.com/photo-1495681796091-d84e65e2ad51?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=3341&q=80',
                 title: 'Dev front',
-                price: 55,
+                city: 'Nantes',
                 disponible: 'Oui',
                 presentation: 'Hello je suis un test qui viens du back',
                 technos: '["Python","Zend","Swift","Test"]',
@@ -145,7 +145,7 @@ test("Should post Mentor", async () => {
                 avatar: 'https://images.unsplash.com/photo-1547720435-4e8910fb1f0b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80',
                 title: 'Dev Back',
                 disponible: 'Oui',
-                price: 55,
+                city: 'Bordeaux',
                 presentation: 'Hello je suis un test qui viens du back',
                 technos: '["Python","Zend","Symfony","Test"]',
                 socials: '[{"web":"","linkedin":"","discord":"","twitter":"","github":""}]'
@@ -157,7 +157,7 @@ test("Should post Mentor", async () => {
                 .field('firstName' , data.firstName)
                 .field('lastName' , data.lastName)
                 .field('title' , data.title)
-                .field('price' , data.price)
+                .field('city' , data.city)
                 .field('avatar' , data.avatar )
                 .field('disponible' , data.disponible)
                 .field('presentation' , data.presentation)

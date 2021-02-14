@@ -18,6 +18,9 @@
               {{ fullName }}
             </h4>
    </router-link>
+    <p class=" italic">
+              {{ city }}
+            </p>
             <p class=" italic">
               {{ title }}
             </p>
@@ -75,17 +78,10 @@
 
 <script>
 export default {
-    props: ['id','firstName', 'name', 'price','lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials', 'mentor'],
+    props: ['id','firstName', 'name', 'city','lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials', 'mentor'],
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName
-      },
-      priceName(){
-	if (this.price === 0) {
-				return 'Gratuit'
-			} else {
-				return this.price + '€ / mois'
-			} 
       },
       socialsContact(){
           return JSON.parse(this.socials)

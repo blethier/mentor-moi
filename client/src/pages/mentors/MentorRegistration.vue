@@ -53,9 +53,9 @@
               </div>
 
               <div class="col-span-6 sm:col-span-4">
-                <label for="price" class="block  text-gray-700">Prix /mois</label>
+                <label for="city" class="block  text-gray-700">Prix /mois</label>
                
-                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="price" id="price" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="city" id="city" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
            
               </div>
 
@@ -165,7 +165,7 @@ import axios from 'axios';
       title:'',
       avatar: '',
       error : '',
-      price : 0,
+      city : '',
       presentation:'',
       disponible : null,
       technos: [],
@@ -218,7 +218,7 @@ import axios from 'axios';
          formData.append('disponible' ,this.disponible)
          formData.append('title', this.firstLetter(this.title))
          formData.append('presentation', this.presentation)
-         formData.append('price', this.price)
+         formData.append('city', this.city)
          formData.append('technos' ,JSON.stringify(this.technos))
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)

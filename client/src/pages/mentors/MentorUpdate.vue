@@ -15,6 +15,13 @@
           <div class="px-4 py-5 bg-red-300 sm:p-6">
             <div class="grid grid-cols-6 gap-6 text-gray-700 ">
 
+
+              <div class="col-span-6  sm:col-span-3">
+                <label for="firstName" class="block">VILLE</label>
+               
+                <input type="text" required placeholder="CITY" id="firstName"   class="mt-1 h-6 block py-4 px-2 w-full shadow-sm  rounded-md">
+              </div>
+
               <div class="col-span-6  sm:col-span-3">
                 <label for="firstName" class="block">Prénom</label>
                 <ValidationProvider rules="alpha_spaces" v-slot="{ errors }">
@@ -54,9 +61,9 @@
               </div>
 
                <div class="col-span-6 sm:col-span-4">
-                <label for="price" class="block  text-gray-700">Prix /mois</label>
+                <label for="city" class="block  text-gray-700">Prix /mois</label>
                
-                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="price" id="price" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+                <input min="0" type="number" required placeholder="0 si gratuit" v-model.trim="city" id="city" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
            
               </div>
 
@@ -171,7 +178,7 @@ import axios from 'axios';
       lastName: '',
       title:'',
       avatar: '',
-      price: '',
+      city: '',
       disponible: '',
       presentation:'',
       technos: [],
@@ -201,7 +208,7 @@ import axios from 'axios';
    this.lastName =  localStorage.getItem('lastName'),
    this.disponible =  localStorage.getItem('disponible'),
   this.title =  localStorage.getItem('title'),
-  this.price =  localStorage.getItem('price'),
+  this.city =  localStorage.getItem('city'),
   this.avatar =  localStorage.getItem('avatar'),
   this.presentation =  localStorage.getItem('presentation'),
   this.socials =  JSON.parse(localStorage.getItem('socials')),
@@ -245,7 +252,7 @@ import axios from 'axios';
          formData.append('disponible' ,this.disponible)
          formData.append('title', this.firstLetter(this.title))
          formData.append('presentation', this.presentation)
-          formData.append('price', this.price)
+          formData.append('city', this.city)
          formData.append('technos' ,JSON.stringify(this.technos))
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)
