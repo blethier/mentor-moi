@@ -45,7 +45,7 @@
               From: "transform opacity-100 scale-100"
               To: "transform opacity-0 scale-95"
           -->
-          <div :class="openMenu ? 'block': 'hidden'" class="invertedDarkMode  z-50 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+          <div :class="openMenu ? 'block': 'hidden'" class="invertedDarkMode z-50 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
               <div class="px-2 pt-2 pb-3 space-y-1">
             <router-link v-if="!isMentor" to="/register" class="block px-4 py-2 hover:bg-sands  " role="menuitem">Devenir Mentor</router-link>
             <router-link v-if="isMentor" to="/updateMentors" class="block px-4 py-2 hover:bg-sands " role="menuitem">Modifier mon profil</router-link>
@@ -63,25 +63,25 @@
 
     Menu open: "block", Menu closed: "hidden"
   -->
-  <div :class="open ? 'block': 'hidden'" class="fixed inset-x-0 bottom-0 z-10 bg-darkSands shadow sm:hidden">
-    <div @click="closeMenu" class="px-2 flex flex-col text-center text-lg pt-2 pb-3 space-y-1">
+  <div :class="open ? 'block': 'hidden'" class="fixed inset-x-0 bottom-16 z-50 bg-darkSands shadow sm:hidden">
+    <div @click="closeMenu" class="px-2  text-lg pt-2 pb-3 space-y-1">
       <!-- Current: "bg-gray-900 text-white", Default: " hover:bg-gray-700 hover:text-white" -->
       
      
       
        <router-link to="/jobs" class="  block px-3 pb-2 rounded-md  font-medium">Emploi</router-link>
         <router-link to="/conseils" class="  block px-3 py-2 rounded-md  font-medium">Blog</router-link>
-        <router-link to="/faq" class="  block px-3 pt-2 pb-12  mb-8 rounded-md  font-medium">F.A.Q</router-link>
+        <router-link to="/faq" class="  block px-3 pt-2  rounded-md  font-medium">F.A.Q</router-link>
       
     </div>
   </div>
 
-  <div :class="openAccount ? 'block': 'hidden'" class="fixed inset-x-0 bottom-0 z-10 bg-darkSands shadow sm:hidden">
+  <div :class="openAccount ? 'block': 'hidden'" class="fixed inset-x-0 bottom-16 z-50 bg-darkSands shadow sm:hidden">
     <div @click="closeMenu"   class="px-2 text-lg pt-2 pb-3 space-y-1">
       <router-link v-if="!isMentor && isLoggedIn" to="/register" class="block px-4 py-2 hover:bg-sands  " role="menuitem">Devenir Mentor</router-link>
             <router-link v-if="isMentor && isLoggedIn" to="/updateMentors" class="block px-4 py-2 hover:bg-sands " role="menuitem">Modifier mon profil</router-link>
-            <p v-if="isLoggedIn" @click="logout" href="#" class="block px-4 py-12  mb-8 hover:bg-sands " role="menuitem">Déconnexion</p>
-             <router-link v-if="!isLoggedIn" to="/login" class="block px-4 py-8  mb-8 hover:bg-sands " role="menuitem">Se connecter / S'inscrire</router-link>
+            <p v-if="isLoggedIn" @click="logout" href="#" class="block px-4 pt-2 hover:bg-sands " role="menuitem">Déconnexion</p>
+             <router-link v-if="!isLoggedIn" to="/login" class="block px-4 py-6   hover:bg-sands " role="menuitem">Se connecter / S'inscrire</router-link>
     </div>
    
            

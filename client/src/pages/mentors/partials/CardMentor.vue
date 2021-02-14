@@ -1,6 +1,6 @@
 <template> 
-   <div class="mb-6   px-3">
-          <div class="py-24 h-full  w-96 invertedDarkMode rounded shadow text-center">
+   <div class="mb-6 mx-auto  px-3">
+          <div class="py-24 h-full w-80 invertedDarkMode rounded shadow text-center">
             
           
 
