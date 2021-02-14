@@ -1,5 +1,5 @@
 <template>
-   <footer class=" body-font text-lg">
+   <footer class=" mb-12 lg:mb-0 body-font text-lg">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <router-link to="/" class="flex  font-medium items-center md:justify-start justify-center ">
        <img class="block   h-12 w-auto" src="../assets/img/minilogo.svg" alt="logo">
