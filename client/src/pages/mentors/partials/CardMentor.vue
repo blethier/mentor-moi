@@ -1,6 +1,6 @@
 <template> 
    <div class="mb-6 mx-auto  px-3">
-      <div class="py-24 h-full sm:w-1/2 w-80 invertedDarkMode rounded shadow text-center">        
+      <div class="py-24 h-full w-80 invertedDarkMode rounded shadow text-center">        
             <span v-if="isLoggedIn" class="mr-2">{{isDisponible}}</span>
             <span v-if="isLoggedIn" class="inline-flex items-center animate-pulse justify-center px-2 py-2 text-xs font-bold leading-none rounded-full" :class="disponible === 'Oui' ? 'bg-green-700' : 'bg-red-700' "></span>
         <router-link :to="mentorsDetailsLink" >
