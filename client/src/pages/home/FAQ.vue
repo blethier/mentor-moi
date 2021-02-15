@@ -1,42 +1,42 @@
 <template>
     <div>
-        <div class="container lg:h-screen h-auto px-5 py-24 mx-auto">
+        <div class="container sm:h-screen h-full px-5 py-24 mx-auto">
           <div class="text-center mb-20">
             <h1 class="sm:text-3xl text-2xl underline font-medium text-darkSands text-center title-font  mb-4">
               Foire Aux Questions
             </h1>
-            <p class="text-base darkMode leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
+            <p class="text-base darkMode mt-4 leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto">
               Les questions les plus courantes sur le fonctionnement du service Mentor-moi.
             </p>
           </div>
           <div class="flex flex-wrap lg:w-4/5 darkMode sm:mx-auto sm:mb-2 -mx-2">
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+                <summary class="font-black text-xl text-gray-800 mb-6  bg-sands rounded-md py-2 px-4">
                   Pourquoi un mentor ?
                 </summary>
 
-                <span class="text-lg">
+                <span class="text-lg ">
                   Partagez leur expérience afin de vous guider dans votre carrière ou à travers un problème technique que vous rencontrez.<br>
                   Partager avec vous des méthodologies pour arriver à progresser.
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800 bg-sands rounded-md py-2 px-4">
+                <summary class="font-black mb-6 text-xl text-gray-800 bg-sands rounded-md py-2 px-4">
                   Le service est il payant?
                 </summary>
 
                 <span class="text-lg">
-                  Les mentors qui s'inscrivent accepte de le faire de manière 
+                  Les mentors qui s'inscrivent acceptent de le faire de manière 
                   bénévole, le concept est de créer un service entièrement gratuit de partage de connaissance 
                   entre les mentors et les mentorés moins expérimentés afin de favoriser l'entraide de la communauté.
                   <p class="mt-4 text-lg">
-                      Le mentorat devrait être accessible de n'importe où et quelques soit les moyens financiers.
+                      Le mentorat devrait être et quelques soit les moyens financiers.
                   </p>
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   C'est quoi un mentor?
                 </summary>
 
@@ -48,7 +48,7 @@
               </details>
 
                <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment devenir Mentor?
                 </summary>
 
@@ -62,7 +62,7 @@
             </div>
             <div class="w-full lg:w-1/2 px-4 py-2">
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Quel est le rôle de Mentor-moi ?
                 </summary>
 
@@ -76,40 +76,25 @@
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment se déroule la recherche de mentor?
                 </summary>
 
                 <span class="px-4 py-2 text-lg">
-                  Contacter gentimment le mentor sur l'un de ses réseaux qu'il aura renseigné,
+                  Contacter le mentor sur l'un de ses réseaux qu'il aura renseigné,
                   vous devez définir des attentes réalistes dès le départ. <br>
-                  <p class="mt-4 text-normal">
-                      «Salut "Mentor". Je cherche à améliorer mes compétences en 
-                          "Recat, php ..." et j'ai trouvé votre profil sur Mentor-moi. 
-                              J'adorerais que nous puissions établir un mentorat et 
-                              travailler à mon objectif. »
-                  </p>
+                  
                   <p class="mt-4 text-lg">
                         Pensez au temps que vous pouvez consacrer chaque jour ou 
-                        semaine à la communication. Choisissez une plateforme pour communiquer 
-                        (Meet, Discord, Skype...) 
-                        Communiquez vos attentes de la 
-                        relation aussi clairement que possible. Certaines questions 
-                        que vous voudrez peut-être aborder:
+                        semaine à la communication. Choisissez une plateforme pour communiquer.
+                        
                     </p>
-                    <p class="mt-4 text-lg">
-                        Qu'espérez-vous accomplir grâce au mentorat?<br>
-                        Combien de temps êtes-vous capable d'y consacrer?<br>
-                        Les réunions de mentorat devraient-elles avoir lieu une fois par semaine, deux fois par semaine...? <br>
-                        Ce mentorat est-il ouvert ou avez-vous besoin de quelques séances seulement? <br>
-                        Quelle sera votre principale méthode de communication? <br>
-                        Comment souhaitez-vous suivre vos progrès?
-                    </p>  
+                  
                         
                 </span>
               </details>
               <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   C'est quoi un mentoré ?
                 </summary>
 
@@ -122,7 +107,7 @@
               </details>
 
                <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment mettre fin au mentorat ?
                 </summary>
 

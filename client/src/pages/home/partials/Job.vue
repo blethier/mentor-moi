@@ -2,8 +2,10 @@
     <section class=" darkMode ">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
-      <h1 class="text-4xl font-bold  mb-4 text-darkSands">Master Cleanse Reliac Heirloom</h1>
-      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Whatever cardigan tote bag tumblr hexagon brooklyn asymmetrical gentrify, subway tile poke farm-to-table. Franzen you probably haven't heard of them man bun deep jianbing selfies heirloom.</p>
+      <h1 class="text-4xl font-bold  mb-4 text-darkSands">
+        Quelques métiers du digital
+      </h1>
+      
     </div>
     <div class="flex flex-wrap -m-4">
       <div v-for="job in jobs" :key="job.title" class="lg:w-1/3 sm:w-1/2 p-4">

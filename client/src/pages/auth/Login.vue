@@ -1,11 +1,8 @@
 <template>
     <div class="container text-gray-800 h-screen mx-auto">
 			<div class="flex justify-center px-6 my-12">
-				<!-- Row -->
 				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
-					<!-- Col -->
-					<div
-						class="w-full h-auto bg-red-400 hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
+					<div class="w-full h-auto bg-red-400 hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
 						:style="{ backgroundImage: 'url(' + require('../../assets/img/jay.jpg') + ')' }"
 					></div>
 					<!-- Col -->
@@ -20,7 +17,7 @@
 								<ValidationProvider rules="email" v-slot="{ errors }">
 		
 								<div class="mb-3 flex p-4 mx-2 bg-gray-50 rounded">
-              <input required v-model.trim="email" class="w-full text-xs  bg-gray-50 outline-none" type="email" placeholder="name@email.com" data-kwimpalastatus="alive" data-kwimpalaid="1613148787270-15">
+              <input required v-model.trim="email" class="w-full text-xs  bg-gray-50 outline-none" type="email" placeholder="name@email.com">
               
             </div>
   <p class="text-red-700 italic">{{ errors[0] }}</p>
@@ -72,7 +69,7 @@
 							<hr class="mb-6 border-t" />
 							<div class="text-center">
 								<router-link to="signup"	
-									class="inline-block cursor-pointer text-red-500 align-baseline "
+									class="inline-block cursor-pointer text-black font-black text-base align-baseline "
 									
 								>
 									Pas de compte ? inscrivez vous

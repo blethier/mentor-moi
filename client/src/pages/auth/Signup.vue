@@ -89,7 +89,7 @@
 							<hr class="mb-6 border-t" />
 							<div class="text-center">
 								<router-link to="/login"
-									class="inline-block cursor-pointer text-red-500 align-baseline "
+									class="inline-block cursor-pointer text-black font-black text-base align-baseline "
 									
 								>
 									Déjà un compte ? Connectez vous
