@@ -95,6 +95,11 @@ articles: [
   link: 'https://alexsoyes.com/'
 },
 {
+  name : 'What The Fabrik',
+  image: require('@/assets/img/toucan.png'),
+  link: 'https://whatthefabrik.fr/'
+},
+{
   name : 'Rayed Benbrahim',
   image: require('@/assets/img/rayed.png'),
   link: 'https://practicalprogramming.fr/devenir-developpeur/'
@@ -120,6 +125,11 @@ articles: [
   link: 'https://artisandeveloppeur.fr/blog/'
 },
 {
+  name : 'ITER',
+  image: require('@/assets/img/iter.png'),
+  link: 'https://app.iters.io/'
+},
+{
   name : 'Arnaud Lemercier',
   image: require('@/assets/img/arnaud.png'),
   link: 'https://codedesign.fr/'
@@ -133,6 +143,11 @@ articles: [
   name : 'Shinochi',
   image: require('@/assets/img/shinochi.png'),
   link: 'https://blog.bfrancois.com/'
+},
+{
+  name : 'We Love Devs',
+  image: require('@/assets/img/welovedevs.png'),
+  link: 'https://welovedevs.com/fr/inspiration/'
 }
 ],
 mentors: [],
