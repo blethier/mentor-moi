@@ -72,7 +72,7 @@ export default {
         loading: false
         };
     },
-    mounted(){
+    created(){
         this.loadMentors(),
         this.loadOneMentor()
         
