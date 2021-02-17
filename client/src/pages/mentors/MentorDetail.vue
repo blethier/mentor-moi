@@ -76,27 +76,27 @@
 
                             <div class="grid grid-cols-2" v-if="social.web" >
                               <p class="px-4 py-2 font-semibold">Site web</p>
-                              <a :href="social.web" class="px-4 py-2">{{social.web}}</a>
+                              <a :href="social.web" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.web}}</a>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.twitter" >
                               <p class="px-4 py-2 font-semibold">Twitter</p>
-                              <a :href="social.twitter" class="px-4 py-2">{{social.twitter}}</a>
+                              <a :href="social.twitter" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.twitter}}</a>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.github" >
                               <p class="px-4 py-2 font-semibold">Github</p>
-                              <a :href="social.github" class="px-4 py-2">{{social.github}}</a>
+                              <a :href="social.github" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.github}}</a>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.linkedin" >
                               <p class="px-4 py-2 font-semibold">Linkedin</p>
-                              <a :href="social.linkedin" class="px-4 py-2">{{social.linkedin}}</a>
+                              <a :href="social.linkedin" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.linkedin}}</a>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.discord" >
                               <p class="px-4 py-2 font-semibold">Discord</p>
-                              <a :href="social.discord" class="px-4 py-2">{{social.discord}}</a>
+                              <a :href="social.discord" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.discord}}</a>
                             </div>
 
 

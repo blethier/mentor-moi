@@ -7,7 +7,7 @@
             <img class="mx-auto mt-4 mb-8 w-32 h-32 rounded-full object-cover" :src="avatar" alt="">
             </router-link>
             <router-link :to="mentorsDetailsLink" >
-            <h4 class="mb-2 text-2xl  font-bold font-heading">
+            <h4 class="mb-2 mr-4 ml-4 text-2xl  font-bold font-heading">
               {{ fullName }}
             </h4>
         </router-link>
@@ -17,13 +17,13 @@
             <p class=" italic">
               {{ title }}
             </p>
-            <p>
+            <p class="mr-4 ml-4">
               {{presentation}}
             </p>
 
             <div class="flex flex-wrap justify-center my-6" >
                 <div v-for="(technos, index) in technoss" :key="index">
-                  <span class=" mr-2 px-2 py-1  font-bold leading-none text-white bg-darkSands rounded-full">
+                  <span class=" mr-2 px-2 py-1 flex  mb-4  font-bold leading-none text-white bg-darkSands rounded-full">
                     {{technos}}
                   </span>
                 </div>
@@ -38,17 +38,17 @@
                 <font-awesome-icon v-if="social.web" class="text-3xl mr-2" :icon="'globe'" />  
   </a>
 
-                 <a v-if="social.github" target="_blank" rel="noopener" :href="`https://github.com/${social.github}`">
+                 <a v-if="social.github" target="_blank" rel="noopener" :href="social.github">
                 <font-awesome-icon v-if="social.github" class="text-3xl mr-2" :icon="['fab', 'github-square']" />  
   </a> 
 
-                 <a v-if="social.twitter" target="_blank" rel="noopener" :href="`https://twitter.com/${social.twitter}`">
+                 <a v-if="social.twitter" target="_blank" rel="noopener" :href="social.twitter">
                 <font-awesome-icon v-if="social.twitter" class="text-3xl mr-2" :icon="['fab', 'twitter-square']" />  
   </a>
                  <a v-if="social.discord" target="_blank" rel="noopener" :href="social.discord">
                 <font-awesome-icon v-if="social.discord" class="text-3xl mr-2" :icon="['fab', 'discord']" />  
   </a>
-  <a v-if="social.linkedin" target="_blank" rel="noopener" :href="`https://linkedin.com/in/${social.linkedin}`">
+  <a v-if="social.linkedin" target="_blank" rel="noopener" :href="social.linkedin">
                 <font-awesome-icon v-if="social.linkedin" class="text-3xl mr-2" :icon="['fab', 'linkedin']" />  
   </a>
 
