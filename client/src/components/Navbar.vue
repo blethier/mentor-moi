@@ -121,7 +121,7 @@ Avatar
   },
    created() {
     window.addEventListener('click', this.close)
-   //window.addEventListener('beforeunload', this.logout)
+   window.onunload('beforeunload', this.logout)
   },
    beforeDestroy() {
     window.removeEventListener('click', this.close)
