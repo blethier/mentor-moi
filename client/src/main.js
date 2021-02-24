@@ -80,7 +80,7 @@ Vue.config.productionTip = false
 Vue.use(Vuex);
 Vue.use(VueToast);
 Vue.use(VueAnalytics, {
-    id: 'UA-151373216-7'
+    id: 'G-NSZWR9027Q'
 })
 Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
