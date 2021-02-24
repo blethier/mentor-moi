@@ -24,7 +24,7 @@
                     <section class="text-gray-700 body-font">
                         <div class=" px-5 py-12 mx-">
                             <div v-if="hasMentors" class="flex flex-wrap -m-4">
-                                <CardMentor  v-for="mentor in filteredMentors" :key="mentor._id" :firstName="mentor.firstName"
+                                <CardMentor class="xl:w-1/4  md:w-1/2 p-4"  v-for="mentor in filteredMentors" :key="mentor._id" :firstName="mentor.firstName"
                                                                             :lastName="mentor.lastName"
                                                                             :mentor="mentor"
                                                                                 :title="mentor.title"
