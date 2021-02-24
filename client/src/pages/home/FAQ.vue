@@ -11,20 +11,20 @@
           </div>
           <div class="flex flex-wrap lg:w-4/5 darkMode sm:mx-auto sm:mb-2 -mx-2">
             <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-black text-xl text-gray-800 mb-6  bg-sands rounded-md py-2 px-4">
+              <div class="mb-4">
+                <div class="font-black text-xl text-gray-800 mb-6  bg-sands rounded-md py-2 px-4">
                   Pourquoi un mentor ?
-                </summary>
+                </div>
 
                 <span class="text-lg ">
                   Partagez leur expérience afin de vous guider dans votre carrière ou à travers un problème technique que vous rencontrez.<br>
                   Partager avec vous des méthodologies pour arriver à progresser.
                 </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-black mb-6 text-xl text-gray-800 bg-sands rounded-md py-2 px-4">
+              </div>
+              <div class="mb-4">
+                <div class="font-black mb-6 text-xl text-gray-800 bg-sands rounded-md py-2 px-4">
                   Le service est il payant?
-                </summary>
+                </div>
 
                 <span class="text-lg">
                   Les mentors qui s'inscrivent acceptent de le faire de manière 
@@ -34,23 +34,23 @@
                       Le mentorat devrait être et quelques soit les moyens financiers.
                   </p>
                 </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+              </div>
+              <div class="mb-4">
+                <div class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   C'est quoi un mentor?
-                </summary>
+                </div>
 
                 <span class="text-lg">
                   Un mentor est une personne assez  
                   expérimentés sur divers sujets et souhaite partager ses connaissances, 
                   pour aider les autres moins expérimentés. Attention le mentor n'est pas un formateur à part entière.
                 </span>
-              </details>
+              </div>
 
-               <details class="mb-4">
-                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+               <div class="mb-4">
+                <div class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment devenir Mentor?
-                </summary>
+                </div>
 
                 <span class="text-lg">
                   Inscrivez-vous sur le site puis cliquez sur la section "Devenir mentor",
@@ -58,13 +58,13 @@
                   Tout le monde peut être mentor, si vous vous sentez capable d'apporter à d'autres 
                   n'hésitez pas.
                 </span>
-              </details>
+              </div>
             </div>
             <div class="w-full lg:w-1/2 px-4 py-2">
-              <details class="mb-4">
-                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+              <div class="mb-4">
+                <div class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Quel est le rôle de Mentor-moi ?
-                </summary>
+                </div>
 
                 <span class="px-4 py-2 text-lg">
                   Mentor-moi a été créé pour faciliter le mentorat entre 
@@ -74,11 +74,11 @@
                   connaissances en développement Web et de mieux 
                   poursuivre leurs carrières.
                 </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+              </div>
+              <div class="mb-4">
+                <div class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment se déroule la recherche de mentor?
-                </summary>
+                </div>
 
                 <span class="px-4 py-2 text-lg">
                   Contacter le mentor sur l'un de ses réseaux qu'il aura renseigné,
@@ -92,11 +92,11 @@
                   
                         
                 </span>
-              </details>
-              <details class="mb-4">
-                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+              </div>
+              <div class="mb-4">
+                <div class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   C'est quoi un mentoré ?
-                </summary>
+                </div>
 
                 <span class="px-4 py-2 text-lg">
                   Un mentoré est une personne qui aspire à développer ses 
@@ -104,19 +104,19 @@
                   et qui a besoin de conseils, d'assistance, de soutien et / ou 
                   d'orientation.
                 </span>
-              </details>
+              </div>
 
-               <details class="mb-4">
-                <summary class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
+               <div class="mb-4">
+                <div class="font-black mb-6 text-xl text-gray-800  bg-sands rounded-md py-2 px-4">
                   Comment mettre fin au mentorat ?
-                </summary>
+                </div>
 
                 <span class="px-4 py-2 text-lg">
                   Simplement contacter le mentor pour lui notifier votre décision, 
                   le mentorat n'est pas un contrat établi précisez lui juste les 
                   raisons de ce choix.
                 </span>
-              </details>
+              </div>
             </div>
           </div>
         </div>
