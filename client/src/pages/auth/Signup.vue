@@ -5,7 +5,7 @@
 				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
 					<!-- Col -->
 					<div
-						class="w-full h-auto bg-red-400 hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
+						class="w-full h-auto  hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
 						:style="{ backgroundImage: 'url(' + require('../../assets/img/jay.jpg') + ')' }"
 					></div>
 					<!-- Col -->
@@ -89,7 +89,7 @@
 							<hr class="mb-6 border-t" />
 							<div class="text-center">
 								<router-link to="/login"
-									class="inline-block cursor-pointer text-red-500 align-baseline "
+									class="inline-block cursor-pointer text-black font-black text-base align-baseline "
 									
 								>
 									Déjà un compte ? Connectez vous

@@ -46,11 +46,58 @@ const state = {
     'TDD',
     'AWS',
 ],
+jobs: [
+{
+  title: 'WEB DESIGNER',
+  image: require('@/assets/img/designer.jpg'),
+  description: 'Il est en charge de la conception et de la réalisation visuelle d’un site internet. Il va regrouper les éléments essentiels au projet : arborescence du site, architecture, ergonomie, interactivité et charte graphique.'
+},
+{
+  title: 'DEVELOPPEUR FRONT-END',
+  image: require('@/assets/img/frontend.jpg'),
+  description: 'Le développeur Front-End développe les éléments d’un site avec lesquels on peut interagir, il va intervenir à la fois au niveau du design et du développement.'
+},
+{
+  title: 'DEVELOPPEUR BACK-END',
+  image: require('@/assets/img/backend.jpg'),
+  description: 'Le développeur Back-End travaille sur le back-office et sur tous les éléments d’un projet web tel que : configuration et développement serveur, maintenance ou encore bases de données.'
+},
+{
+  title: 'DEVELOPPEUR MOBILE',
+  image: require('@/assets/img/mobile.jpg'),
+  description: 'Le développeur mobile réalise vos applications que ce soit une application uniquement consultable sur smartphone ou la version mobile d’un site internet.'
+},
+{
+  title: 'DEVOPS',
+  image: require('@/assets/img/devops.jpg'),
+  description: 'De façon très générale, ses tâches principales consistent à mettre en place, gérer et administrer des systèmes informatiques.'
+},
+{
+  title: 'CHEF DE PROJET WEB',
+  image: require('@/assets/img/cheffe.jpg'),
+  description: 'Le métier de Chef de Projets Web coordonne et dirige un projet web du début à la fin. Il a de larges connaissances dans le secteur du digital et des notions dans les différents secteurs d’activité techniques de ses collaborateurs.'
+},
+{
+  title: 'DATA ANALYST',
+  image: require('@/assets/img/analyst.jpg'),
+  description: 'Le Data Analyst traite les extractions de bases de données. Il les analyse et se charge de leur interprétation afin que l’entreprise puisse en tirer des améliorations business.'
+},
+{
+  title: 'DATA SCIENTIST',
+  image: require('@/assets/img/scientist.jpg'),
+  description: 'Il consiste à analyser de manière pointue des données massives, couramment appelées « Big Data », concernant à la fois les clients, les prospects et les employés.'
+}
+],
 articles: [
 {
   name : 'Alex Soyes',
   image: require('@/assets/img/alexsoyes.png'),
   link: 'https://alexsoyes.com/'
+},
+{
+  name : 'What The Fabrik',
+  image: require('@/assets/img/toucan.png'),
+  link: 'https://whatthefabrik.fr/'
 },
 {
   name : 'Rayed Benbrahim',
@@ -61,6 +108,46 @@ articles: [
   name : 'Mehdi Zed',
   image: require('@/assets/img/jesuisundev.png'),
   link: 'https://www.jesuisundev.com/'
+},
+{
+  name : 'Nicolas Brondin-Bernard',
+  image: require('@/assets/img/nicolas.png'),
+  link: 'https://blog.nicolas.brondin-bernard.com/'
+},
+{
+  name : 'Jérémy Mouzin',
+  image: require('@/assets/img/jeremy.png'),
+  link: 'https://jeremymouzin.com/blog/'
+},
+{
+  name : 'Artisan Développeur',
+  image: require('@/assets/img/artisan.png'),
+  link: 'https://artisandeveloppeur.fr/blog/'
+},
+{
+  name : 'ITER',
+  image: require('@/assets/img/iter.png'),
+  link: 'https://app.iters.io/'
+},
+{
+  name : 'Arnaud Lemercier',
+  image: require('@/assets/img/arnaud.png'),
+  link: 'https://codedesign.fr/'
+},
+{
+  name : 'Arkerone',
+  image: require('@/assets/img/codeheroes.png'),
+  link: 'https://www.codeheroes.fr/'
+},
+{
+  name : 'Shinochi',
+  image: require('@/assets/img/shinochi.png'),
+  link: 'https://blog.bfrancois.com/'
+},
+{
+  name : 'We Love Devs',
+  image: require('@/assets/img/welovedevs.png'),
+  link: 'https://welovedevs.com/fr/inspiration/'
 }
 ],
 mentors: [],
@@ -72,7 +159,6 @@ userId: localStorage.getItem('userId') || '',
 
 
 const actions = {
- 
 
   async loadMentors(context) {
    await axios.get('https://mevn-mentor-moi.herokuapp.com/api/mentors', {
@@ -95,8 +181,15 @@ const actions = {
            // remove headers
          }
        }).then(res => {
-         console.log(res.data)
-         //localStorage.setItem('oneMentor', JSON.stringify(res.data) )
+         localStorage.setItem('firstName', res.data.firstName )
+         localStorage.setItem('lastName', res.data.lastName )
+         localStorage.setItem('disponible', res.data.disponible )
+         localStorage.setItem('avatar', res.data.avatar )
+         localStorage.setItem('city', res.data.city )
+         localStorage.setItem('presentation', res.data.presentation )
+         localStorage.setItem('title', res.data.title )
+         localStorage.setItem('socials', res.data.socials )
+         localStorage.setItem('technos', res.data.technos )
         context.commit('setOneMentor', res.data)
        }).catch(err => {
          console.log(err.response);
@@ -188,6 +281,15 @@ logout(context) {
   localStorage.removeItem('oneMentor')
   localStorage.removeItem('mentor-id')
   localStorage.removeItem('userId')
+  localStorage.removeItem('firstName' )
+  localStorage.removeItem('lastName')
+  localStorage.removeItem('disponible')
+  localStorage.removeItem('avatar' )
+  localStorage.removeItem('city' )
+  localStorage.removeItem('presentation' )
+  localStorage.removeItem('title' )
+  localStorage.removeItem('socials')
+  localStorage.removeItem('technos')
   context.commit('setOneMentor', null)
   context.commit('setUser', {
     token: null,
@@ -205,7 +307,7 @@ const getters = {
 
   allMentors: (state) => state.mentors,
   allArticles: (state) => state.articles,
-
+  allJobs: (state) => state.jobs,
   oneMentor: (state) =>  state?.oneMentor,
 
   isMentor : (state) =>  { 
@@ -276,6 +378,7 @@ const mutations = {
   return state.mentorId = payload;
 },
 
+
  setOneMentor : (state, payload) => {
   return state.oneMentor = payload;
 },
@@ -284,12 +387,12 @@ const mutations = {
   return state.errors = payload;
 },
 
+
  setUser : (state, payload) => {
   state.userId = payload.userId
   state.token = payload.token
   state.userAuth = payload.userAuth
-      }
-
+      },
       
 }
 

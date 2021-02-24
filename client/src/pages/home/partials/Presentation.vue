@@ -2,8 +2,8 @@
   <!-- This example requires Tailwind CSS v2.0+ -->
 <div class="py-12 darkMode">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="lg:text-center ">
-      <h2 class="text-4xl text-darkSands  font-black tracking-wide">Pourquoi un mentor ?</h2>
+    <div class="text-center ">
+      <h2 class="text-4xl text-darkSands font-black tracking-wide">Les avantages du mentorat</h2>
     </div>
 
     <div class="mt-14">
@@ -11,16 +11,13 @@
         <div class="flex">
           <div class="flex-shrink-0">
            
-              <!-- Heroicon name: globe-alt -->
-                            <img class="flex items-center justify-center h-24 w-24 rounded-md  " src="../../../assets/img/video-call.svg" alt="">
+            <img class="flex items-center justify-center h-24 w-24 rounded-md  " src="../../../assets/img/video-call.svg" alt="">
             
           </div>
           <div class="ml-4">
-            <h4 class="text-xl  leading-6 font-black ">
-              Competitive exchange rates
-            </h4>
+           
             <p class="mt-2 text-base ">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+             Si vous êtes coincé entre deux choix de carrière, les mentors peuvent vous aider à décider ce qui convient le mieux à votre personnalité, vos connaissances ou vos intérêts.
             </p>
           </div>
         </div>
@@ -30,11 +27,9 @@
             <img class="flex items-center justify-center h-20 w-20 rounded-md  " src="../../../assets/img/employees.svg" alt="">
           </div>
           <div class="ml-4">
-            <h4 class="text-xl  leading-6 font-black ">
-              No hipen fees
-            </h4>
+
             <p class="mt-2 text-base ">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              Si vous devez vous préparer à des entretiens, les mentors peuvent vous guider à travers un ensemble de défis appropriés et vous conseiller sur les stratégies pour aborder les questions les plus difficiles.
             </p>
           </div>
         </div>
@@ -44,11 +39,9 @@
              <img class="flex items-center justify-center h-20 w-20 rounded-md  " src="../../../assets/img/employee.svg" alt="">
           </div>
           <div class="ml-4">
-            <h4 class="text-xl  leading-6 font-black ">
-              Transfers are instant
-            </h4>
+       
             <p class="mt-2 text-base ">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              Lorsque vous êtes coincé sur un problème en particulier, les mentors peuvent vous aider à le résoudre.
             </p>
           </div>
         </div>
@@ -58,11 +51,9 @@
            <img class="flex items-center justify-center h-20 w-20 rounded-md  " src="../../../assets/img/career.svg" alt="">
           </div>
           <div class="ml-4">
-            <h4 class="text-xl  leading-6 font-black ">
-              Mobile notifications
-            </h4>
+           
             <p class="mt-2 text-base ">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste dolor cupiditate blanditiis ratione.
+              Si vous sentez que vous stagnez à atteindre vos objectifs, les mentors peuvent vous aider à accélérer votre apprentissage, en vous donnant les bons conseils.
             </p>
             
           </div>

@@ -6,7 +6,12 @@
             <span class="block text-darkSands xl:inline">un Mentor</span>
       </template>
       <template v-slot:content>
-        Vous êtes étudiant, en reconversion professionnelle ou même déja en poste ? On ne cesse d'apprendre dans le milieu de l'informatique, optez pour le mentorat pour booster votre carrière.
+        <p>
+          Mentor Moi est une plateforme gratuite qui vise à connecter les développeurs moins expérimentés avec des mentors.
+        </p>
+        <p class="mt-4">
+            Tout le monde peut s'inscrire en tant que mentors, vous n’avez pas besoin d’être un expert pour devenir mentor, juste avoir la volonté de partager ses connaissances.
+        </p> 
       </template>
       <template v-slot:cta>
          <router-link to="/mentors" class="w-full mt-6 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md md:py-4 bg-darkSands text-white md:text-lg md:px-10">

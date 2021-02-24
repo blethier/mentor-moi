@@ -55,8 +55,8 @@ const mentorSchema = new mongoose.Schema({
         max: 1024,
         min: 6
     },
-    price: {
-        type: Number,
+    city: {
+        type: String,
         required: true,
         max: 1024,
         min: 6

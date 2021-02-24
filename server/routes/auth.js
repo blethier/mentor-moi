@@ -50,6 +50,26 @@ router.post('/login', async (req, res) => {
 
     //Create and assign token
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET , {
+        expiresIn : '1h'
+    });
+    res.header('auth-token', token).send({user, token})
+});
+
+
+router.post('/forgot', async (req, res) => {
+    
+    
+
+    //Check if email exist
+    const user = await User.findOne({email: req.body.email});
+    if(!user) return res.status(400).send('Cet email n\'existe pas !');
+
+    //Check Password is correct
+    const validPassword = await bcrypt.compare(req.body.password, user.password);
+    if (!validPassword) return res.status(400).send('Le mot de passe est incorrect !');
+
+    //Create and assign token
+    const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET , {
         expiresIn : '3h'
     });
     res.header('auth-token', token).send({user, token})

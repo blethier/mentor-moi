@@ -1,54 +1,36 @@
 <template> 
-  <div class="text-gray-700 p-4 md:w-1/3">
-    <div  class=" h-500 border-4 border-green-700  bg-sands rounded-lg overflow-hidden">
-      <img class="h-12  w-full bg-red-800 object-cover object-center" src="https://images.unsplash.com/photo-1491147334573-44cbb4602074?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8anVuZ2xlfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60" alt="background">
-      <div class="flex bg-sands  justify-center -mt-8">
-        
+   <div class="mb-6 mx-auto  px-3">
+      <div class="py-24 h-full w-80 invertedDarkMode rounded shadow text-center">        
+            <span v-if="isLoggedIn" class="mr-2">{{isDisponible}}</span>
+            <span v-if="isLoggedIn" class="inline-flex items-center animate-pulse justify-center px-2 py-2 text-xs font-bold leading-none rounded-full" :class="disponible === 'Oui' ? 'bg-green-700' : 'bg-red-700' "></span>
         <router-link :to="mentorsDetailsLink" >
-          <img :src="avatar" class="rounded-full object-cover object-top border-solid border-darkSands  h-24 w-24 border-4 -mt-3">		
-        </router-link>
-
-       
-       
-      </div>
-       <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-green-700" v-if="!isLoggedIn">
-            <router-link to="/login">
-<font-awesome-icon  class="text-2xl mr-2" :icon="'lock'" />  
-            <p >
-                Connectez-vous pour contacter le mentor
-            </p>
+            <img class="mx-auto mt-4 mb-8 w-32 h-32 rounded-full object-cover" :src="avatar" alt="">
             </router-link>
-            
-        </div>
-       <p class="text-2xl mt-4 ml-4 font-black  text-green-700">
-            {{priceName}}
-        </p>
-      <div :class="!isLoggedIn ? 'blurry' : ''" class="p-6  bg-sands">
-
-      
-<!-- component -->
-<!-- This is an example component -->
-
-<div 
-    class="px-4 h-6 w-32 rounded-full  font-semibold flex items-center cursor-pointer"
-    :class="disponibleColor"
-  >
-    <span  class="w-3 h-3 animate-pulse rounded-full mr-1" :class="disponible === 'Oui' ? 'bg-green-200' : '' "></span>
-   {{isDisponible}}
-  </div>
-  
-
-        <router-link :to="mentorsDetailsLink" >
-          <h2 class="tracking-widest text-center text-2xl mt-6 font-bold underline mb-1">{{ fullName }}</h2>
+            <router-link :to="mentorsDetailsLink" >
+            <h4 class="mb-2 mr-4 ml-4 text-2xl  font-bold font-heading">
+              {{ fullName }}
+            </h4>
         </router-link>
-          <h1 class="text-center italic text-xl font-medium mb-3">{{ title }}</h1>
-          <p class="text-center text-xl mb-3">{{presentation}} </p>
-          <div class="text-center mb-6">
-            <span v-for="(techno, index) in technoss" :key="index" class="inline-block border border-black bg-darkSands text-white rounded-full px-3 py-1  font-semibold text-center  my-1 mr-2">{{ techno }}</span>         
-          </div>  
-          
-          <div v-if="isLoggedIn && disponible === 'Oui'" class=" text-center">
-            <div  class=" mr-2 no-underline hover:underline" v-for="(social, index) in socialsContact" :key="index">
+    <p class=" italic">
+              {{ city }}
+            </p>
+            <p class=" italic">
+              {{ title }}
+            </p>
+            <p class="mr-4 ml-4">
+              {{presentation}}
+            </p>
+
+            <div class="flex flex-wrap justify-center my-6" >
+                <div v-for="(technos, index) in technoss" :key="index">
+                  <span class=" mr-2 px-2 py-1 flex  mb-4  font-bold leading-none text-white bg-darkSands rounded-full">
+                    {{technos}}
+                  </span>
+                </div>
+            </div>
+
+<div v-if="isLoggedIn && disponible === 'Oui'" class=" text-center">
+            <div  class="mt-8 mr-2 text-darkSands no-underline hover:underline" v-for="(social, index) in socialsContact" :key="index">
              
               
 
@@ -56,48 +38,43 @@
                 <font-awesome-icon v-if="social.web" class="text-3xl mr-2" :icon="'globe'" />  
   </a>
 
-                 <a v-if="social.github" target="_blank" rel="noopener" :href="`https://github.com/${social.github}`">
+                 <a v-if="social.github" target="_blank" rel="noopener" :href="social.github">
                 <font-awesome-icon v-if="social.github" class="text-3xl mr-2" :icon="['fab', 'github-square']" />  
   </a> 
 
-                 <a v-if="social.twitter" target="_blank" rel="noopener" :href="`https://twitter.com/${social.twitter}`">
+                 <a v-if="social.twitter" target="_blank" rel="noopener" :href="social.twitter">
                 <font-awesome-icon v-if="social.twitter" class="text-3xl mr-2" :icon="['fab', 'twitter-square']" />  
   </a>
                  <a v-if="social.discord" target="_blank" rel="noopener" :href="social.discord">
                 <font-awesome-icon v-if="social.discord" class="text-3xl mr-2" :icon="['fab', 'discord']" />  
   </a>
-  <a v-if="social.linkedin" target="_blank" rel="noopener" :href="`https://linkedin.com/in/${social.linkedin}`">
+  <a v-if="social.linkedin" target="_blank" rel="noopener" :href="social.linkedin">
                 <font-awesome-icon v-if="social.linkedin" class="text-3xl mr-2" :icon="['fab', 'linkedin']" />  
   </a>
 
             </div>
-          </div>
+</div>
 
-          <div class="text-xl font-black  text-center bg-sands rounded-full py-2 text-darkSands" v-else-if="isLoggedIn">
+<div class="text-xl font-black  text-center  py-2 text-darkSands" v-else-if="isLoggedIn">
 <font-awesome-icon  class="text-2xl mr-2" :icon="'hand-paper'" />  
             <p>
                 Désolé le mentor n'est pas disponible pour le moment
             </p>            
         </div>
-          
+
+
+
+            
+          </div>
         </div>
-      </div>
-    </div>
 </template>
 
 <script>
 export default {
-    props: ['id','firstName', 'name', 'price','lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials'],
+    props: ['id','firstName', 'name', 'city','lastName', 'title', 'presentation','avatar', 'disponible', 'technos', 'socials', 'mentor'],
     computed: {
       fullName() {
         return this.firstName + ' ' + this.lastName
-      },
-      priceName(){
-	if (this.price === 0) {
-				return 'Gratuit'
-			} else {
-				return this.price + '€ / mois'
-			} 
       },
       socialsContact(){
           return JSON.parse(this.socials)
@@ -125,7 +102,7 @@ export default {
         return 'bg-red-700 text-red-100'
       }
     }
-    }
+    },
 }
 </script>
 
