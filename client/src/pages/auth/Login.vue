@@ -2,7 +2,7 @@
     <div class="container text-gray-800 h-screen mx-auto">
 			<div class="flex justify-center px-6 my-12">
 				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
-					<div class="w-full h-auto bg-red-400 hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
+					<div class="w-full h-auto hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
 						:style="{ backgroundImage: 'url(' + require('../../assets/img/jay.jpg') + ')' }"
 					></div>
 					<!-- Col -->

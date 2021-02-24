@@ -5,7 +5,7 @@
 				<div class="w-full xl:w-3/4 lg:w-11/12 flex">
 					<!-- Col -->
 					<div
-						class="w-full h-auto bg-red-400 hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
+						class="w-full h-auto  hidden lg:block lg:w-1/2 bg-cover bg-center rounded-l-lg"
 						:style="{ backgroundImage: 'url(' + require('../../assets/img/jay.jpg') + ')' }"
 					></div>
 					<!-- Col -->
