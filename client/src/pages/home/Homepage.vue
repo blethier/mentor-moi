@@ -34,6 +34,8 @@ import Presentation from './partials/Presentation'
 import Job from './partials/Job'
 import Waves from '../../components/Waves'
 import Hero from '../../components/Hero'
+import { page } from 'vue-analytics'
+
 
 export default {
   name: 'Homepage',
@@ -43,5 +45,10 @@ export default {
       Waves,
       Hero
     },
+  methods: {
+    track () {
+      page('/')
+    }
+  }
 }
 </script>

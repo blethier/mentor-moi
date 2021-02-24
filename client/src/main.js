@@ -10,6 +10,9 @@ import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesom
 import { faHeart, faMapMarkerAlt, faAt, faLock, faHandPaper, faSyncAlt, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueToast from 'vue-toast-notification';
+import VueAnalytics from 'vue-analytics'
+
+
 
 import moment from 'moment';
 // Import one of the available themes
@@ -76,6 +79,9 @@ import('./assets/styles/index.css');
 Vue.config.productionTip = false
 Vue.use(Vuex);
 Vue.use(VueToast);
+Vue.use(VueAnalytics, {
+    id: 'G-HDDCN68BFZ'
+})
 Vue.component('ValidationObserver', ValidationObserver);
 Vue.component('ValidationProvider', ValidationProvider);
 let instance = Vue.$toast.open('You did it!');
