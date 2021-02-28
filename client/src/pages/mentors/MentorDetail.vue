@@ -194,7 +194,7 @@ this.mentorProfil()
   },
   methods : {
       async mentorProfil(){
-        await axios.get(`https://mentor-moi.herokuapp.com/api/mentor/${this.$route.params.id}`, {
+        await axios.get(`https://mevn-mentor-moi.herokuapp.com/api/mentor/${this.$route.params.id}`, {
     headers: {
       // remove headers
     }
