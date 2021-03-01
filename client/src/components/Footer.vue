@@ -7,15 +7,15 @@
     <p class=" text-xl text-darkSands font-black sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-darkSands sm:py-2 sm:mt-0 mt-4">
       © 2020 Mentor moi  
     </p>
-    <router-link class="text-darkSands hidden lg:block font-black ml-4 underline" to="/cookie-consent">
+    <router-link @click="scrollToTop" class="text-darkSands hidden lg:block font-black ml-4 underline" to="/cookie-consent">
         Cookies
     </router-link>
 
-    <router-link class="text-darkSands hidden lg:block font-black ml-4 underline" to="/terms">
+    <router-link @click="$scrollToTop" class="text-darkSands hidden lg:block font-black ml-4 underline" to="/terms">
         Termes et conditions
     </router-link>
 
-    <router-link class="text-darkSands hidden lg:block font-black ml-4 underline" to="/code-of-conduct">
+    <router-link @click="$scrollToTop" class="text-darkSands hidden lg:block font-black ml-4 underline" to="/code-of-conduct">
         Mentions légales
     </router-link>
 
@@ -51,6 +51,12 @@
 <script>
   import CookieLaw from 'vue-cookie-law'
 export default {
-  components: { CookieLaw }  
+  components: { CookieLaw },
+    methods: { 
+           scrollToTop() {
+                window.scrollTo(0,0);
+           }
+        }
+
 }
 </script>

@@ -7,7 +7,7 @@ import { ValidationProvider, extend, ValidationObserver } from 'vee-validate';
 import { email, alpha_spaces, confirmed, min, required, regex } from 'vee-validate/dist/rules';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faLinkedin,faGithubSquare,faTwitterSquare, faDiscord} from '@fortawesome/free-brands-svg-icons'
-import { faHeart, faMapMarkerAlt, faAt, faLock, faHandPaper, faSyncAlt, faGlobe } from '@fortawesome/free-solid-svg-icons'
+import { faHeart,faMapPin ,faMapMarkerAlt, faAt, faLock, faHandPaper, faSyncAlt, faGlobe } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import VueToast from 'vue-toast-notification';
 import VueAnalytics from 'vue-analytics'
@@ -29,6 +29,7 @@ library.add(faGithubSquare,
             faHeart,
             faMapMarkerAlt,
             faAt,
+            faMapPin,
            faGlobe,
             faLock,
             faHandPaper)

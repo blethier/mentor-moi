@@ -1,6 +1,6 @@
 <template>
    
-    <div class="container md:h-full lg:h-screen h-auto text-gray-900 mx-auto my-5 p-5">
+    <div class="container h-full text-gray-900 mx-auto my-5 p-5">
         <div class="md:flex no-wrap md:-mx-2 ">
             <!-- Left Side -->
             <div class=" md:w-3/12 md:mx-2">
@@ -71,32 +71,37 @@
                                 <div class="px-4 py-2">{{mentors.city}}</div>
                             </div>
         
-                            <div v-if="isAuth && mentors.disponible === 'Oui'">
+                            <div v-if="mentors.disponible === 'Oui'">
                             <div v-for="(social, index) in socialsContact" :key="index">
 
                             <div class="grid grid-cols-2" v-if="social.web" >
                               <p class="px-4 py-2 font-semibold">Site web</p>
-                              <a :href="social.web" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.web}}</a>
+                              <a v-if="isAuth" :href="social.web" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.web}}</a>
+                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.twitter" >
                               <p class="px-4 py-2 font-semibold">Twitter</p>
-                              <a :href="social.twitter" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.twitter}}</a>
+                              <a v-if="isAuth" :href="`https://twitter.com/${social.twitter}`" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.twitter}}</a>
+                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.github" >
                               <p class="px-4 py-2 font-semibold">Github</p>
-                              <a :href="social.github" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.github}}</a>
+                              <a v-if="isAuth" :href="`https://github.com/${social.github}`" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.github}}</a>
+                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.linkedin" >
                               <p class="px-4 py-2 font-semibold">Linkedin</p>
-                              <a :href="social.linkedin" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.linkedin}}</a>
+                              <a v-if="isAuth" :href="`https://www.linkedin.com/in/${social.linkedin}`" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.linkedin}}</a>
+                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.discord" >
                               <p class="px-4 py-2 font-semibold">Discord</p>
-                              <a :href="social.discord" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.discord}}</a>
+                              <a v-if="isAuth" :href="social.discord" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.discord}}</a>
+                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
                             </div>
 
 

@@ -47,6 +47,7 @@ const router = new VueRouter({
   const isLoggedIn = store.getters['isAuth']
 
   router.beforeEach((to, from, next) => {
+    window.scrollTo(0, 0);
     
     if (to.fullPath === '/updateMentors' && !isLoggedIn) {
       if (!store.state.token) {
@@ -56,6 +57,8 @@ const router = new VueRouter({
 
     next();
   });
+
+  
   
 
 export default router;

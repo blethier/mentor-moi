@@ -12,14 +12,24 @@
             </h4>
         </router-link>
     <p class=" italic">
+      <font-awesome-icon class="text-xl text-darkSands font-black mr-2" :icon="'map-pin'" />  
               {{ city }}
             </p>
             <p class=" italic">
               {{ title }}
             </p>
-            <p class="mr-4 ml-4">
+            <p v-if="presentation.length < 150" class="mr-4 my-8 ml-4">
               {{presentation}}
             </p>
+            <p v-else class="mr-4 my-6 ml-4">
+              {{presentation.substring(0,150)+" " + "..."}}
+            </p>
+
+            <router-link class="underline text-lg font-black" :to="mentorsDetailsLink" >
+             <p>
+               Voir le profil
+             </p>
+            </router-link>
 
             <div class="flex flex-wrap justify-center my-6" >
                 <div v-for="(technos, index) in technoss" :key="index">
@@ -38,17 +48,17 @@
                 <font-awesome-icon v-if="social.web" class="text-3xl mr-2" :icon="'globe'" />  
   </a>
 
-                 <a v-if="social.github" target="_blank" rel="noopener" :href="social.github">
+                 <a v-if="social.github" target="_blank" rel="noopener" :href="`https://github.com/${social.github}`">
                 <font-awesome-icon v-if="social.github" class="text-3xl mr-2" :icon="['fab', 'github-square']" />  
   </a> 
 
-                 <a v-if="social.twitter" target="_blank" rel="noopener" :href="social.twitter">
+                 <a v-if="social.twitter" target="_blank" rel="noopener" :href="`https://twitter.com/${social.twitter}`">
                 <font-awesome-icon v-if="social.twitter" class="text-3xl mr-2" :icon="['fab', 'twitter-square']" />  
   </a>
                  <a v-if="social.discord" target="_blank" rel="noopener" :href="social.discord">
                 <font-awesome-icon v-if="social.discord" class="text-3xl mr-2" :icon="['fab', 'discord']" />  
   </a>
-  <a v-if="social.linkedin" target="_blank" rel="noopener" :href="social.linkedin">
+  <a v-if="social.linkedin" target="_blank" rel="noopener" :href="`https://www.linkedin.com/in/${social.linkedin}`">
                 <font-awesome-icon v-if="social.linkedin" class="text-3xl mr-2" :icon="['fab', 'linkedin']" />  
   </a>
 

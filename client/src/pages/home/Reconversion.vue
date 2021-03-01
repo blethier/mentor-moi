@@ -19,11 +19,14 @@
     <div class="flex flex-wrap  -m-4">
       <div v-for="article in articles" :key="article.name" class="xl:w-1/4  md:w-1/2 p-4">
         <div class="bg-darkSands p-6 h-72 rounded-lg">
-          <img class="h-40 rounded w-full object-cover object-center mb-6" :src="article.image" alt="content">
+          <a target="_blank" rel="noreferrer noopener" :href="article.link">
+            <img class="h-40 rounded w-full object-cover object-center mb-6" :src="article.image" alt="content">
           <h2 class="text-lg  font-medium title-font mb-4">{{article.name}}</h2>
             <a :href="article.link" target="_blank" rel="noreferrer noopener" class="leading-relaxed  font-black text-xl overflow-auto">
               Voir la ressource
             </a>
+          </a>
+          
         </div>
       </div> 
     </div>
