@@ -13,7 +13,7 @@
                             >
                     </div>
                     <h1 class="text-gray-900 font-bold text-center text-xl leading-8 my-1">
-                     {{mentors.firstName + ' ' + mentors.firstName}}
+                     {{mentors.firstName + ' ' + mentors.lastName}}
                       </h1>
                     <h3 class=" font-lg text-semibold leading-6">
                       {{mentors.title}}
