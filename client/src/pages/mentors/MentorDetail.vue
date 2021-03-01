@@ -1,6 +1,6 @@
 <template>
    
-    <div class="container h-full text-gray-900 mx-auto my-5 p-5">
+    <div class="container md:h-screen lg:h-screen h-full text-gray-900 mx-auto my-5 p-5">
         <div class="md:flex no-wrap md:-mx-2 ">
             <!-- Left Side -->
             <div class=" md:w-3/12 md:mx-2">
