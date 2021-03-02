@@ -53,7 +53,7 @@
           <router-link to="/faq" class="  block px-3 pt-2  rounded-md  font-medium">F.A.Q</router-link>
           <router-link class="block px-3 py-2 rounded-md  font-medium" to="/cookie-consent">Cookies</router-link>
           <router-link class="block px-3 py-2 rounded-md  font-medium" to="/terms">Termes et conditions</router-link>
-          <router-link class="block px-3 py-2 rounded-md  font-medium" to="/code-of-conduct">Code de conduite</router-link>
+          <router-link class="block px-3 py-2 rounded-md  font-medium" to="/code-of-conduct">Mentions légales</router-link>
         </div>
       </div>
 
