@@ -3,9 +3,18 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {registerValidation, loginValidation} = require('../routes/validation');
+const nodemailer = require('nodemailer');
+const dotenv = require('dotenv');
 
-
-
+const transporter = nodemailer.createTransport({
+    port: 465,               // true for 465, false for other ports
+    host: "smtp.gmail.com",
+       auth: {
+            user: 'mentor.moi2021@gmail.com',
+            pass: process.env.GMAIL,
+         },
+    secure: true,
+    });
 
 router.post('/register', async (req,res) => {
      // Validate Data before we create user
@@ -29,6 +38,20 @@ router.post('/register', async (req,res) => {
     try {
         const savedUser = await user.save();
         res.status(201).send({user});
+        const mailData = {
+            from: 'mentor.moi2021@gmail.com',  // sender address
+              to: req.body.email,   // list of receivers
+              subject: 'Inscription sur le site Mentor-moi 🎓 🚀 ',
+              text: 'Mentor moi',
+              html: "<p><b>Bonjour</b> 👋, <br> Ceci est un mail pour vous confirmer votre inscription sur le site Mentor-moi. <br> Bonne session de mentorat 💻 <br> Cordialment <br> Mentor moi </p>", 
+            };
+    
+            transporter.sendMail(mailData, function (err, info) {
+                if(err)
+                  console.log(err)
+                else
+                  console.log(info);
+             });
     } catch (err) {
         res.status(400).send(err);
     } 
