@@ -42,9 +42,9 @@ router.post('/register', async (req,res) => {
         const mailData = {
             from: 'mentor.moi2021@gmail.com',  // sender address
               to: req.body.email,   // list of receivers
-              subject: 'Sending Email using Node.js',
-              text: 'That was easy!',
-              html: "<b>Hello world?</b>", 
+              subject: 'Inscription sur le site Mentor-moi 🚀 ',
+              text: 'Mentor moi',
+              html: "<b>Bonjour 👋, <br> Ceci est un mail pour vous confirmer votre inscription sur le site Mentor-moi. <br> Bonne session de mentorat 💻 <br> Cordialment, Mentor moi </b>", 
             };
     
             transporter.sendMail(mailData, function (err, info) {
