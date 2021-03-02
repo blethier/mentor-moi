@@ -68,7 +68,7 @@
                 <!-- End of friends card -->
             </div>
             <!-- Right Side -->
-            <div class="w-full md:w-9/12 mx-2 ">
+            <div class="w-full md:w-9/12  ">
                 <!-- Profile tab -->
                 <!-- About Section -->
                 <div class="invertedDarkMode w-full p-3 shadow-sm rounded-sm">
@@ -171,7 +171,7 @@
                             </div>
                             <ul class="list-inside  align-middle lg:flex-row lg:flex ">
                                 <li v-for="(technos, index) in technoss" :key="index">
-                                    <div class="text-base lg:mr-4 font-semibold inline-block py-1 px-2 uppercase rounded  bg-sands last:mr-0">
+                                    <div class="text-base lg:mr-4 font-semibold inline-block py-1 px-2 uppercase rounded  bg-darkSands last:mr-0">
                                       {{technos}}
                                     </div>
                                     

@@ -5,7 +5,7 @@
 
    <div class="flex w-full my-8 justify-center items-end">
         <div v-if="isLoggedIn" class="relative mr-4 lg:w-full xl:w-1/2 w-2/4" >
-          <input type="search" placeholder="Filtrer les mentors par technologies" v-model="search" class=" bg-darkSands w-full bg-opacity-75 rounded border-2 border-green-700 focus:ring-2 focus:ring-sand  focus:border-green-700 text-base outline-none darkMode py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" data-kwimpalastatus="alive" data-kwimpalaid="1609853631472-5">
+          <input type="search" placeholder="Filtrer les mentors par technologies" v-model="search" class=" bg-darkSands placeholder-white w-full bg-opacity-75 rounded border-4 border-darkSands focus:ring-2 focus:outline-none text-base outline-none darkMode py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" data-kwimpalastatus="alive" data-kwimpalaid="1609853631472-5">
         </div>
     
       </div>
