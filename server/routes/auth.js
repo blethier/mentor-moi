@@ -71,7 +71,7 @@ router.post('/login', async (req, res) => {
           html: "<b>Hello world?</b>", // html bod
         };
 
-        transporter.sendMail(mailOptions, function (err, info) {
+        transporter.sendMail(mailData, function (err, info) {
             if(err)
               console.log(err)
             else
