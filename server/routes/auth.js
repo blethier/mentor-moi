@@ -68,7 +68,7 @@ router.post('/login', async (req, res) => {
           to: req.body.email,   // list of receivers
           subject: 'Sending Email using Node.js',
           text: 'That was easy!',
-          html: "<b>Hello world?</b>", // html bod
+          html: "<b>Hello world?</b>", 
         };
 
         transporter.sendMail(mailData, function (err, info) {
