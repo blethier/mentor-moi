@@ -33,7 +33,7 @@
 
             <div class="flex flex-wrap justify-center my-6" >
                 <div v-for="(technos, index) in technoss" :key="index">
-                  <span class=" mr-2 px-2 py-1 flex  mb-4  font-bold leading-none text-white bg-darkSands rounded-full">
+                  <span class=" mr-2 px-2 py-1 flex  mb-4  font-bold leading-none text-white bg-green-800 rounded-full">
                     {{technos}}
                   </span>
                 </div>
@@ -65,7 +65,7 @@
             </div>
 </div>
 
-<div class="text-xl font-black  text-center  py-2 text-darkSands" v-else-if="isLoggedIn">
+<div class="text-xl font-black  text-center  py-2 text-green-700" v-else-if="isLoggedIn">
 <font-awesome-icon  class="text-2xl mr-2" :icon="'hand-paper'" />  
             <p>
                 Désolé le mentor n'est pas disponible pour le moment

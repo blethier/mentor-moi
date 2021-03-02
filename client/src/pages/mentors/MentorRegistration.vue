@@ -210,8 +210,7 @@ import Places from 'vue-places';
       const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
       const avatar = this.$refs.avatar.files[0];
       this.avatar = avatar;
-      // eslint-disable-next-line no-console
-      console.log(avatar)
+
       if(!allowedTypes.includes(avatar.type)){
         this.message = "Format incorrect"
       }
@@ -242,15 +241,15 @@ import Places from 'vue-places';
          formData.append('socials' , JSON.stringify(this.socials) )
          formData.append('userId' ,this.$store.getters.userId)
         formData.append('avatar',this.avatar, this.avatar.name);
-        // eslint-disable-next-line no-console
-        console.log(formData)
+
         await axios.post('https://mevn-mentor-moi.herokuapp.com/api/mentors', formData, {
     headers: {
       // remove headers
     }
+    // eslint-disable-next-line no-unused-vars
     }).then(res => {
-    // eslint-disable-next-line no-console
-    console.log('RESPONSE' + ' ' + res.data.mentor);
+    
+    
 
     })
         this.$router.replace('/mentors')

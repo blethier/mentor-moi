@@ -4,7 +4,7 @@
         <Hero>
              <template v-slot:title>
         <span class="block xl:inline">Trouvez le </span>
-            <span class="block text-darkSands xl:inline">mentor idéal</span>
+            <span class="block text-green-800 xl:inline">mentor idéal</span>
       </template>
       <template v-slot:content>
         <ul class="list-disc lg:ml-4 ml-12">

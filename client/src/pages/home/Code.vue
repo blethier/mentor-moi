@@ -1,7 +1,6 @@
 <template>
-<div class="container mx-auto">
     <section class=" body-font">
-  <div class="container px-5 py-24 mx-auto">
+  <div class=" px-5 py-24">
 
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
 
@@ -74,8 +73,7 @@
   </div>
 </section>
 
-    
-</div>
+  
 </template>
 
 <script>

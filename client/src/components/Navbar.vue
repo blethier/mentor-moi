@@ -14,11 +14,11 @@
             <div class="hidden lg:block sm:ml-6">
               <div class="flex space-x-4">
                 <router-link  to="/" class="  px-3 py-2 rounded-md text-lg font-medium">Accueil</router-link>
-                <router-link to="/mentors" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
-                <router-link to="/faq" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
-                <router-link to="/jobs" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Trouver un poste</router-link>
-                <router-link to="/conseils" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Blog</router-link>
-                <router-link v-if="!isLoggedIn" to="/login" active-class="bg-darkSands" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
+                <router-link to="/mentors" active-class="border-b-2 border-green-800" class="   px-3 py-2 rounded-md text-lg font-medium">Liste des mentors</router-link>
+                <router-link to="/faq" active-class="border-b-2 border-green-800" class="  px-3 py-2 rounded-md text-lg font-medium">F.A.Q</router-link>
+                <router-link to="/jobs" active-class="border-b-2 border-green-800" class="  px-3 py-2 rounded-md text-lg font-medium">Trouver un poste</router-link>
+                <router-link to="/conseils" active-class="border-b-2 border-green-800" class="  px-3 py-2 rounded-md text-lg font-medium">Blog</router-link>
+                <router-link v-if="!isLoggedIn" to="/login" active-class="border-b-2 border-green-800" class="  px-3 py-2 rounded-md text-lg font-medium">Se connecter</router-link>
               </div>
             </div>
           </div>

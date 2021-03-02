@@ -3,7 +3,7 @@
     <Hero>
       <template v-slot:title>
         <span class="block xl:inline">Boostez votre carrière avec </span>
-            <span class="block text-darkSands xl:inline">un Mentor</span>
+            <span class="block text-green-800 xl:inline">un Mentor</span>
       </template>
       <template v-slot:content>
         <p>

@@ -10,14 +10,14 @@
           <p class="mb-8 leading-loose ">
               Comme c'est la pratique courante avec presque tous les sites Web professionnels, ce site utilise des cookies, qui sont de minuscules fichiers texte téléchargés sur votre ordinateur, pour améliorer votre expérience. Ces informations décrivent ce qu'elles contiennent, comment nous les utilisons et pourquoi nous avons parfois besoin de stocker ces cookies. Ces informations couvrent également la manière dont vous pouvez empêcher le stockage de ces cookies; cela peut, cependant, déclasser ou «casser» certains éléments de la fonctionnalité du site.
           </p>
-          <a target="_blank" rel="noopener noreferrer" class="inline-block text-xs py-4 px-8 text-white font-semibold leading-none bg-blue-600 hover:bg-blue-700 rounded" href="https://fr.wikipedia.org/wiki/Cookie_(informatique)">En savoir plus</a>
+          <a target="_blank" rel="noopener noreferrer" class="inline-block text-xs py-4 px-8 text-white font-semibold leading-none bg-green-800 hover:bg-green-700 rounded" href="https://fr.wikipedia.org/wiki/Cookie_(informatique)">En savoir plus</a>
         </div>
       </div>
       <div class="w-full lg:w-1/2 px-8">
         <ul class="space-y-12">
           <li class="flex -mx-4">
             <div class="px-4">
-              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">1</span>
+              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-green-50 text-green-600">1</span>
             </div>
             <div class="px-4">
               <h3 class="my-4 text-xl font-semibold">Désactiver les cookies</h3>
@@ -28,7 +28,7 @@
           </li>
           <li class="flex -mx-4">
             <div class="px-4">
-              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">2</span>
+              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-green-50 text-green-600">2</span>
             </div>
             <div class="px-4">
               <h3 class="my-4 text-xl font-semibold">Les cookies que nous installons</h3>
@@ -45,7 +45,7 @@
           </li>
           <li class="flex -mx-4">
             <div class="px-4">
-              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">3</span>
+              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-green-50 text-green-600">3</span>
             </div>
             <div class="px-4">
               <h3 class="my-4 text-xl font-semibold">Cookies tiers</h3>

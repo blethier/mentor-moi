@@ -20,7 +20,7 @@
         <ul class="space-y-12">
           <li class="flex -mx-4">
             <div class="px-4">
-              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">1</span>
+              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-green-50 text-green-600">1</span>
             </div>
             <div class="px-4">
               <h3 class="my-4 text-xl font-semibold">Compte</h3>
@@ -34,7 +34,7 @@
           </li>
           <li class="flex -mx-4">
             <div class="px-4">
-              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">2</span>
+              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-green-50 text-green-600">2</span>
             </div>
             <div class="px-4">
               <h3 class="my-4 text-xl font-semibold">Résiliation</h3>
@@ -46,7 +46,7 @@
           </li>
           <li class="flex -mx-4">
             <div class="px-4">
-              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-blue-50 text-blue-600">3</span>
+              <span class="flex w-16 h-16 mx-auto items-center justify-center text-2xl font-bold font-heading rounded-full bg-green-50 text-green-600">3</span>
             </div>
             <div class="px-4">
               <h3 class="my-4 text-xl font-semibold">Cookies tiers</h3>

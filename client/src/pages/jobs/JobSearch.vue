@@ -4,7 +4,7 @@
     <Hero>
       <template v-slot:title>
         <span class="block xl:inline">Trouvez le poste </span>
-            <span class="block text-darkSands xl:inline">idéal</span>
+            <span class="block text-green-800 xl:inline">idéal</span>
       </template>
       <template v-slot:content>
         Vous êtes étudiant, en reconversion professionnelle ou même déja en poste ? On ne cesse d'apprendre dans le milieu de l'informatique, optez pour le mentorat pour booster votre carrière.
@@ -140,8 +140,7 @@ showJobs () {
   },
   lastPage () {
  let length = this.jobs.length 
- // eslint-disable-next-line no-console
- console.log(length)
+
  return Math.round(length / this.perPage)
 },
 nextIsDisabled() {

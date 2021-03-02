@@ -40,6 +40,9 @@ export default {
          articles() {
             return this.$store.getters['allArticles']
         }
+    },
+    created() {
+      this.articles
     }
 }
 </script>

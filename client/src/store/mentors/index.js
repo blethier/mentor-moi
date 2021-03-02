@@ -124,7 +124,7 @@ jobs: [
 },
 {
   title: 'DEVOPS',
-  image: require('@/assets/img/devops.jpg'),
+  image: require('@/assets/img/ux.jpg'),
   description: 'De façon très générale, ses tâches principales consistent à mettre en place, gérer et administrer des systèmes informatiques.'
 },
 {
@@ -141,6 +141,11 @@ jobs: [
   title: 'DATA SCIENTIST',
   image: require('@/assets/img/scientist.jpg'),
   description: 'Son rôle consiste à analyser de manière pointue des données massives, couramment appelées « Big Data », concernant à la fois les clients, les prospects et les employés.'
+},
+{
+  title: 'UX DESIGNER',
+  image: require('@/assets/img/devops.jpg'),
+  description: 'L’UX designer a pour principale mission d’améliorer l’usage utilisateur sur tout type de plateforme. Il se focalise uniquement sur les attentes et les besoins de l’utilisateur.'
 }
 ],
 articles: [
@@ -310,7 +315,6 @@ async login(context, payload){
      }
 await axios.post('https://mevn-mentor-moi.herokuapp.com/api/user/login',userData)
 .then(res => {
-  console.log(res.data);
   localStorage.setItem('user-token', res.data.token)
   localStorage.setItem('userId', res.data.user._id)
   localStorage.setItem('user-email', res.data.user.email)
@@ -373,9 +377,6 @@ const getters = {
      return length > 1 ? true : false
 },
   
-  // hasMentors: (state) => {
-  //  return state.mentors && state.mentors.length > 0
-  //},
 
   
    allTechnos: (state) => {
