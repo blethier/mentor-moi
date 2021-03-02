@@ -3,8 +3,18 @@ const User = require('../models/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const {registerValidation, loginValidation} = require('../routes/validation');
+const nodemailer = require('nodemailer')
 
-
+// create reusable transporter object using the default SMTP transport
+const transporter = nodemailer.createTransport({
+    port: 465,               // true for 465, false for other ports
+    host: "smtp.gmail.com",
+       auth: {
+            user: 'mentor.moi2021@gmail.com',
+            pass: 'Mansour77.',
+         },
+    secure: true,
+    });
 
 
 router.post('/register', async (req,res) => {
@@ -52,6 +62,21 @@ router.post('/login', async (req, res) => {
     const token = jwt.sign({_id: user._id}, process.env.TOKEN_SECRET , {
         expiresIn : '1h'
     });
+
+    const mailData = {
+        from: 'mentor.moi2021@gmail.com',  // sender address
+          to: req.body.email,   // list of receivers
+          subject: 'Sending Email using Node.js',
+          text: 'That was easy!',
+          html: "<b>Hello world?</b>", // html bod
+        };
+
+        transporter.sendMail(mailOptions, function (err, info) {
+            if(err)
+              console.log(err)
+            else
+              console.log(info);
+         });
     res.header('auth-token', token).send({user, token})
 });
 
