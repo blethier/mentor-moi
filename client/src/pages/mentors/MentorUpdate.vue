@@ -80,7 +80,7 @@
               <div class="col-span-6 sm:col-span-6 lg:col-span-2">
                 <label for="city" class="block ">Twitter</label>
                 <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
-                <input placeholder="Lien"  v-model.trim="socials[0].twitter" type="text" name="city" id="twitter" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+                <input placeholder="Nom d'utilisateur"  v-model.trim="socials[0].twitter" type="text" name="city" id="twitter" class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
               <p class="text-red-500 italic">{{ errors[0] }}</p>
                 </ValidationProvider>
               </div>
@@ -88,7 +88,7 @@
               <div class="col-span-6 sm:col-span-3 lg:col-span-2">
                <label for="state" class="block ">Linkedin</label>
                 <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
-                <input placeholder="Lien"  v-model.trim="socials[0].linkedin" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+                <input placeholder="Nom d'utilisateur"  v-model.trim="socials[0].linkedin" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
               <p class="text-red-500 italic">{{ errors[0] }}</p>
                 </ValidationProvider>
               </div>
@@ -97,7 +97,7 @@
                 
                  <label for="state" class="block ">Github</label>
                 <ValidationProvider :rules="{ regex: /^[^<>*%&\\]*$/ }" v-slot="{ errors }">
-                <input placeholder="Lien"  v-model.trim="socials[0].github" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
+                <input placeholder="Nom d'utilisateur"  v-model.trim="socials[0].github" type="text"  class="mt-1 h-6 py-4 px-2 block w-full shadow-sm  rounded-md">
               <p class="text-red-500 italic">{{ errors[0] }}</p>
                 </ValidationProvider>
               </div>

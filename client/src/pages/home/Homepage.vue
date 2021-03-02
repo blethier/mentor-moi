@@ -10,7 +10,7 @@
           Mentor Moi est une plateforme gratuite qui vise à connecter les développeurs moins expérimentés avec des mentors.
         </p>
         <p class="mt-4">
-            Tout le monde peut s'inscrire en tant que mentors, vous n’avez pas besoin d’être un expert pour devenir mentor, juste avoir la volonté de partager ses connaissances.
+            Tout le monde peut s'inscrire en tant que mentors, vous n’avez pas besoin d’être un expert pour devenir mentor, juste avoir la volonté de partager vos connaissances.
         </p> 
       </template>
       <template v-slot:cta>

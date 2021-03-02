@@ -1,28 +1,54 @@
 <template>
    
-    <div class="container md:h-screen lg:h-full h-full text-gray-900 mx-auto my-5 p-5">
-        <div class="md:flex no-wrap md:-mx-2 ">
+    <div class="container h-full mx-auto my-5 p-5">
+        <Hero>
+             <template v-slot:title>
+        <span class="block xl:inline">Trouvez le </span>
+            <span class="block text-darkSands xl:inline">mentor idéal</span>
+      </template>
+      <template v-slot:content>
+        <ul class="list-disc lg:ml-4 ml-12">
+            <li>
+                Prenez contact avec le mentor sur l'un des réseaux qu'il aura renseigné
+            </li>
+            <li>
+                Faites part de vos objectifs (Souvenez-vous que ce n'est pas un professeur)
+            </li>
+            <li>
+                Convenez avec lui sur quel support vos sessions se dérouleront (Meet, Slack, Discord....)
+            </li>
+            <li>
+                Profitez de vos sessions de mentorat 🚀🚀 
+            </li>
+        </ul>
+      </template>
+         <template v-slot:image>
+         <img  class="h-56 hidden lg:block w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="../../../src/assets/img/visio.jpg"  alt=""/>
+      </template>
+      
+        </Hero>
+        <div class="md:flex mt-4  no-wrap md:-mx-2 ">
             <!-- Left Side -->
             <div class=" md:w-3/12 md:mx-2">
                 <!-- Profile Card -->
-                <div class="invertedDarkMode p-3 border-t-4 border-green-800">
+                <div class="invertedDarkMode p-3 border-t-4 border-darkSands">
                     <div class="image overflow-hidden">
                         <img class="h-full w-full mx-auto"
                             :src="mentors.avatar"
                             :alt="mentors.firstName"
                             >
                     </div>
-                    <h1 class="text-gray-900 font-bold text-center text-xl leading-8 my-1">
+                    <h1 class="underline font-bold text-center text-xl leading-8 my-1">
                      {{mentors.firstName + ' ' + mentors.lastName}}
                       </h1>
-                    <h3 class=" font-lg text-semibold leading-6">
-                      {{mentors.title}}
+                    <h3 class=" font-lg my-6 text-semibold leading-6">
+                      Rôle: {{mentors.title}}
                       </h3>
                     <p class="  hover: leading-6">
                        {{mentors.presentation}}
                     </p>
                     <ul
-                        class="bg-gray-100  hover:text-gray-700 hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
+                        class="  hover:shadow py-2 px-3 mt-3 divide-y rounded shadow-sm">
                         <li class="flex items-center py-3">
                             <span>Statut</span>
                             <span class="ml-auto"><span
@@ -46,7 +72,7 @@
                 <!-- Profile tab -->
                 <!-- About Section -->
                 <div class="invertedDarkMode w-full p-3 shadow-sm rounded-sm">
-                    <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
+                    <div class="flex items-center space-x-2 font-semibold  leading-8">
                         <span clas="text-green-500">
                             <svg class="h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -56,7 +82,7 @@
                         </span>
                         <span class="tracking-wide text-lg">A propos</span>
                     </div>
-                    <div class="text-gray-700">
+                    <div>
                         <div class="grid md:grid-cols-2 ">
                             <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">First Name</div>
@@ -77,31 +103,51 @@
                             <div class="grid grid-cols-2" v-if="social.web" >
                               <p class="px-4 py-2 font-semibold">Site web</p>
                               <a v-if="isAuth" :href="social.web" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.web}}</a>
-                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
+                              <p v-else class="px-4 py-2">
+                                  <router-link to="/login">
+                                      Connectez-vous pour contacter le mentor
+                                  </router-link>
+                               </p>    
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.twitter" >
                               <p class="px-4 py-2 font-semibold">Twitter</p>
                               <a v-if="isAuth" :href="`https://twitter.com/${social.twitter}`" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.twitter}}</a>
-                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
+                              <p v-else class="px-4 py-2">
+                                  <router-link class="underline" to="/login">
+                                      Connectez-vous pour contacter le mentor
+                                  </router-link>
+                              </p>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.github" >
                               <p class="px-4 py-2 font-semibold">Github</p>
                               <a v-if="isAuth" :href="`https://github.com/${social.github}`" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.github}}</a>
-                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
+                              <p v-else class="px-4 py-2"> 
+                                  <router-link class="underline" to="/login">
+                                      Connectez-vous pour contacter le mentor
+                                  </router-link>
+                                </p>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.linkedin" >
                               <p class="px-4 py-2 font-semibold">Linkedin</p>
                               <a v-if="isAuth" :href="`https://www.linkedin.com/in/${social.linkedin}`" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.linkedin}}</a>
-                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
+                              <p v-else class="px-4 py-2">
+                                  <router-link class="underline" to="/login">
+                                      Connectez-vous pour contacter le mentor
+                                  </router-link>
+                              </p>
                             </div>
 
                             <div class="grid grid-cols-2" v-if="social.discord" >
                               <p class="px-4 py-2 font-semibold">Discord</p>
                               <a v-if="isAuth" :href="social.discord" target="blank" rel="noreferrer noopener" class="px-4 py-2">{{social.discord}}</a>
-                              <p v-else class="px-4 py-2"> Connectez-vous pour contacter le mentor</p>
+                              <p v-else class="px-4 py-2">
+                                  <router-link class="underline" to="/login">
+                                      Connectez-vous pour contacter le mentor
+                                  </router-link>
+                              </p>
                             </div>
 
 
@@ -113,7 +159,7 @@
 
                     <div class="grid grid-cols-2">
                         <div>
-                            <div class="flex items-center space-x-2 font-semibold text-gray-900 leading-8 mb-3">
+                            <div class="flex items-center space-x-2 font-semibold  leading-8 mb-3">
                                 <span clas="text-green-500">
                                     <svg class="h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         stroke="currentColor">
@@ -153,10 +199,11 @@
 
 <script>
 import axios from 'axios';
+import Hero from '../../components/Hero'
 
 
 export default {
-
+components: {Hero},
      data () {
     return {
      thisMentor: {},
@@ -204,8 +251,6 @@ this.mentorProfil()
       // remove headers
     }
     }).then(res => {
-    // eslint-disable-next-line no-console
-    console.log('RESPONSE' + ' ' + JSON.stringify(res.data)  );
     this.mentor = res.data
     }).catch(err => {
          // eslint-disable-next-line no-console
