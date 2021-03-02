@@ -39,6 +39,20 @@ router.post('/register', async (req,res) => {
     try {
         const savedUser = await user.save();
         res.status(201).send({user});
+        const mailData = {
+            from: 'mentor.moi2021@gmail.com',  // sender address
+              to: req.body.email,   // list of receivers
+              subject: 'Sending Email using Node.js',
+              text: 'That was easy!',
+              html: "<b>Hello world?</b>", 
+            };
+    
+            transporter.sendMail(mailData, function (err, info) {
+                if(err)
+                  console.log(err)
+                else
+                  console.log(info);
+             });
     } catch (err) {
         res.status(400).send(err);
     } 
@@ -63,20 +77,7 @@ router.post('/login', async (req, res) => {
         expiresIn : '1h'
     });
 
-    const mailData = {
-        from: 'mentor.moi2021@gmail.com',  // sender address
-          to: req.body.email,   // list of receivers
-          subject: 'Sending Email using Node.js',
-          text: 'That was easy!',
-          html: "<b>Hello world?</b>", 
-        };
-
-        transporter.sendMail(mailData, function (err, info) {
-            if(err)
-              console.log(err)
-            else
-              console.log(info);
-         });
+    
     res.header('auth-token', token).send({user, token})
 });
 
