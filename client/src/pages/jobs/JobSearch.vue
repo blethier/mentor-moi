@@ -7,7 +7,7 @@
             <span class="block text-green-800 xl:inline">idéal</span>
       </template>
       <template v-slot:content>
-        Vous êtes étudiant, en reconversion professionnelle ou même déja en poste ? On ne cesse d'apprendre dans le milieu de l'informatique, optez pour le mentorat pour booster votre carrière.
+        Rechercher les postes ouverts en renseignant le métier et la localisation souhaité.
       </template>
     
       <template v-slot:image>
@@ -32,9 +32,7 @@
       <button type="button"  @click="clear" class="text-white font-black bg-green-700 border-0 py-2 px-8 focus:outline-none  rounded text-lg">Effacer</button>
     </form>
 
-    <p  class="text-center text-3xl font-black text-green-700">
-      Il y a {{jobs.length}} annonces
-    </p>
+    
 
     <p v-if="loading" class="text-center">
       <font-awesome-icon class="animate-spin text-darkSands text-5xl" icon="sync-alt" />
@@ -51,16 +49,16 @@
                 <!-- component  -->
 <div class="w-full lg:flex">
   
-  <div class="border-r w-full border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+  <div class="border-r w-full border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light  invertedDarkMode rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
     <div class="mb-8">
-      <p class="text-lg italic text-green-800 flex items-center">
+      <p class="text-lg italic  flex items-center">
         {{job.company.display_name}}
       </p>
-       <p class="text-lg italic text-green-800 flex items-center">
+       <p class="text-lg italic  flex items-center">
         {{job.location.display_name}}
       </p>
-      <div v-html="job.title" class="text-black font-bold text-xl mb-2"> {{job.title}} </div>
-      <p v-html="job.description" class="text-red-500 text-base">
+      <div v-html="job.title" class=" font-bold text-xl mb-2"> {{job.title}} </div>
+      <p v-html="job.description" class=" text-base">
         {{job.description}}
       </p>
       <a class="text-red-500" :href="job.redirect_url" target="_blank" rel="noopener noreferrer">
@@ -68,7 +66,7 @@
       </a>
     </div>
     <div class="flex items-center">
-      <p class="text-lg italic text-green-800 flex items-center"> Postée le :  {{ job.created | formatDate}} </p>
+      <p class="text-lg italic  flex items-center"> Postée le :  {{ job.created | formatDate}} </p>
      
     </div>
   </div>
@@ -81,11 +79,11 @@
         <svg class="h-5 w-5 mr-2 fill-current" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
             <path id="XMLID_10_" d="M438,372H36.355l72.822-72.822c9.763-9.763,9.763-25.592,0-35.355c-9.763-9.764-25.593-9.762-35.355,0 l-115.5,115.5C-46.366,384.01-49,390.369-49,397s2.634,12.989,7.322,17.678l115.5,115.5c9.763,9.762,25.593,9.763,35.355,0 c9.763-9.763,9.763-25.592,0-35.355L36.355,422H438c13.808,0,25-11.193,25-25S451.808,372,438,372z"></path>
         </svg>
-        Previous page
+        Page précédente
     </button>
-    <p class="text-red-500">{{ page }} of {{ lastPage }} </p>
-    <button @click="nextPage" :disabled="nextIsDisabled" class="border border-teal-500 bg-teal-500 text-white  rounded-sm font-bold py-4 px-6 ml-2 flex items-center">
-        Next page
+    <p class="text-darkSands font-black text-xl">{{ page }} of {{ lastPage }} </p>
+    <button @click="nextPage" :disabled="nextIsDisabled" class="border  rounded-sm font-bold py-4 px-6 ml-2 flex items-center">
+        Page suivante
         <svg class="h-5 w-5 ml-2 fill-current" clasversion="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
              viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
         <path id="XMLID_11_" d="M-24,422h401.645l-72.822,72.822c-9.763,9.763-9.763,25.592,0,35.355c9.763,9.764,25.593,9.762,35.355,0
