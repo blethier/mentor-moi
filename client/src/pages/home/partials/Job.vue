@@ -3,7 +3,7 @@
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-col text-center w-full mb-20">
       <h1 class="text-4xl font-bold  mb-4 text-darkSands">
-        Quelques métiers du digital
+        Quelques métiers du numérique
       </h1>
       
     </div>
