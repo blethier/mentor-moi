@@ -32,8 +32,8 @@
                 >
 
                 <router-link
-                  v-if="!isMentor && isLoggedIn"
                   to="/register"
+                  v-if="!isMentor && isLoggedIn"
                   active-class="border-b-2 border-green-800"
                   class="px-3 py-2 rounded-md bg-green-700 text-lg font-medium"
                   >Devenir mentor</router-link
@@ -398,7 +398,7 @@ export default {
       }
     },
     closeMenu() {
-      ;(this.open = false), (this.openAccount = false), (this.openMenu = false)
+      (this.open = false), (this.openAccount = false), (this.openMenu = false)
     },
   },
 }
