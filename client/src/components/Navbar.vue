@@ -30,6 +30,13 @@
                   class="px-3 py-2 rounded-md text-lg font-medium"
                   >Liste des mentors</router-link
                 >
+
+                <router-link
+                  to="/register"
+                  active-class="border-b-2 border-green-800"
+                  class="px-3 py-2 rounded-md bg-green-700 text-lg font-medium"
+                  >Devenir mentor</router-link
+                >
                 <router-link
                   to="/faq"
                   active-class="border-b-2 border-green-800"
