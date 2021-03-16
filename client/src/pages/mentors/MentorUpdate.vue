@@ -65,6 +65,9 @@
                   <p class="text-xs text-gray-800">
                     PNG, JPG ou JPEG max 10MB
                   </p>
+                  <p>
+                    {{avatar.name}}
+                  </p>
                 </div>
               </div>
               </div>
@@ -185,6 +188,7 @@ import Places from 'vue-places';
    this.lastName =  this.$store.getters.oneMentor.lastName,
    this.disponible =  this.$store.getters.oneMentor.disponible,
   this.title =  this.$store.getters.oneMentor.title,
+  this.city =  this.$store.getters.oneMentor.city,
   this.price =  this.$store.getters.oneMentor.price,
   this.avatar =  this.$store.getters.oneMentor.avatar,
   this.presentation =  this.$store.getters.oneMentor.presentation,

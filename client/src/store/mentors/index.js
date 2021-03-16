@@ -208,6 +208,16 @@ articles: [
   name : 'We Love Devs',
   image: require('@/assets/img/welovedevs.png'),
   link: 'https://welovedevs.com/fr/inspiration/'
+},
+{
+  name : 'Coder pour changer de vie',
+  image: require('@/assets/img/nico.png'),
+  link: 'https://coder-pour-changer-de-vie.com/'
+},
+{
+  name : 'DocString',
+  image: require('@/assets/img/docstring.png'),
+  link: 'https://www.docstring.fr/'
 }
 ],
 mentors: [],

@@ -110,6 +110,15 @@
                     role="menuitem"
                     >Modifier mon profil</router-link
                   >
+
+                  <button
+                    v-if="isMentor"
+                    @click="deleteMentor"
+                    class="block px-2 py-2 hover:bg-sands"
+                    role="menuitem"
+                    >Supprimer mon profil</button
+                  >
+
                   <p
                     @click="logout"
                     href="#"
@@ -342,6 +351,7 @@
 
 <script>
 import Avatar from 'vue-avatar'
+import axios from 'axios'
 
 export default {
   components: {
@@ -399,6 +409,33 @@ export default {
     },
     closeMenu() {
       (this.open = false), (this.openAccount = false), (this.openMenu = false)
+    },
+    async deleteMentor() {
+      try {
+        const id = this.$store.getters.mentorId
+
+        await axios
+          .delete(`https://mevn-mentor-moi.herokuapp.com/api/mentors/${id}`, {
+            headers: {
+              // remove headers
+            },
+            // eslint-disable-next-line no-unused-vars
+          })
+          // eslint-disable-next-line no-unused-vars
+          .then((_res) => {})
+        this.$store.dispatch('logout')
+        this.$router.replace('/')
+        this.$toast.success('Profil supprimé avec succès', {
+          position: 'bottom-left',
+          duration: 5000,
+        })
+      } catch (error) {
+        this.error = error.message || 'Erreur'
+        this.$toast.error('Une erreur est survenue', {
+          position: 'bottom-left',
+          duration: 5000,
+        })
+      }
     },
   },
 }

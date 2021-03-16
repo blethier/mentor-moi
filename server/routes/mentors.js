@@ -125,7 +125,20 @@ router.patch('/mentors/:id', upload.single('avatar'),async (req, res) => {
       
 })
 
-router.delete('/mentors/:id', deleteMentors.delete)
+router.delete('/mentors/:id', deleteMentors.delete, async (req, res) => {
+  try {
+    const id = req.params.id;
+    
+    user = await Mentor.deleteOne(id);
+    
+
+
+
+    res.status(200).json(user);
+} catch (err) {
+    res.status(400).send(err);
+} 
+})
 
 
 

@@ -58,6 +58,9 @@
                   <p class="text-xs text-gray-800">
                     PNG, JPG ou JPEG max 10MB
                   </p>
+                  <p>
+                    {{avatar.name}}
+                  </p>
                 </div>
               </div>
               </div>
@@ -210,6 +213,7 @@ import Places from 'vue-places';
       const allowedTypes = ["image/jpeg", "image/jpg", "image/png"];
       const avatar = this.$refs.avatar.files[0];
       this.avatar = avatar;
+
 
       if(!allowedTypes.includes(avatar.type)){
         this.message = "Format incorrect"
