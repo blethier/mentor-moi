@@ -13,7 +13,7 @@
       </div>
     </div>
 
-    <h4 class="text-center text-xl my-10">
+    <h4 v-if="!loading" class="text-center text-xl my-10">
       Il y {{ allMentors }} mentors inscrits.
     </h4>
 
